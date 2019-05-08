@@ -1,0 +1,18 @@
+<RuleSet Name="StyleCop rules" ToolsVersion="10.0">
+    <Include Path="DisableAll.ruleset"
+             Action="Default" />
+    <Rules AnalyzerId="StyleCop.Analyzers" RuleNamespace="StyleCop.Analyzers">
+        <!-- BracesForMultiLineStatementsMustNotShareLine -->
+        <Rule Id="SA1500" Action="Error" />
+        <!-- UsingDirectivesMustBePlacedCorrectly -->
+        <Rule Id="SA1200" Action="Error"/>
+        <!-- RemoveUnnecessaryCode -->
+        <Rule Id="SA1409" Action="Error"/>
+        <!-- AccessModifierMustBeDeclared -->
+        <Rule Id="SA1400" Action="Error"/>
+        <!-- DoNotPrefixLocalMembersWithThis -->
+        <Rule Id="SX1101" Action="Error"/>
+        <!-- FieldNamesMustBeginWithUnderscore -->
+        <Rule Id="SX1309" Action="Error"/>
+    </Rules>
+</RuleSet>
