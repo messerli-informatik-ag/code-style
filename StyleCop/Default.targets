@@ -3,6 +3,6 @@
         <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)\Style\StyleCop\Default.ruleset</CodeAnalysisRuleSet>
     </PropertyGroup>
     <ItemGroup>
-        <AdditionalFiles Include="$(MSBuildThisFileDirectory)Style\StyleCop\stylecop.json" />
+        <AdditionalFiles Include="$(MSBuildThisFileDirectory)stylecop.json" />
     </ItemGroup>
 </Project>
