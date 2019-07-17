@@ -16,7 +16,7 @@
         <Rule Id="SA1006" Action="Error" /> <!-- PreprocessorKeywordsMustNotBePrecededBySpace -->
         <Rule Id="SA1007" Action="Error" /> <!-- OperatorKeywordMustBeFollowedBySpace -->
         <Rule Id="SA1008" Action="Error" /> <!-- OpeningParenthesisMustBeSpacedCorrectly -->
-        <Rule Id="SA1009" Action="Error"  /> <!-- ClosingParenthesisMustBeSpacedCorrectly (Removed rule) -->
+        <Rule Id="SA1009" Action="Error" /> <!-- ClosingParenthesisMustBeSpacedCorrectly -->
         <Rule Id="SA1010" Action="Error" /> <!-- OpeningSquareBracketsMustBeSpacedCorrectly -->
         <Rule Id="SA1011" Action="Error" /> <!-- ClosingSquareBracketsMustBeSpacedCorrectly -->
         <Rule Id="SA1012" Action="Error" /> <!-- OpeningBracesMustBeSpacedCorrectly -->
