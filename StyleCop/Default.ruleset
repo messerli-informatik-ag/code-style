@@ -47,7 +47,7 @@
         <Rule Id="SA1106" Action="Error" /><!-- CodeMustNotContainEmptyStatements -->
         <Rule Id="SA1107" Action="Error" /><!-- CodeMustNotContainMultipleStatementsOnOneLine -->
         <Rule Id="SA1108" Action="Error" /><!-- BlockStatementsMustNotContainEmbeddedComments -->
-        <Rule Id="SA1109" Action="None" /><!-- BlockStatementsMustNotContainEmbeddedRegions -->
+        <Rule Id="SA1109" Action="None" /><!-- BlockStatementsMustNotContainEmbeddedRegions (Removed rule) -->
         <Rule Id="SA1110" Action="Error" /><!-- OpeningParenthesisMustBeOnDeclarationLine -->
         <Rule Id="SA1111" Action="Error" /><!-- ClosingParenthesisMustBeOnLineOfLastParameter -->
         <Rule Id="SA1112" Action="Error" /><!-- ClosingParenthesisMustBeOnLineOfOpeningParenthesis -->
