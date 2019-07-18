@@ -63,7 +63,7 @@
         <Rule Id="SA1123" Action="Error" /><!-- DoNotPlaceRegionsWithinElements -->
         <Rule Id="SA1124" Action="Error" /><!-- DoNotUseRegions -->
         <Rule Id="SA1125" Action="Error" /><!-- UseShorthandForNullableTypes -->
-        <Rule Id="SA1126" Action="None" /> <!-- PrefixCallsCorrectly -->
+        <Rule Id="SA1126" Action="None" /> <!-- PrefixCallsCorrectly (Removed rule) -->
         <Rule Id="SA1127" Action="Error" /><!-- GenericTypeConstraintsMustBeOnOwnLine -->
         <Rule Id="SA1128" Action="Error" /><!-- ConstructorInitializerMustBeOnOwnLine -->
         <Rule Id="SA1129" Action="Error" /><!-- DoNotUseDefaultValueTypeConstructor -->
