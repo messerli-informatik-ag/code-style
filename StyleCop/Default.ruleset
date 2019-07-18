@@ -158,7 +158,7 @@
         <Rule Id="SA1519" Action="Error" /><!-- BracesMustNotBeOmittedFromMultiLineChildStatement -->
         <Rule Id="SA1520" Action="Error" /><!-- UseBracesConsistently -->
 
-        <!-- Layout Rules -->
+        <!-- Documentation Rules -->
         <Rule Id="SA1600" Action="None" /><!-- ElementsMustBeDocumented -->
         <Rule Id="SA1601" Action="None" /><!-- PartialElementsMustBeDocumented -->
         <Rule Id="SA1602" Action="None" /><!-- EnumerationItemsMustBeDocumented -->
