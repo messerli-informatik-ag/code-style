@@ -33,7 +33,7 @@
         <Rule Id="SA1023" Action="Error" /> <!-- DereferenceAndAccessOfMustBeSpacedCorrectly -->
         <Rule Id="SA1024" Action="Error" /> <!-- ColonsMustBeSpacedCorrectly -->
         <Rule Id="SA1025" Action="Error" /> <!-- CodeMustNotContainMultipleWhitespaceInARow -->
-        <Rule Id="SA1026" Action="Error" /> <!-- CodeMustNotContainSpaceAfterNewKeywordInImplicitlyTypedArrayAllocation (Removed rule) -->
+        <Rule Id="SA1026" Action="Error" /> <!-- CodeMustNotContainSpaceAfterNewKeywordInImplicitlyTypedArrayAllocation -->
         <Rule Id="SA1027" Action="Error" /> <!-- UseTabsCorrectly -->
         <Rule Id="SA1028" Action="Error" /> <!-- CodeMustNotContainTrailingWhitespace -->
 
