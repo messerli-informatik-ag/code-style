@@ -3,7 +3,7 @@
              Action="Default" />
     <Rules AnalyzerId="StyleCop.Analyzers" RuleNamespace="StyleCop.Analyzers">
         <!-- Special Rules -->
-        <Rule Id="SA0001" Action="Error" />
+        <Rule Id="SA0001" Action="None" />
         <Rule Id="SA0002" Action="Error" />
 
         <!-- Spacing Rules -->
