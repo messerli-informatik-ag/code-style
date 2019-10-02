@@ -3,7 +3,6 @@
         <PackageReference Include="StyleCop.Analyzers" Version="1.1.118" PrivateAssets="all" />
     </ItemGroup>
     <PropertyGroup>
-        <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)Default.ruleset</CodeAnalysisRuleSet>
         <NoWarn>$(NoWarn),1591</NoWarn>
     </PropertyGroup>
     <ItemGroup>

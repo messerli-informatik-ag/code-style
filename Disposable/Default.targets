@@ -1,0 +1,5 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <ItemGroup>
+        <PackageReference Include="IDisposableAnalyzers" Version="2.1.2" PrivateAssets="all" />
+    </ItemGroup>
+</Project>
