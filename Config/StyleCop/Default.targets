@@ -1,7 +1,4 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-    <ItemGroup>
-        <PackageReference Include="StyleCop.Analyzers" Version="1.1.118" PrivateAssets="all" />
-    </ItemGroup>
     <PropertyGroup>
         <NoWarn>$(NoWarn),1591</NoWarn>
     </PropertyGroup>
