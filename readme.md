@@ -10,7 +10,7 @@ Add the following import to your `csproj` or `Directory.Build.targets`:
 ```xml
 <Project>
     <ItemGroup>
-        <PackageReference Include="Messerli.CodeStyle" Version="1.0.0" PrivateAssets="all" />
+        <PackageReference Include="Messerli.CodeStyle" Version="1.0.0-alpha.1" PrivateAssets="all" />
     </ItemGroup>
 </Project>
 ```
