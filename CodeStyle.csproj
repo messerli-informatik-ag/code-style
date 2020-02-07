@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.Build.NoTargets">
     <PropertyGroup>
-        <AssemblyName>Messerli.CodeStyle</AssemblyName>
         <Version>1.0.0-alpha.1</Version>
         <RepositoryUrl>https://github.com/messerli-informatik-ag/code-style</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
