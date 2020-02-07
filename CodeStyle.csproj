@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.Build.NoTargets">
     <PropertyGroup>
         <AssemblyName>Messerli.CodeStyle</AssemblyName>
         <Version>1.0.0-alpha.1</Version>
@@ -26,9 +26,15 @@
             <Pack>true</Pack>
             <PackagePath>build\$(TargetFramework)\Config</PackagePath>
         </None>
-        <None Include="$(AssemblyName).targets">
+        <!-- This file is automatically loaded by MSBuild when a project depends on this package using <PackageReference> -->
+        <None Include="$(PackageId).targets">
             <Pack>true</Pack>
             <PackagePath>build\$(TargetFramework)</PackagePath>
+        </None>
+        <!-- This file makes the nuget package framework dependent -->
+        <None Include="lib/_._">
+            <Pack>true</Pack>
+            <PackagePath>lib\$(TargetFramework)</PackagePath>
         </None>
     </ItemGroup>
 </Project>
