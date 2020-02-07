@@ -6,3 +6,5 @@ mono: none
 script:
  - dotnet restore
  - dotnet build
+ - dotnet pack -c Release
+ - 'unzip -l bin/Release/*.nupkg'
