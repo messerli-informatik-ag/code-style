@@ -14,7 +14,7 @@
                      See https://docs.microsoft.com/en-us/nuget/reference/errors-and-warnings/nu5105 -->
         <!-- NU5104: A stable release of a package should not have a prerelease dependency.
                      See https://docs.microsoft.com/en-us/nuget/reference/errors-and-warnings/nu5104 -->
-        <!-- NU5128: A stable release of a package should not have a prerelease dependency.
+        <!-- NU5128: Some target frameworks declared in the dependencies group of the nuspec and the lib/ref folder do not have exact matches in the other location.
                      See https://docs.microsoft.com/en-us/nuget/reference/errors-and-warnings/nu5128 -->
     </PropertyGroup>
     <PropertyGroup>
