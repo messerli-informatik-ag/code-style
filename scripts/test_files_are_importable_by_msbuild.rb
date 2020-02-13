@@ -3,11 +3,6 @@
 require 'tmpdir'
 require 'fileutils'
 
-FILES_TO_TEST = [
-    'build/Messerli.CodeStyle.props',
-    'buildMultiTargeting/Messerli.CodeStyle.props',
-]
-
 def run_command(program, arguments, **kwargs)
     system [program, program], *arguments, **kwargs, exception: true
 end
