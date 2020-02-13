@@ -35,14 +35,14 @@ def test_files_are_importable_by_msbuild(directory, files_to_test)
     files_to_test.each do |file|
         file_path = File.join directory, file
         puts "Testing #{file_path}"
-        run_command 'dotnet', ['msbuild', file_path, '-pp']
+        run_command 'dotnet', ['msbuild', file_path, '-preprocess']
     end
 end
 
 Dir.mktmpdir do |temp_directory|
     package_directory = File.join temp_directory, 'package'
     unpacked_directory = File.join temp_directory, 'unpacked'
-    
+
     build_nuget_package package_directory
     unpack_nuget_packages package_directory, unpacked_directory
 
