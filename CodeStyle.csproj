@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.Build.NoTargets">
     <PropertyGroup>
-        <Version>1.0.0-alpha.1</Version>
+        <Version>1.0.0</Version>
         <RepositoryUrl>https://github.com/messerli-informatik-ag/code-style</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <PackageId>Messerli.CodeStyle</PackageId>
@@ -9,31 +9,25 @@
         <PackageLicenseExpression>MIT OR Apache-2.0</PackageLicenseExpression>
         <Copyright>© Messerli Informatik AG. All rights reserved.</Copyright>
         <Description>Various analyzers bundled with opinionated configuration</Description>
-        <NoWarn>$(NoWarn);NU5105</NoWarn>
-        <!-- NU5105: The version property specified contains SemVer 2.0.0 components
+        <NoWarn>$(NoWarn);NU5105;NU5104;NU5128</NoWarn>
+        <!-- NU5105: The version property specified contains SemVer 2.0.0 components.
                      See https://docs.microsoft.com/en-us/nuget/reference/errors-and-warnings/nu5105 -->
+        <!-- NU5104: A stable release of a package should not have a prerelease dependency.
+                     See https://docs.microsoft.com/en-us/nuget/reference/errors-and-warnings/nu5104 -->
+        <!-- NU5128: Some target frameworks declared in the dependencies group of the nuspec and the lib/ref folder do not have exact matches in the other location.
+                     See https://docs.microsoft.com/en-us/nuget/reference/errors-and-warnings/nu5128 -->
     </PropertyGroup>
     <PropertyGroup>
-        <TargetFramework>netstandard2.1</TargetFramework>
+        <TargetFrameworks>netstandard2.1;netstandard2.0</TargetFrameworks>
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="IDisposableAnalyzers" Version="3.2.0" PrivateAssets="none" />
         <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.113" PrivateAssets="none" />
     </ItemGroup>
     <ItemGroup>
-        <None Include="Config\**\*">
+        <None Include="build\**\*;buildMultiTargeting\**\*">
             <Pack>true</Pack>
-            <PackagePath>build\$(TargetFramework)\Config</PackagePath>
-        </None>
-        <!-- This file is automatically loaded by MSBuild when a project depends on this package using <PackageReference> -->
-        <None Include="$(PackageId).targets">
-            <Pack>true</Pack>
-            <PackagePath>build\$(TargetFramework)</PackagePath>
-        </None>
-        <!-- This file makes the nuget package framework dependent -->
-        <None Include="lib/_._">
-            <Pack>true</Pack>
-            <PackagePath>lib\$(TargetFramework)</PackagePath>
+            <PackagePath>%(Identity)</PackagePath>
         </None>
     </ItemGroup>
 </Project>

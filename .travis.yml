@@ -3,8 +3,13 @@ language: csharp
 dotnet: "3.1"
 mono: none
 
+install:
+ - rvm install ruby-2.7.0
+ - rvm use ruby-2.7.0
+
 script:
  - dotnet restore
  - dotnet build
  - dotnet pack -c Release
+ - ruby ./scripts/test_files_are_importable_by_msbuild.rb
  - 'unzip -l bin/Release/*.nupkg'
