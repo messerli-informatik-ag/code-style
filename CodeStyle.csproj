@@ -27,7 +27,7 @@
     <ItemGroup>
         <None Include="build\**\*;buildMultiTargeting\**\*">
             <Pack>true</Pack>
-            <PackagePath>%(RelativeDir)</PackagePath>
+            <PackagePath>%(Identity)</PackagePath>
         </None>
     </ItemGroup>
 </Project>
