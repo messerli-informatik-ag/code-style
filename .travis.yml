@@ -11,5 +11,5 @@ script:
  - dotnet restore
  - dotnet build
  - dotnet pack -c Release
- - ./scripts/test_files_are_importable_by_msbuild.rb
+ - ruby ./scripts/test_files_are_importable_by_msbuild.rb
  - 'unzip -l bin/Release/*.nupkg'
