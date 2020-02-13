@@ -5,7 +5,7 @@
 
 ## Usage
 
-Add the following import to your `csproj` or `Directory.Build.targets`:
+Add the following import to your `csproj` or `Directory.Build.props`:
 
 ```xml
 <Project>

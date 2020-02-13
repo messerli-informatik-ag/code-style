@@ -3,6 +3,5 @@
         <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)Default.ruleset</CodeAnalysisRuleSet>
     </PropertyGroup>
 
-    <Import Project="$(MSBuildThisFileDirectory)Disposable\Default.targets" />
-    <Import Project="$(MSBuildThisFileDirectory)StyleCop\Default.targets" />
+    <Import Project="$(MSBuildThisFileDirectory)StyleCop\Default.props" />
 </Project>
