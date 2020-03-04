@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <RuleSet Name="StyleCop rules" ToolsVersion="10.0">
     <Include Path="DisableAll.ruleset"
              Action="Default" />

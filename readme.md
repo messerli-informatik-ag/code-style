@@ -8,6 +8,7 @@
 Add the following import to your `csproj` or `Directory.Build.props`:
 
 ```xml
+<?xml version="1.0" encoding="utf-8"?>
 <Project>
     <ItemGroup>
         <PackageReference Include="Messerli.CodeStyle" Version="1.0.0" PrivateAssets="all" />
