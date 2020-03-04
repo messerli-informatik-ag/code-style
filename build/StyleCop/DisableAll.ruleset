@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <RuleSet Name="Disable all Stylecop rules" ToolsVersion="10.0">
     <Rules AnalyzerId="StyleCop.Analyzers" RuleNamespace="StyleCop.Analyzers">
         <Rule Id="SA0001" Action="None" />

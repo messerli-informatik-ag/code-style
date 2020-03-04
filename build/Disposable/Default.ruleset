@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <RuleSet Name="Rules for IDisposable Analyzers" ToolsVersion="10.0">
     <Rules AnalyzerId="IDisposableAnalyzers.Correctness" RuleNamespace="IDisposableAnalyzers.Correctness">
         <Rule Id="IDISP001" Action="Error" />
