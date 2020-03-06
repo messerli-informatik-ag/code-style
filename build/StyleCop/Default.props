@@ -4,9 +4,6 @@
         <NoWarn>$(NoWarn),1591</NoWarn>
     </PropertyGroup>
     <ItemGroup>
-        <AdditionalFiles Include="$(MSBuildThisFileDirectory)stylecop.json">
-            <Link>stylecop.json</Link>
-            <InProject>false</InProject>
-        </AdditionalFiles>
+        <AdditionalFiles Include="$(MSBuildThisFileDirectory)stylecop.json" Link="stylecop.json" Visible="false" InProject="false" />
     </ItemGroup>
 </Project>
