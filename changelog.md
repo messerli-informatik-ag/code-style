@@ -10,7 +10,7 @@ Initial release
 ## 1.0.1
 - Hide stylecop.json in Visual Studio.
 
-## Unreleased
+## 1.1.0
 - Update IDisposableAnalyzers from 3.2.0 to 3.3.2. Excerpt from [IDisposableAnalyzers Changelog]:
 > ### 3.3.0
 > - FEATURE: Initial support for AsyncDisposable
