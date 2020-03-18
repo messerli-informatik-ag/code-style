@@ -12,7 +12,7 @@ Initial release
 
 ## 1.1.0
 - Update IDisposableAnalyzers from 3.2.0 to 3.3.2. Excerpt from [IDisposableAnalyzers Changelog]:
-  > ### 3.3.0
+  > #### 3.3.0
   > - FEATURE: Initial support for AsyncDisposable
 
 [IDisposableAnalyzers Changelog]: https://github.com/DotNetAnalyzers/IDisposableAnalyzers/blob/master/RELEASE_NOTES.md
