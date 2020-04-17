@@ -16,3 +16,7 @@ Initial release
   > - FEATURE: Initial support for AsyncDisposable
 
 [IDisposableAnalyzers Changelog]: https://github.com/DotNetAnalyzers/IDisposableAnalyzers/blob/master/RELEASE_NOTES.md
+
+## Unreleased
+- Enable `GenerateDocumentationFile` by default. This had to be turned on manually in each project before,
+  as it is required by our StyleCop configuration.
