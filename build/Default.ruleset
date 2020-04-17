@@ -2,4 +2,7 @@
 <RuleSet Name="Default rules for all MesserliOne projects" ToolsVersion="10.0">
     <Include Path="Disposable\Default.ruleset" Action="Default" />
     <Include Path="StyleCop\Default.ruleset" Action="Default" />
+    <Rules AnalyzerId="Microsoft.CodeAnalysis.CSharp" RuleNamespace="Microsoft.CodeAnalysis.CSharp">
+        <Rule Id="CS1591" Action="None" /> <!-- Missing XML comment for publicly visible type or member 'Type_or_Member' -->
+    </Rules>
 </RuleSet>
