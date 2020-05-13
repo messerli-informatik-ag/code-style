@@ -16,3 +16,6 @@ Initial release
   > - FEATURE: Initial support for AsyncDisposable
 
 [IDisposableAnalyzers Changelog]: https://github.com/DotNetAnalyzers/IDisposableAnalyzers/blob/master/RELEASE_NOTES.md
+
+## Unreleased
+- Disable SA1412 (StoreFilesAsUtf). This means that BOMs are no longer required in C# files.
