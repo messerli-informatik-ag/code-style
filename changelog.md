@@ -17,7 +17,7 @@ Initial release
 
 [IDisposableAnalyzers Changelog]: https://github.com/DotNetAnalyzers/IDisposableAnalyzers/blob/master/RELEASE_NOTES.md
 
-## Unreleased
+## 1.2.0
 - Disable SA1412 (StoreFilesAsUtf). This means that BOMs are no longer required in C# files.
 - Update IDisposableAnalyzers from 3.3.2 to 3.3.8:
 - Update StyleCop.Analyzers from 1.2.0-beta.113 to 1.2.0-beta.164 ([diff](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/compare/1.2.0-beta.113...1.2.0-beta.164)).
