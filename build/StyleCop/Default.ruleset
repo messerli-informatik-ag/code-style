@@ -79,7 +79,7 @@
         <Rule Id="SA1139" Action="Error" /><!-- UseLiteralsSuffixNotationInsteadOfCasting -->
         <Rule Id="SA1141" Action="Error" /><!-- UseTupleSyntax -->
         <Rule Id="SA1142" Action="Error" /><!-- ReferToTupleElementsByName -->
-        
+
         <!-- Ordering Rules -->
         <Rule Id="SA1200" Action="Error" /><!-- UsingDirectivesMustBePlacedCorrectly -->
         <Rule Id="SA1201" Action="Error" /><!-- ElementsMustAppearInTheCorrectOrder -->
@@ -132,7 +132,7 @@
         <Rule Id="SA1409" Action="None" /><!-- RemoveUnnecessaryCode (Removed rule) -->
         <Rule Id="SA1410" Action="Error" /><!-- RemoveDelegateParenthesisWhenPossible -->
         <Rule Id="SA1411" Action="Error" /><!-- AttributeConstructorMustNotUseUnnecessaryParenthesis -->
-        <Rule Id="SA1412" Action="Error" /><!-- StoreFilesAsUtf -->
+        <Rule Id="SA1412" Action="None" /><!-- StoreFilesAsUtf -->
         <Rule Id="SA1413" Action="Error" /><!-- UseTrailingCommasInMultiLineInitializers -->
         <Rule Id="SA1414" Action="Error" /><!-- TupleTypesInSignaturesShouldHaveElementNames -->
 
