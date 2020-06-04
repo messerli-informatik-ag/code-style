@@ -1,6 +1,6 @@
 # Messerli Code Style
 
-[![Build Status](https://travis-ci.com/messerli-informatik-ag/code-style.svg?branch=master)](https://travis-ci.com/messerli-informatik-ag/code-style)
+![Build](https://github.com/messerli-informatik-ag/code-style/workflows/Build/badge.svg)
 [![NuGet](https://img.shields.io/nuget/v/Messerli.CodeStyle.svg)](https://www.nuget.org/packages/Messerli.CodeStyle)
 
 ## Usage
