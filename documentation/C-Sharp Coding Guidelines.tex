@@ -412,12 +412,12 @@ The idea behind the new type idiom is to have additional type information, even 
 
 \begin{lstlisting}[language={[Sharp]C}, caption={Declaring the new type Years}]
     class Years {
-        explicit Years(int years)
+        Years(int years)
         {
             Value = years;
         }
 
-        int Value { get; };
+        int Value { get; }
     }
 \end{lstlisting}
 
