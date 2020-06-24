@@ -23,3 +23,10 @@ jobs:
       with:
         name: guidelines.pdf
         path: 'documentation/C-Sharp Coding Guidelines.pdf'
+    - name: Copy PDF to publish directory
+      run: 'mkdir public && cp "documentation/C-Sharp Coding Guidelines.pdf" public/c-sharp-coding-guidelines.pdf'
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./public
