@@ -2,6 +2,7 @@
 
 ![Build](https://github.com/messerli-informatik-ag/code-style/workflows/Build/badge.svg)
 [![NuGet](https://img.shields.io/nuget/v/Messerli.CodeStyle.svg)](https://www.nuget.org/packages/Messerli.CodeStyle)
+[![Coding Guidelines](https://img.shields.io/badge/coding%20guidelines-pdf-blueviolet)](http://messerli-informatik-ag.github.io/code-style/c-sharp-coding-guidelines.pdf)
 
 ## Usage
 
@@ -15,3 +16,5 @@ Add the following import to your `csproj` or `Directory.Build.props`:
     </ItemGroup>
 </Project>
 ```
+
+
