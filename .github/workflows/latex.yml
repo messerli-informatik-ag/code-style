@@ -15,4 +15,5 @@ jobs:
       run: sudo apt-get install texlive-latex-extra texlive-lang-german latexmk
     - name: Run latexmk
       run: latexmk -pdf
+      working-directory: documentation
 
