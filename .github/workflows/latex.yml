@@ -1,0 +1,15 @@
+name: Build LaTeX
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v1
+    - name: Install LaTeX
+      run: sudo apt-get install texlive-latex-extra texlive-lang-german latexmk
+    - name: Run latexmk
+      run: latexmk -pdf
+
