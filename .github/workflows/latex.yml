@@ -12,7 +12,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Install LaTeX
-      run: sudo apt-get install texlive-latex-extra texlive-lang-german latexmk
+      run: sudo apt-get install texlive-latex-extra texlive-lang-german texlive-fonts-extra latexmk
     - name: Run latexmk
       run: latexmk -pdf
       working-directory: documentation
