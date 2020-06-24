@@ -4,13 +4,11 @@ on:
   pull_request:
     branches:
       - master
-    # paths:
-    #   - 'documentation/**'
+    paths:
+      - 'documentation/**'
   push:
     branches:
       - master
-    paths:
-      - 'documentation/**'
 
 jobs:
   build:
