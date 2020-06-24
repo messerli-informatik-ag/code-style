@@ -1,0 +1,25 @@
+name: Build LaTeX
+
+on:
+  pull_request:
+    branches:
+      - master
+    paths:
+      - 'documentation/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v1
+    - name: Install LaTeX
+      run: sudo apt-get install texlive-latex-extra texlive-lang-german texlive-fonts-extra latexmk
+    - name: Run latexmk
+      run: latexmk -pdf
+      working-directory: documentation
+    - name: Upload generated PDF
+      uses: actions/upload-artifact@v1
+      with:
+        name: guidelines.pdf
+        path: 'documentation/C-Sharp Coding Guidelines.pdf'
