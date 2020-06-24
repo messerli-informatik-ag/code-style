@@ -16,4 +16,8 @@ jobs:
     - name: Run latexmk
       run: latexmk -pdf
       working-directory: documentation
-
+    - name: Upload generated PDF
+      uses: actions/upload-artifact@v1
+      with:
+        name: guidelines.pdf
+        path: 'documentation/C-Sharp Coding Guidelines.pdf'
