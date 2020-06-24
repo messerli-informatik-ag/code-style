@@ -6,11 +6,6 @@ on:
       - master
     # paths:
     #   - 'documentation/**'
-  push:
-    branches:
-      - master
-    paths:
-      - 'documentation/**'
 
 jobs:
   build:
@@ -32,7 +27,6 @@ jobs:
       run: 'mkdir public && cp "documentation/C-Sharp Coding Guidelines.pdf" public/c-sharp-coding-guidelines.pdf'
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
-      if: success() && github.ref == 'refs/heads/master'
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./public
