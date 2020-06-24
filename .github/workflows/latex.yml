@@ -4,8 +4,8 @@ on:
   pull_request:
     branches:
       - master
-    paths:
-      - 'documentation/**'
+    # paths:
+    #   - 'documentation/**'
 
 jobs:
   build:
