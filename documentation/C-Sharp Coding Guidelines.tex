@@ -362,6 +362,20 @@ We format the ternary operator like this, to see which branch we are dealing wit
         : false-expression;
 \end{lstlisting}
 
+\subsection{switch expression}
+
+Prefer switch expression over switch statements.
+
+\begin{lstlisting}[language={[Sharp]C}, caption={switch expression}]
+    return animalKind switch
+    {
+        AnimalKind.Dog => "dog",
+        AnimalKind.Cat => "cat",
+        _ => throw new InvalidOperationException(
+          $"Unsupported animal kind {animalKind}"),
+    };
+\end{lstlisting}
+
 \subsection{For-loops}
 
 Avoid for-loops and use LINQ and higher order functions as an alternative.
