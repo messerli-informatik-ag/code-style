@@ -370,6 +370,15 @@ if (!updateIsReady) {
     : false-expression;
 </code></pre>
 <p><em>ternary operator</em></p>
+<h2><a class="header" href="#expression-bodied-members" id="expression-bodied-members">Expression-bodied members</a></h2>
+<p>Use the expression body syntax when a member returns a single expression.
+Move the arrow to the next line when the expression gets too long.</p>
+<pre><code class="language-csharp">public int Length =&gt; 0;
+
+public string AbsolutePath()
+    =&gt; Path.Combine(CalculateRootPath(), RelativePath);
+</code></pre>
+<p><em>expression-bodied members</em></p>
 <h2><a class="header" href="#for-loops" id="for-loops">For-loops</a></h2>
 <p>Avoid for-loops and use LINQ and higher order functions as an alternative.</p>
 <h2><a class="header" href="#prefer-foreach-loops" id="prefer-foreach-loops">Prefer foreach-loops</a></h2>
