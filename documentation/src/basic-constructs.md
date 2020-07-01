@@ -65,7 +65,7 @@ return condition
 ```
 *ternary operator*
 
-## switch expression
+## Switch Expression
 
 Prefer switch expressions over switch statements.
 
@@ -78,6 +78,19 @@ return animalKind switch
 };
 ```
 *switch expression*
+
+## Expression-bodied Members
+
+Use the expression body syntax when a member returns a single expression.
+Move the arrow to the next line when the expression gets too long.
+
+```csharp
+public int Length => 0;
+
+public string AbsolutePath()
+    => Path.Combine(CalculateRootPath(), RelativePath);
+```
+*expression-bodied members*
 
 ## For-loops
 
