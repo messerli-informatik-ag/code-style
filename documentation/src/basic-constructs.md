@@ -65,6 +65,33 @@ return condition
 ```
 *ternary operator*
 
+## Switch Expression
+
+Prefer switch expressions over switch statements.
+
+```csharp
+return animalKind switch
+{
+    AnimalKind.Dog => "dog",
+    AnimalKind.Cat => "cat",
+    _ => throw new InvalidOperationException($"Unsupported animal kind {animalKind}"),
+};
+```
+*switch expression*
+
+## Expression-bodied Members
+
+Use the expression body syntax when a member returns a single expression.
+Move the arrow to the next line when the expression gets too long.
+
+```csharp
+public int Length => 0;
+
+public string AbsolutePath()
+    => Path.Combine(CalculateRootPath(), RelativePath);
+```
+*expression-bodied members*
+
 ## For-loops
 
 Avoid for-loops and use LINQ and higher order functions as an alternative.
