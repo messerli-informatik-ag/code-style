@@ -12,7 +12,6 @@ Give a descriptive name, but be specific. Do not worry about saving horizontal s
 * It is a lot easier to create plurals in English (-s, -ies) where in German it might be difficult: Kapitel, Mitarbeiter, Unternehmer, Fenster, Artikel (see also next point)
 * Proper Nouns  should not be translated even if possible.
 * We try to use the same word for the same abstraction. It is either a project or a tenant. (DDD)
-* All widely used concepts should be listed in the glossary
 
 ## Be specific
 
