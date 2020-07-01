@@ -65,7 +65,21 @@ return condition
 ```
 *ternary operator*
 
-## Expression-bodied members
+## Switch Expression
+
+Prefer switch expressions over switch statements.
+
+```csharp
+return animalKind switch
+{
+    AnimalKind.Dog => "dog",
+    AnimalKind.Cat => "cat",
+    _ => throw new InvalidOperationException($"Unsupported animal kind {animalKind}"),
+};
+```
+*switch expression*
+
+## Expression-bodied Members
 
 Use the expression body syntax when a member returns a single expression.
 Move the arrow to the next line when the expression gets too long.
