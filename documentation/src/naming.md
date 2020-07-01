@@ -54,7 +54,7 @@ Do not switch between different name for a concept, make a choice and stick to i
 
 ## Naming the different C# identifiers
 
-Table \ref{naming_identifiers} gives you the rules for each identifier.
+Table following table gives you the rules for each identifier.
 
 | Identifier                | Casing                                 | Prefix / Suffix                                 | Example                  |
 |---------------------------|----------------------------------------|-------------------------------------------------|--------------------------|
