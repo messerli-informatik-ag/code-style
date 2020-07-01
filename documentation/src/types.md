@@ -5,7 +5,8 @@
 C# has a strong typing system, take advantage of it. A strong type will help you a lot in refactoring, and the compiler will easily tell you that you are using the wrong parameter if you do not have a string type like a comma separated list instead of a strong collection like a vector of longs.
 
 ```csharp
-class Vector {
+class Vector
+{
     int X;
     int Y;
     int Z;
@@ -25,7 +26,8 @@ The idea behind the new type idiom is to have additional type information, even 
 So even if you have a single integer, you can create a new type from your abstract concept.
 
 ```csharp
-class Years {
+class Years
+{
     Years(int years)
     {
         Value = years;
