@@ -27,5 +27,3 @@ jobs:
         github_token: ${{secrets.GITHUB_TOKEN}}
         publish_dir: ./documentation/book
         commit_message: ${{github.event.head_commit.message}}
-        personal_token: ${{ secrets.PERSONAL_TOKEN }}
-        allow_empty_commit: true
