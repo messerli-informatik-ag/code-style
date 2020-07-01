@@ -20,5 +20,5 @@ Commit messages are written in English.
 **Good example**: Document Editor: Add copy-pasting feature
 
 **Bad example**: A position with a parts list can be inserted in your own parts list, which leads to a program crash.  
-**Good example**: Catalag: Fix Crash happening in recursive parts list ↵  
+**Good example**: Catalog: Fix Crash happening in recursive parts list ↵  
 A position which had itself a parts list could wrongly be inserted into a parts list.
