@@ -370,7 +370,17 @@ if (!updateIsReady) {
     : false-expression;
 </code></pre>
 <p><em>ternary operator</em></p>
-<h2><a class="header" href="#expression-bodied-members" id="expression-bodied-members">Expression-bodied members</a></h2>
+<h2><a class="header" href="#switch-expression" id="switch-expression">Switch Expression</a></h2>
+<p>Prefer switch expressions over switch statements.</p>
+<pre><code class="language-csharp">return animalKind switch
+{
+    AnimalKind.Dog =&gt; &quot;dog&quot;,
+    AnimalKind.Cat =&gt; &quot;cat&quot;,
+    _ =&gt; throw new InvalidOperationException($&quot;Unsupported animal kind {animalKind}&quot;),
+};
+</code></pre>
+<p><em>switch expression</em></p>
+<h2><a class="header" href="#expression-bodied-members" id="expression-bodied-members">Expression-bodied Members</a></h2>
 <p>Use the expression body syntax when a member returns a single expression.
 Move the arrow to the next line when the expression gets too long.</p>
 <pre><code class="language-csharp">public int Length =&gt; 0;
