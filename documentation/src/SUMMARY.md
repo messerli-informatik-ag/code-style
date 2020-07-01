@@ -1,6 +1,7 @@
 # Summary
 
-* [Messerli C# coding guidelines](./guidelines.md)
+[Messerli C# Coding Guidelines](./guidelines.md)
+
 * [Physical structure](./physical-structure.md)
 * [Formatting rules](./formatting.md)
 * [Naming Conventions](./naming.md)

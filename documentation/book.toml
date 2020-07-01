@@ -3,4 +3,4 @@ authors = ["Developer council"]
 language = "en"
 multilingual = false
 src = "src"
-title = "Messerli C# Coding Guideline"
+title = "Messerli C# Coding Guidelines"

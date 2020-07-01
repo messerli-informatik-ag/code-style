@@ -1,4 +1,4 @@
-# Messerli C# coding guidelines
+# Messerli C# Coding Guidelines
 
 These are the revised Coding Guidelines valid for code newly written in C\#.
 If you see mistakes or have, comments do not hesitate in contacting the developer council.
