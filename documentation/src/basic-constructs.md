@@ -70,13 +70,12 @@ return condition
 Prefer switch expression over switch statements.
 
 ```csharp
-    return animalKind switch
-    {
-        AnimalKind.Dog => "dog",
-        AnimalKind.Cat => "cat",
-        _ => throw new InvalidOperationException(
-          $"Unsupported animal kind {animalKind}"),
-    };
+return animalKind switch
+{
+    AnimalKind.Dog => "dog",
+    AnimalKind.Cat => "cat",
+    _ => throw new InvalidOperationException($"Unsupported animal kind {animalKind}"),
+};
 ```
 *switch expression*
 
