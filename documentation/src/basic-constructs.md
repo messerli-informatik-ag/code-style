@@ -67,7 +67,7 @@ return condition
 
 ## switch expression
 
-Prefer switch expression over switch statements.
+Prefer switch expressions over switch statements.
 
 ```csharp
 return animalKind switch
