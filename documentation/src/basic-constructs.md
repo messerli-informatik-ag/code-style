@@ -7,9 +7,12 @@ Multiple expressions or statements in one line increase the mental burden while 
 ## Prefer logical operators to if statements
 
 ```csharp
-if (node.GetParenthesis(key)) {
+if (node.GetParenthesis(key))
+{
     item.Setting = false;
-} else {
+}
+else
+{
     item.Setting = true;
 }
 ```
@@ -29,11 +32,13 @@ The condition of the if-statement should have no side effects.
 Avoid nested if-statements and prefer logical operators.
 
 ```csharp
-if (!Move(id)) {
+if (!Move(id))
+{
     return false;
 }
 
-if (!UpdateStart(StartValue)) {
+if (!UpdateStart(StartValue))
+{
     return false;
 }
 ```
@@ -41,12 +46,14 @@ if (!UpdateStart(StartValue)) {
 
 ```csharp
 var itemFound = Move(id);
-if (!itemFound) {
+if (!itemFound)
+{
     return false;
 }
 
 var updateIsReady = UpdateStart(StateDelete);
-if (!updateIsReady) {
+if (!updateIsReady)
+{
     return false;
 }
 ```
@@ -101,7 +108,8 @@ Avoid for-loops and use LINQ and higher order functions as an alternative.
 Whenever you are iterating over some kind of enumerator, prefer the foreach syntax:
 
 ```csharp
-foreach (var value in values.OrderByDescending(v => v)) {
+foreach (var value in values.OrderByDescending(v => v))
+{
     // Do something in reverse order
 }
 ```
