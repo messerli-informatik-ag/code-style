@@ -23,8 +23,10 @@ Try to document your public interface.
 
 ```csharp
 /// <summary>
-/// Specifies that <see cref="Open"/> should open an existing file. When the file is opened, it should be truncated so that its size is zero bytes.
-/// Requires that <see cref="Write"/> is called too. Can not be used to together with <see cref="Append"/>.
+/// Specifies that <see cref="Open"/> should open an existing file.
+/// When the file is opened, it should be truncated so that its size is zero bytes.
+/// Requires that <see cref="Write"/> is called too.
+/// Can not be used to together with <see cref="Append"/>.
 /// </summary>
 IFileOpeningBuilder Truncate(bool truncate = true);
 ```
