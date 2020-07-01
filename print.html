@@ -228,10 +228,18 @@ In domain context, always use the domain vocabulary and try keeping the overhead
 <h2><a class="header" href="#abbrevations" id="abbrevations">Abbrevations</a></h2>
 <p>We do not use abbreviations that are ambiguous or unfamiliar to readers outside our project, and we do not abbreviate by skipping letters within a word. Abbreviations that would be familiar to someone outside your project with relevant domain knowledge are OK. As a rule of thumb, an abbreviation is probably OK if it is listed in Wikipedia like IP or HTML.
 All abbreviations are written in PascalCase.</p>
-<pre><code class="language-csharp">class JsonToHtmlConverter {}
-class IpAddress {}
-class UserId {}
-class TfsConnector {}
+<pre><code class="language-csharp">class JsonToHtmlConverter
+{
+}
+class IpAddress
+{
+}
+class UserId
+{
+}
+class TfsConnector
+{
+}
 </code></pre>
 <p><em>Abbrevation Examples</em></p>
 <h2><a class="header" href="#use-plural-and-singular-to-your-advantage" id="use-plural-and-singular-to-your-advantage">Use plural and singular to your advantage</a></h2>
@@ -267,7 +275,8 @@ for (var user in onlineUsers) {
 </tbody></table>
 <h2><a class="header" href="#ui-elements" id="ui-elements">UI Elements</a></h2>
 <p>When dealing with UI Elements like buttons, combo boxes, grids, text boxes, etc. we append the full name of the type without any prefix to the variable name. </p>
-<pre><code class="language-csharp">class UserRightDialog {
+<pre><code class="language-csharp">class UserRightDialog
+{
     Grid _userGrid;
     Edit _userNameEdit;
     Button _okButton;
@@ -328,9 +337,12 @@ The same goes for magic strings!</p>
 <h2><a class="header" href="#only-one-expression-per-line" id="only-one-expression-per-line">Only one expression per line</a></h2>
 <p>Multiple expressions or statements in one line increase the mental burden while reading them. Split them up to avoid mentally hiding statements.</p>
 <h2><a class="header" href="#prefer-logical-operators-to-if-statements" id="prefer-logical-operators-to-if-statements">Prefer logical operators to if statements</a></h2>
-<pre><code class="language-csharp">if (node.GetParenthesis(key)) {
+<pre><code class="language-csharp">if (node.GetParenthesis(key))
+{
     item.Setting = false;
-} else {
+}
+else
+{
     item.Setting = true;
 }
 </code></pre>
@@ -342,22 +354,26 @@ The same goes for magic strings!</p>
 <h2><a class="header" href="#if-statements" id="if-statements">If-statements</a></h2>
 <p>The condition of the if-statement should have no side effects.
 Avoid nested if-statements and prefer logical operators.</p>
-<pre><code class="language-csharp">if (!Move(id)) {
+<pre><code class="language-csharp">if (!Move(id))
+{
     return false;
 }
 
-if (!UpdateStart(StartValue)) {
+if (!UpdateStart(StartValue))
+{
     return false;
 }
 </code></pre>
 <p><em>Avoid side-effects</em></p>
 <pre><code class="language-csharp">var itemFound = Move(id);
-if (!itemFound) {
+if (!itemFound)
+{
     return false;
 }
 
 var updateIsReady = UpdateStart(StateDelete);
-if (!updateIsReady) {
+if (!updateIsReady)
+{
     return false;
 }
 </code></pre>
@@ -393,7 +409,8 @@ public string AbsolutePath()
 <p>Avoid for-loops and use LINQ and higher order functions as an alternative.</p>
 <h2><a class="header" href="#prefer-foreach-loops" id="prefer-foreach-loops">Prefer foreach-loops</a></h2>
 <p>Whenever you are iterating over some kind of enumerator, prefer the foreach syntax:</p>
-<pre><code class="language-csharp">foreach (var value in values.OrderByDescending(v =&gt; v)) {
+<pre><code class="language-csharp">foreach (var value in values.OrderByDescending(v =&gt; v))
+{
     // Do something in reverse order
 }
 </code></pre>
@@ -406,10 +423,18 @@ public string AbsolutePath()
 <h1><a class="header" href="#types" id="types">Types</a></h1>
 <h2><a class="header" href="#use-strong-types" id="use-strong-types">Use strong types</a></h2>
 <p>C# has a strong typing system, take advantage of it. A strong type will help you a lot in refactoring, and the compiler will easily tell you that you are using the wrong parameter if you do not have a string type like a comma separated list instead of a strong collection like a vector of longs.</p>
-<pre><code class="language-csharp">class Vector {
-    int X;
-    int Y;
-    int Z;
+<pre><code class="language-csharp">public sealed class Vector
+{
+    public Vector(int x, int y, int z)
+    {
+        X = x;
+        Y = y;
+        Z = z;
+    }
+
+    public int X { get; }
+    public int Y { get; }
+    public int Z { get; }
 }
 
 Vector CrossProduct(Vector factor1, Vector factor2);
@@ -422,18 +447,19 @@ bool CrossProduct(long x1, long y1, long z1, long x2, long y2, long z2,
 <h3><a class="header" href="#new-type-idiom" id="new-type-idiom">New type idiom</a></h3>
 <p>The idea behind the new type idiom is to have additional type information, even if you have a single integer as an argument. Even when we have simple integers, it usually represents a concept not as generic. This concept could be years, bytes, money or position. 
 So even if you have a single integer, you can create a new type from your abstract concept.</p>
-<pre><code class="language-csharp">class Years {
-    Years(int years)
+<pre><code class="language-csharp">public sealed class Years
+{
+    public Years(int years)
     {
         Value = years;
     }
 
-    int Value { get; }
+    public int Value { get; }
 }
 </code></pre>
 <p><em>Declaring the new type Years</em></p>
 <p>In this case we have a time period in years. The constructor should be explicit, otherwise a Year object would be automatically constructed from a given integer. That way you need to be explicit when you call a function like this:</p>
-<pre><code class="language-csharp">bool OldEnough(Years years)
+<pre><code class="language-csharp">bool OldEnough(Years years);
 </code></pre>
 <p><em>Use the new type</em></p>
 <p>The Function <code>OldEnough</code> only accepts years. If you give an integer or a value of type <code>Days</code> you will get a compilation error. This helps in self-documentation and avoids misunderstandings between programmers with different assumptions. The code the compiler produces is the same with or without the additional type information. The additional Type-Information is just a compile time hint for the programmer.</p>
@@ -479,7 +505,7 @@ If there is not an algorithm available, try to be generic and write your own alg
 <p>If the library you are using do not offer their own abstractions, create a facade with your own abstractions in front of the implementation.</p>
 <h3><a class="header" href="#factories" id="factories">Factories</a></h3>
 <p>Avoid the usage of new, either inject types through the constructor or use factories to create objects on runtime. All Factories should be declared via a delegate in the form of:</p>
-<pre><code class="language-csharp">public delegate ReturnValue ReturnValueFactory(Parameters parameters)
+<pre><code class="language-csharp">public delegate ReturnValue ReturnValueFactory(Parameters parameters);
 </code></pre>
 <p><em>Signature of factories</em></p>
 <h2><a class="header" href="#inheritance" id="inheritance">Inheritance</a></h2>
@@ -563,10 +589,12 @@ If your code describes a block of code, consider refactoring it into a function.
 <li>We use XML-comments to document the interface.</li>
 </ul>
 <pre><code class="language-csharp">/// &lt;summary&gt;
-/// Disconnects a previously connected slot
+/// Specifies that &lt;see cref=&quot;Open&quot;/&gt; should open an existing file.
+/// When the file is opened, it should be truncated so that its size is zero bytes.
+/// Requires that &lt;see cref=&quot;Write&quot;/&gt; is called too.
+/// Can not be used to together with &lt;see cref=&quot;Append&quot;/&gt;.
 /// &lt;/summary&gt;
-/// &lt;param name=&quot;slotId&quot;&gt;id of the slot&lt;/param&gt;
-void Disconnect(int slotId); 
+IFileOpeningBuilder Truncate(bool truncate = true);
 </code></pre>
 <p><em>Commenting a function</em></p>
 <p>We want to adhere closely to this style because Visual Studio can read and interpret the XML comments, and IntelliSense will give you a real-time information on ctrl-space. As you can see, you do not only get the general summary, but a value-by-value reference of the parameters.</p>

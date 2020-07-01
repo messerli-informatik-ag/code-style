@@ -161,9 +161,12 @@
 <h2><a class="header" href="#only-one-expression-per-line" id="only-one-expression-per-line">Only one expression per line</a></h2>
 <p>Multiple expressions or statements in one line increase the mental burden while reading them. Split them up to avoid mentally hiding statements.</p>
 <h2><a class="header" href="#prefer-logical-operators-to-if-statements" id="prefer-logical-operators-to-if-statements">Prefer logical operators to if statements</a></h2>
-<pre><code class="language-csharp">if (node.GetParenthesis(key)) {
+<pre><code class="language-csharp">if (node.GetParenthesis(key))
+{
     item.Setting = false;
-} else {
+}
+else
+{
     item.Setting = true;
 }
 </code></pre>
@@ -175,22 +178,26 @@
 <h2><a class="header" href="#if-statements" id="if-statements">If-statements</a></h2>
 <p>The condition of the if-statement should have no side effects.
 Avoid nested if-statements and prefer logical operators.</p>
-<pre><code class="language-csharp">if (!Move(id)) {
+<pre><code class="language-csharp">if (!Move(id))
+{
     return false;
 }
 
-if (!UpdateStart(StartValue)) {
+if (!UpdateStart(StartValue))
+{
     return false;
 }
 </code></pre>
 <p><em>Avoid side-effects</em></p>
 <pre><code class="language-csharp">var itemFound = Move(id);
-if (!itemFound) {
+if (!itemFound)
+{
     return false;
 }
 
 var updateIsReady = UpdateStart(StateDelete);
-if (!updateIsReady) {
+if (!updateIsReady)
+{
     return false;
 }
 </code></pre>
@@ -226,7 +233,8 @@ public string AbsolutePath()
 <p>Avoid for-loops and use LINQ and higher order functions as an alternative.</p>
 <h2><a class="header" href="#prefer-foreach-loops" id="prefer-foreach-loops">Prefer foreach-loops</a></h2>
 <p>Whenever you are iterating over some kind of enumerator, prefer the foreach syntax:</p>
-<pre><code class="language-csharp">foreach (var value in values.OrderByDescending(v =&gt; v)) {
+<pre><code class="language-csharp">foreach (var value in values.OrderByDescending(v =&gt; v))
+{
     // Do something in reverse order
 }
 </code></pre>

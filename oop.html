@@ -165,7 +165,7 @@
 <p>If the library you are using do not offer their own abstractions, create a facade with your own abstractions in front of the implementation.</p>
 <h3><a class="header" href="#factories" id="factories">Factories</a></h3>
 <p>Avoid the usage of new, either inject types through the constructor or use factories to create objects on runtime. All Factories should be declared via a delegate in the form of:</p>
-<pre><code class="language-csharp">public delegate ReturnValue ReturnValueFactory(Parameters parameters)
+<pre><code class="language-csharp">public delegate ReturnValue ReturnValueFactory(Parameters parameters);
 </code></pre>
 <p><em>Signature of factories</em></p>
 <h2><a class="header" href="#inheritance" id="inheritance">Inheritance</a></h2>

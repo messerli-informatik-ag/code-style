@@ -174,10 +174,12 @@ If your code describes a block of code, consider refactoring it into a function.
 <li>We use XML-comments to document the interface.</li>
 </ul>
 <pre><code class="language-csharp">/// &lt;summary&gt;
-/// Disconnects a previously connected slot
+/// Specifies that &lt;see cref=&quot;Open&quot;/&gt; should open an existing file.
+/// When the file is opened, it should be truncated so that its size is zero bytes.
+/// Requires that &lt;see cref=&quot;Write&quot;/&gt; is called too.
+/// Can not be used to together with &lt;see cref=&quot;Append&quot;/&gt;.
 /// &lt;/summary&gt;
-/// &lt;param name=&quot;slotId&quot;&gt;id of the slot&lt;/param&gt;
-void Disconnect(int slotId); 
+IFileOpeningBuilder Truncate(bool truncate = true);
 </code></pre>
 <p><em>Commenting a function</em></p>
 <p>We want to adhere closely to this style because Visual Studio can read and interpret the XML comments, and IntelliSense will give you a real-time information on ctrl-space. As you can see, you do not only get the general summary, but a value-by-value reference of the parameters.</p>
