@@ -5,10 +5,18 @@
 C# has a strong typing system, take advantage of it. A strong type will help you a lot in refactoring, and the compiler will easily tell you that you are using the wrong parameter if you do not have a string type like a comma separated list instead of a strong collection like a vector of longs.
 
 ```csharp
-class Vector {
-    int X;
-    int Y;
-    int Z;
+public sealed class Vector
+{
+    public Vector(int x, int y, int z)
+    {
+        X = x;
+        Y = y;
+        Z = z;
+    }
+
+    public int X { get; }
+    public int Y { get; }
+    public int Z { get; }
 }
 
 Vector CrossProduct(Vector factor1, Vector factor2);
@@ -25,13 +33,14 @@ The idea behind the new type idiom is to have additional type information, even 
 So even if you have a single integer, you can create a new type from your abstract concept.
 
 ```csharp
-class Years {
-    Years(int years)
+public sealed class Years
+{
+    public Years(int years)
     {
         Value = years;
     }
 
-    int Value { get; }
+    public int Value { get; }
 }
 ```
 *Declaring the new type Years*
@@ -39,7 +48,7 @@ class Years {
 In this case we have a time period in years. The constructor should be explicit, otherwise a Year object would be automatically constructed from a given integer. That way you need to be explicit when you call a function like this:
 
 ```csharp
-bool OldEnough(Years years)
+bool OldEnough(Years years);
 ```
 *Use the new type*
 

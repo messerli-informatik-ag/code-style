@@ -28,10 +28,18 @@ We do not use abbreviations that are ambiguous or unfamiliar to readers outside 
 All abbreviations are written in PascalCase.
 
 ```csharp
-class JsonToHtmlConverter {}
-class IpAddress {}
-class UserId {}
-class TfsConnector {}
+class JsonToHtmlConverter
+{
+}
+class IpAddress
+{
+}
+class UserId
+{
+}
+class TfsConnector
+{
+}
 ```
 *Abbrevation Examples*
 
@@ -80,7 +88,8 @@ Table following table gives you the rules for each identifier.
 When dealing with UI Elements like buttons, combo boxes, grids, text boxes, etc. we append the full name of the type without any prefix to the variable name. 
 
 ```csharp
-class UserRightDialog {
+class UserRightDialog
+{
     Grid _userGrid;
     Edit _userNameEdit;
     Button _okButton;
