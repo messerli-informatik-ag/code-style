@@ -41,7 +41,7 @@ class Years
 In this case we have a time period in years. The constructor should be explicit, otherwise a Year object would be automatically constructed from a given integer. That way you need to be explicit when you call a function like this:
 
 ```csharp
-bool OldEnough(Years years)
+bool OldEnough(Years years);
 ```
 *Use the new type*
 

@@ -15,7 +15,7 @@ If the library you are using do not offer their own abstractions, create a facad
 Avoid the usage of new, either inject types through the constructor or use factories to create objects on runtime. All Factories should be declared via a delegate in the form of:
 
 ```csharp
-public delegate ReturnValue ReturnValueFactory(Parameters parameters)
+public delegate ReturnValue ReturnValueFactory(Parameters parameters);
 ```
 *Signature of factories*
 
