@@ -1,0 +1,657 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Messerli C# Coding Guideline</title>
+        
+        <meta name="robots" content="noindex" />
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="guidelines.html"><strong aria-hidden="true">1.</strong> Messerli C# coding guidelines</a></li><li class="chapter-item expanded "><a href="physical-structure.html"><strong aria-hidden="true">2.</strong> Physical structure</a></li><li class="chapter-item expanded "><a href="formatting.html"><strong aria-hidden="true">3.</strong> Formatting rules</a></li><li class="chapter-item expanded "><a href="naming.html"><strong aria-hidden="true">4.</strong> Naming Conventions</a></li><li class="chapter-item expanded "><a href="variables.html"><strong aria-hidden="true">5.</strong> Variables</a></li><li class="chapter-item expanded "><a href="basic-constructs.html"><strong aria-hidden="true">6.</strong> Basic constructs</a></li><li class="chapter-item expanded "><a href="types.html"><strong aria-hidden="true">7.</strong> Types</a></li><li class="chapter-item expanded "><a href="functional.html"><strong aria-hidden="true">8.</strong> Functional Programming</a></li><li class="chapter-item expanded "><a href="oop.html"><strong aria-hidden="true">9.</strong> Object oriented programming</a></li><li class="chapter-item expanded "><a href="methods.html"><strong aria-hidden="true">10.</strong> Methods</a></li><li class="chapter-item expanded "><a href="namespaces.html"><strong aria-hidden="true">11.</strong> Namespaces</a></li><li class="chapter-item expanded "><a href="exceptions.html"><strong aria-hidden="true">12.</strong> Exceptions</a></li><li class="chapter-item expanded "><a href="miscellaneous.html"><strong aria-hidden="true">13.</strong> Miscellaneous</a></li><li class="chapter-item expanded "><a href="comments.html"><strong aria-hidden="true">14.</strong> Comments</a></li><li class="chapter-item expanded "><a href="commit-messages.html"><strong aria-hidden="true">15.</strong> Commit Message</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Messerli C# Coding Guideline</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#messerli-c-coding-guidelines" id="messerli-c-coding-guidelines">Messerli C# coding guidelines</a></h1>
+<p>These are the revised Coding Guidelines valid for code newly written in C#.
+If you see mistakes or have, comments do not hesitate in contacting the developer council.</p>
+<h2><a class="header" href="#when-and-where-are-these-rules-applicable" id="when-and-where-are-these-rules-applicable">When and where are these rules applicable</a></h2>
+<p>These rules are applicable to all C# code written at Messerli Informatik AG. 
+The rules will not be enforced for old code, which has not been changed.
+In a review, these coding guidelines should be checked for all code, which has changed.
+Changes necessary due to the coding guidelines should be in a reasonable ratio to the functional changes.</p>
+<h2><a class="header" href="#update-to-the-rules-and-glossary" id="update-to-the-rules-and-glossary">Update to the rules and glossary</a></h2>
+<p>Updates to the rules and glossary should be sent to the developer council. The developer council will integrate new rules or new words in the glossary in a timely fashion when the board approves and will give feedback otherwise.</p>
+<h2><a class="header" href="#definition-of-done" id="definition-of-done">Definition of done</a></h2>
+<ul>
+<li>Feature is tested against acceptance criteria</li>
+<li>Code adheres to the Coding Guidelines</li>
+<li>Unit tests pass</li>
+<li>Code is unit tested</li>
+<li>Code is reviewed</li>
+</ul>
+<h1><a class="header" href="#physical-structure" id="physical-structure">Physical structure</a></h1>
+<h2><a class="header" href="#each-class-should-go-into-its-own-file-with-the-same-name" id="each-class-should-go-into-its-own-file-with-the-same-name">Each class should go into its own file with the same name</a></h2>
+<p>Only one class should be in a file. This also applies to Enumerations.
+Inner classes are allowed but discouraged and an obvious exception to this rule. </p>
+<h2><a class="header" href="#each-namespace-should-go-into-its-own-folder-with-the-same-name" id="each-namespace-should-go-into-its-own-folder-with-the-same-name">Each namespace should go into its own folder with the same name</a></h2>
+<p>All classes that are held together by a common purpose should go into its own namespace; the namespace should be reflected in the folder structure. If you have a namespace Example, it should be in a folder example.
+Set a correct default namespace in the project, this way the tooling will help you to move classes into the correct location.</p>
+<h2><a class="header" href="#each-project-should-have-a-test-project" id="each-project-should-have-a-test-project">Each project should have a test project</a></h2>
+<p>We write tests in a separate project, therefore each project needs a test-project.</p>
+<h1><a class="header" href="#formatting-rules" id="formatting-rules">Formatting rules</a></h1>
+<p>We use Visual Studio, ReSharper and CodeMaid to enforce most of the formatting rules. </p>
+<h2><a class="header" href="#tool-configurations" id="tool-configurations">Tool configurations</a></h2>
+<p>The Formatting Rules for Visual Studio, ReSharper and CodeMaid are checked into the Repository, and can be found in the CTO git-Repository in the folder Tool Configurations:</p>
+<ul>
+<li>.editorconfig</li>
+<li>CodeMaid.config</li>
+<li>MesserliResharper.DotSettings</li>
+<li>VS_Format_Settings.vssettings</li>
+</ul>
+<h2><a class="header" href="#indentation" id="indentation">Indentation</a></h2>
+<p>For each scope that is opened, we indent by one level.
+For indentation, we use only spaces, tabs are forbidden.
+One level of indentation is four spaces.</p>
+<h2><a class="header" href="#maximum-line-length" id="maximum-line-length">Maximum line length</a></h2>
+<p>There is no absolute maximum to the length of the line, but try to keep it on the screen.</p>
+<h2><a class="header" href="#empty-lines" id="empty-lines">Empty lines</a></h2>
+<p>We use only one empty line to separate content.</p>
+<h1><a class="header" href="#naming-conventions" id="naming-conventions">Naming Conventions</a></h1>
+<p>Names should be descriptive; avoid abbreviations.
+Give a descriptive name, but be specific. Do not worry about saving horizontal space, as it is far more important to make your code immediately understandable by a new reader. We do not contract words or make up words.</p>
+<h2><a class="header" href="#we-use-english-words-for-abstractions" id="we-use-english-words-for-abstractions">We use English words for abstractions</a></h2>
+<ul>
+<li>The programming language is in English, most concepts are in English, therefore English is a lot easier to make consistent. (WriteExportAbacusEinFile, etc.)</li>
+<li>Most of the concepts except a few in the building industry are already in English.</li>
+<li>We want to avoid being confused about GetProject vs GetProjekt. For a single concept, only one word in one language should be chosen.</li>
+<li>Avoid variables like workWork (sic)</li>
+<li>It is a lot easier to create plurals in English (-s, -ies) where in German it might be difficult: Kapitel, Mitarbeiter, Unternehmer, Fenster, Artikel (see also next point)</li>
+<li>Proper Nouns  should not be translated even if possible.</li>
+<li>We try to use the same word for the same abstraction. It is either a project or a tenant. (DDD)</li>
+<li>All widely used concepts should be listed in the glossary</li>
+</ul>
+<h2><a class="header" href="#be-specific" id="be-specific">Be specific</a></h2>
+<figure>
+    <img src="./images/oop-naming.png" alt="The world seen by an &quot;object-oriented&quot; programmer." />
+    <figcaption>!DDD</figcaption>
+</figure>
+<p>Only use generic words like, data, list, string, number, manager, gateway and handler if necessary in a generic context. Otherwise, try to find specific domain words. Build a domain specific ubiquitous language.
+In domain context, always use the domain vocabulary and try keeping the overhead to a minimum, be precise.</p>
+<h2><a class="header" href="#abbrevations" id="abbrevations">Abbrevations</a></h2>
+<p>We do not use abbreviations that are ambiguous or unfamiliar to readers outside our project, and we do not abbreviate by skipping letters within a word. Abbreviations that would be familiar to someone outside your project with relevant domain knowledge are OK. As a rule of thumb, an abbreviation is probably OK if it is listed in Wikipedia like IP or HTML.
+All abbreviations are written in PascalCase.</p>
+<pre><code class="language-csharp">class JsonToHtmlConverter {}
+class IpAddress {}
+class UserId {}
+class TfsConnector {}
+</code></pre>
+<p><em>Abbrevation Examples</em></p>
+<h2><a class="header" href="#use-plural-and-singular-to-your-advantage" id="use-plural-and-singular-to-your-advantage">Use plural and singular to your advantage</a></h2>
+<p>If you have a collection of things, use the plural form of the variable you would use for a single element. Prefer being specific, as the name of the collection should reflect the meaning behind its elements. This gives you a natural understanding on what object you are dealing with.</p>
+<pre><code class="language-csharp">var onlineUsers = GetOnlineUsers();
+for (var user in onlineUsers) {
+    user.GoOffline();
+}
+</code></pre>
+<p><em>Correct usage of plural</em></p>
+<h2><a class="header" href="#try-to-use-the-same-word-for-the-same-concept" id="try-to-use-the-same-word-for-the-same-concept">Try to use the same word for the same concept</a></h2>
+<p>Do not switch between different name for a concept, make a choice and stick to it.</p>
+<h2><a class="header" href="#naming-the-different-c-identifiers" id="naming-the-different-c-identifiers">Naming the different C# identifiers</a></h2>
+<p>Table \ref{naming_identifiers} gives you the rules for each identifier.</p>
+<table><thead><tr><th>Identifier</th><th>Casing</th><th>Prefix / Suffix</th><th>Example</th></tr></thead><tbody>
+<tr><td>Namespace</td><td>PascalCase</td><td></td><td>Messerli.Core</td></tr>
+<tr><td>Class</td><td>PascalCase</td><td></td><td>WarpEngine</td></tr>
+<tr><td>Exception class</td><td>PascalCase</td><td>&lt;Name&gt;Exception</td><td>InvalidArgumentException</td></tr>
+<tr><td>Interface</td><td>PascalCase</td><td>I&lt;Name&gt;</td><td>ISyntaxTree</td></tr>
+<tr><td>Abstract class</td><td>PascalCase</td><td></td><td>Application</td></tr>
+<tr><td>Method</td><td>PascalCase</td><td></td><td>DrawSquare</td></tr>
+<tr><td>Properties</td><td>PascalCase</td><td></td><td>FirstName</td></tr>
+<tr><td>Predicate method</td><td>PascalCase</td><td>Is&lt;Name&gt;, Has&lt;Name&gt;, Are&lt;Name&gt;, Have&lt;Name&gt;</td><td>IsGreat, HasField</td></tr>
+<tr><td>Public Member Variable</td><td>PascalCase</td><td></td><td>Diameter</td></tr>
+<tr><td>Protected member variable</td><td>camelCase</td><td>_&lt;name&gt;</td><td>_tableIndex</td></tr>
+<tr><td>Private member variable</td><td>camelCase</td><td>_&lt;name&gt;</td><td>_adjacencyMatrix</td></tr>
+<tr><td>Local variable</td><td>camelCase</td><td></td><td>index, name, helpLabel</td></tr>
+<tr><td>Global constant</td><td>PascalCase</td><td></td><td>Pi, PrimeNumbers</td></tr>
+<tr><td>Class constant</td><td>PascalCase</td><td></td><td>FilePath</td></tr>
+<tr><td>Enum type</td><td>PascalCase</td><td></td><td>StatusType</td></tr>
+<tr><td>Enum value</td><td>PascalCase</td><td></td><td>RequiredValue</td></tr>
+<tr><td>Lambda Parametrs</td><td>camelCase or lower-case letter</td><td></td><td>cornerPoint, c, name, n</td></tr>
+</tbody></table>
+<h2><a class="header" href="#ui-elements" id="ui-elements">UI Elements</a></h2>
+<p>When dealing with UI Elements like buttons, combo boxes, grids, text boxes, etc. we append the full name of the type without any prefix to the variable name. </p>
+<pre><code class="language-csharp">class UserRightDialog {
+    Grid _userGrid;
+    Edit _userNameEdit;
+    Button _okButton;
+};
+</code></pre>
+<p><em>Naming of UI Elements</em></p>
+<h2><a class="header" href="#naming-of-delegate-variables" id="naming-of-delegate-variables">Naming of delegate variables</a></h2>
+<p>All delegate variables should be in camelCase without a prefix or postfix. All other Methods are PascalCase which means if you see a createThing(), you will know that it is indeed a delegate call.</p>
+<h2><a class="header" href="#naming-of-tests" id="naming-of-tests">Naming of Tests</a></h2>
+<p>The naming of tests must describe what the intended effect of the methods that are being tested, e.g. <code>ReturnsNullOnEmptySettings</code> or <code>ThrowsOnInvalidResponse</code>.</p>
+<h1><a class="header" href="#variables" id="variables">Variables</a></h1>
+<h2><a class="header" href="#only-one-declaration-per-line" id="only-one-declaration-per-line">Only one declaration per line</a></h2>
+<p>Multiple declarations per line are not allowed. This way, we can reduce the mental baggage of the reader and avoid awkward pointer and reference declarations (See the next subchapter).
+Deconstruction of Tuples and other types are obviously exempt from this rule. </p>
+<pre><code class="language-csharp">var (name, address, city, zip) = contact.GetAddressInfo();
+</code></pre>
+<p><em>Example: tuple deconstruction</em></p>
+<h2><a class="header" href="#local-variables-have-good-names" id="local-variables-have-good-names">Local variables have good names</a></h2>
+<p>Local variables should have self-evident names too. Every variable should describe its content, and named consistently. One can often reuse the name of the type. Be as specific as necessary and as short as possible.</p>
+<h2><a class="header" href="#declare-variables-in-the-innermost-scope-that-is-possible" id="declare-variables-in-the-innermost-scope-that-is-possible">Declare variables in the innermost scope that is possible</a></h2>
+<p>This rule attempts to minimize the number of live variables that must be simultaneously considered. Furthermore, variable declarations should be postponed until enough information is available for full initialization. This rule also reduces the possibility of uninitialized and wrongly initialized variables.</p>
+<h2><a class="header" href="#define-variables-on-declaration" id="define-variables-on-declaration">Define variables on declaration</a></h2>
+<p>Local variables of primitive type are not initialized. Try to avoid separation of declaration and definition.</p>
+<pre><code class="language-csharp">// Do not write this!
+Money money;
+money = GetMoney();
+</code></pre>
+<p><em>Bad example</em></p>
+<pre><code class="language-csharp">Money money = GetMoney();
+</code></pre>
+<p><em>Better example</em></p>
+<pre><code class="language-csharp">var money = GetMoney();
+</code></pre>
+<p><em>Even better example</em></p>
+<p>This can lead to problems if your variable is initialized differently on a certain condition (<code>if</code>/<code>switch</code>). Prefer the use of <code>if</code>-expressions with the the ternary operator (? :) for simple cases or extract the initialization into a function</p>
+<pre><code class="language-csharp">var money = HasBank() 
+    ? GetFromBank() 
+    : GetCash();
+</code></pre>
+<p><em>This could also be easily refactored into a function</em></p>
+<p>This not only avoids uninitialized variables, but makes sure you always handle both cases.</p>
+<p>With C# 8.0 switch-expressions are introduced which are highly recommended instead of switch-statements.</p>
+<h2><a class="header" href="#do-not-reuse-variables" id="do-not-reuse-variables">Do not reuse variables</a></h2>
+<p>A variable should have only one single purpose; there is no reason to recycle variables. The variables are abstractions for the human reader and not memory locations for the compiler.</p>
+<h2><a class="header" href="#prefer-type-inference" id="prefer-type-inference">Prefer type inference</a></h2>
+<p>Use var to avoid type names, especially those that are noisy, obvious, or unimportant — cases where the type does not aid in clarity for the reader. Only use manifest type declarations when it helps readability.</p>
+<pre><code class="language-csharp">var textBox = GetTextBox();
+textBox.SetText(&quot;foo&quot;);
+</code></pre>
+<p><em>Type inference</em></p>
+<p>This does not mean that you should blindly replace types with var.</p>
+<h2><a class="header" href="#do-not-use-magic-values" id="do-not-use-magic-values">Do not use magic values</a></h2>
+<p>Every number except 0 or 1 needs a useful name derived from its true meaning in the code. However, this does not mean that 0 and 1 cannot have a name too.
+The same goes for magic strings!</p>
+<h2><a class="header" href="#unused-variables-with-discared-values" id="unused-variables-with-discared-values">Unused variables with discared values</a></h2>
+<p>Ideally we would prefer a clean way with pattern matching, where we always could use <code>_</code>. Since this is only possible in certain parts of the language, we still try to use the <code>_</code> for unused variables. If you have more than one unused variable in the same context, use <code>_0</code>, <code>_1</code>, … instead.</p>
+<h1><a class="header" href="#basic-constructs" id="basic-constructs">Basic constructs</a></h1>
+<h2><a class="header" href="#only-one-expression-per-line" id="only-one-expression-per-line">Only one expression per line</a></h2>
+<p>Multiple expressions or statements in one line increase the mental burden while reading them. Split them up to avoid mentally hiding statements.</p>
+<h2><a class="header" href="#prefer-logical-operators-to-if-statements" id="prefer-logical-operators-to-if-statements">Prefer logical operators to if statements</a></h2>
+<pre><code class="language-csharp">if (node.GetParenthesis(key)) {
+    item.Setting = false;
+} else {
+    item.Setting = true;
+}
+</code></pre>
+<p><em>Avoid if and ternary operator for logical expressions</em></p>
+<p>Logical expressions have no branches, are more concise and always handle all the logical cases.</p>
+<pre><code class="language-csharp">item.Setting = !GetParenthesis(key);
+</code></pre>
+<p><em>Use logical operators <code>!</code>, <code>&amp;&amp;</code> and <code>||</code></em></p>
+<h2><a class="header" href="#if-statements" id="if-statements">If-statements</a></h2>
+<p>The condition of the if-statement should have no side effects.
+Avoid nested if-statements and prefer logical operators.</p>
+<pre><code class="language-csharp">if (!Move(id)) {
+    return false;
+}
+
+if (!UpdateStart(StartValue)) {
+    return false;
+}
+</code></pre>
+<p><em>Avoid side-effects</em></p>
+<pre><code class="language-csharp">var itemFound = Move(id);
+if (!itemFound) {
+    return false;
+}
+
+var updateIsReady = UpdateStart(StateDelete);
+if (!updateIsReady) {
+    return false;
+}
+</code></pre>
+<p><em>Better alternative</em></p>
+<h2><a class="header" href="#ternary-operator" id="ternary-operator">ternary operator</a></h2>
+<p>Prefer the ternary operator to simple if statements. The ternary operator is an expression in contrast to the if-statement and it forces you to handle all the cases.</p>
+<p>We format the ternary operator like this, to see which branch we are dealing with easily.</p>
+<pre><code class="language-csharp">return condition
+    ? true-expression
+    : false-expression;
+</code></pre>
+<p><em>ternary operator</em></p>
+<h2><a class="header" href="#for-loops" id="for-loops">For-loops</a></h2>
+<p>Avoid for-loops and use LINQ and higher order functions as an alternative.</p>
+<h2><a class="header" href="#prefer-foreach-loops" id="prefer-foreach-loops">Prefer foreach-loops</a></h2>
+<p>Whenever you are iterating over some kind of enumerator, prefer the foreach syntax:</p>
+<pre><code class="language-csharp">foreach (var value in values.OrderByDescending(v =&gt; v)) {
+    // Do something in reverse order
+}
+</code></pre>
+<p><em>foreach-loop</em></p>
+<h2><a class="header" href="#switch-statement" id="switch-statement">Switch-statement</a></h2>
+<h3><a class="header" href="#handle-all-cases" id="handle-all-cases">Handle all cases</a></h3>
+<p>Unhandled cases lead the program into an undefined state. If you have no natural default case, declare one throwing a System.NotImplementedException.</p>
+<h2><a class="header" href="#goto" id="goto">Goto</a></h2>
+<p>The goto statement is forbidden in all cases.</p>
+<h1><a class="header" href="#types" id="types">Types</a></h1>
+<h2><a class="header" href="#use-strong-types" id="use-strong-types">Use strong types</a></h2>
+<p>C# has a strong typing system, take advantage of it. A strong type will help you a lot in refactoring, and the compiler will easily tell you that you are using the wrong parameter if you do not have a string type like a comma separated list instead of a strong collection like a vector of longs.</p>
+<pre><code class="language-csharp">class Vector {
+    int X;
+    int Y;
+    int Z;
+}
+
+Vector CrossProduct(Vector factor1, Vector factor2);
+
+// Never do this
+bool CrossProduct(long x1, long y1, long z1, long x2, long y2, long z2,
+                  out long resultX, out long resultY, out long resultZ);
+</code></pre>
+<p><em>Create a strong type</em></p>
+<h3><a class="header" href="#new-type-idiom" id="new-type-idiom">New type idiom</a></h3>
+<p>The idea behind the new type idiom is to have additional type information, even if you have a single integer as an argument. Even when we have simple integers, it usually represents a concept not as generic. This concept could be years, bytes, money or position. 
+So even if you have a single integer, you can create a new type from your abstract concept.</p>
+<pre><code class="language-csharp">class Years {
+    Years(int years)
+    {
+        Value = years;
+    }
+
+    int Value { get; }
+}
+</code></pre>
+<p><em>Declaring the new type Years</em></p>
+<p>In this case we have a time period in years. The constructor should be explicit, otherwise a Year object would be automatically constructed from a given integer. That way you need to be explicit when you call a function like this:</p>
+<pre><code class="language-csharp">bool OldEnough(Years years)
+</code></pre>
+<p><em>Use the new type</em></p>
+<p>The Function <code>OldEnough</code> only accepts years. If you give an integer or a value of type <code>Days</code> you will get a compilation error. This helps in self-documentation and avoids misunderstandings between programmers with different assumptions. The code the compiler produces is the same with or without the additional type information. The additional Type-Information is just a compile time hint for the programmer.</p>
+<h3><a class="header" href="#do-not-convert-the-types-from-the-api-if-not-necessary" id="do-not-convert-the-types-from-the-api-if-not-necessary">Do not convert the types from the API if not necessary</a></h3>
+<p>Casting types can lead to unexpected behavior and should be avoided, if you need to convert types, chose a place where it minimizes the number of casts.</p>
+<h2><a class="header" href="#define-appropriate-types" id="define-appropriate-types">Define appropriate types</a></h2>
+<p>If two or more items of data belong together, try to find a name for them, and define a type you can reuse. Only use Tuple when the data is generic or part of an external interface.</p>
+<h2><a class="header" href="#use-appropriate-data-structures" id="use-appropriate-data-structures">Use appropriate data-structures</a></h2>
+<p>Do not pass around data structures as strings or tuples, when you could create a better type for your data.</p>
+<h2><a class="header" href="#use-readonly-pods-for-data" id="use-readonly-pods-for-data">Use Readonly PODs for data</a></h2>
+<p>All PODs must inject their state in the constructor and provide read only properties to it.
+A public setter is forbidden, a private setter is discouraged. </p>
+<h2><a class="header" href="#make-pods-easy-to-use" id="make-pods-easy-to-use">Make PODs easy to use</a></h2>
+<p>PODs should implement <code>IEquatable</code> or <code>IComparable</code>, use <a href="https://github.com/Fody/Equals">Fody</a> instead of manual implementation if possible.</p>
+<h1><a class="header" href="#functional-programming" id="functional-programming">Functional Programming</a></h1>
+<h2><a class="header" href="#immutability" id="immutability">Immutability</a></h2>
+<p>While only data can have side effects, it is the methods and functions, which profit the most of immutability. They are much easier to understand and usually the code is much more elegant when you stay away from mutability. A function f in program P has no side-Effect if <code>f() == f()</code> for all states of P. In addition, the state of P does not change if you invoke f.
+Programs without side effects are easy to test because it implies that any test of f is independent of the state of P.</p>
+<h3><a class="header" href="#prefer-immutable-types-to-mutable-ones" id="prefer-immutable-types-to-mutable-ones">Prefer immutable types to mutable ones</a></h3>
+<p>An immutable type can only set its state through a constructor. No stateful setters are allowed on an immutable type. Changing state is done through transformation by copying. This way, even a setter can be written in an immutable way:</p>
+<h2><a class="header" href="#use-higher-order-functions-with-linq-and-avoid-writing-your-own-for-loops" id="use-higher-order-functions-with-linq-and-avoid-writing-your-own-for-loops">Use higher-order functions with LINQ and avoid writing your own for-loops</a></h2>
+<p>We try to avoid unnecessary repetition. For many things, there are generic algorithms. Use LINQ and other Algorithms to create powerful abstractions.
+If there is not an algorithm available, try to be generic and write your own algorithms.</p>
+<table><thead><tr><th>Task</th><th>LINQ</th></tr></thead><tbody>
+<tr><td>Projection</td><td>Select, SelectMany</td></tr>
+<tr><td>Aggregation</td><td>Aggregate, Sum, Min, Max, Average, Count</td></tr>
+<tr><td>Restriction</td><td>Where</td></tr>
+<tr><td>Existence</td><td>Any, All, Contains, Distinct</td></tr>
+<tr><td>Set Operations</td><td>Contains, Distinct, Union, Intersect, Except</td></tr>
+<tr><td>Sorting</td><td>OrderBy, ThenBy, OrderByDescending, ThenByDescending</td></tr>
+<tr><td>Paging</td><td>First, Last, Single, Skip, Take, SkipWhile, TakeWhile</td></tr>
+<tr><td>String Formating</td><td><code>string.Format()</code> or use <code>$&quot;&quot;</code> (String interpolation)</td></tr>
+</tbody></table>
+<h3><a class="header" href="#linq-syntax" id="linq-syntax">LINQ syntax</a></h3>
+<p>Extension Methods and LINQ syntax are equivalent. Both have their up- and down-sides. Chose the one which you think is most appropriate for the Task at hand. You can also mix them in the same code file if it makes the code easier to read.</p>
+<h2><a class="header" href="#use-the-import-of-static-functions-to-your-advantage" id="use-the-import-of-static-functions-to-your-advantage">Use the import of static functions to your advantage</a></h2>
+<p>With the ability to import static functions, the syntax is much more natural to call functions on their own. Use that to your advantage and write free functions independent of any type.</p>
+<h1><a class="header" href="#object-oriented-programming" id="object-oriented-programming">Object oriented programming</a></h1>
+<h2><a class="header" href="#abstraction" id="abstraction">Abstraction</a></h2>
+<h3><a class="header" href="#depend-on-abstractions-not-implementations" id="depend-on-abstractions-not-implementations">Depend on abstractions not implementations</a></h3>
+<p>Classes which are not PODs must depend on abstractions and not implementations if possible.</p>
+<h3><a class="header" href="#create-your-own-abstractions-if-none-are-available" id="create-your-own-abstractions-if-none-are-available">Create your own abstractions if none are available</a></h3>
+<p>If the library you are using do not offer their own abstractions, create a facade with your own abstractions in front of the implementation.</p>
+<h3><a class="header" href="#factories" id="factories">Factories</a></h3>
+<p>Avoid the usage of new, either inject types through the constructor or use factories to create objects on runtime. All Factories should be declared via a delegate in the form of:</p>
+<pre><code class="language-csharp">public delegate ReturnValue ReturnValueFactory(Parameters parameters)
+</code></pre>
+<p><em>Signature of factories</em></p>
+<h2><a class="header" href="#inheritance" id="inheritance">Inheritance</a></h2>
+<ul>
+<li>If the relation between two entities can be described as a &quot;Entity A has B&quot;-relation then composition is to be used. You should only use inheritance if you are dealing with a &quot;Entity A is a kind of B&quot;-relation. See: Composition over inheritance.</li>
+<li>Prefer inheriting from interfaces</li>
+<li>Keep your inheritance hierarchy flat
+<ul>
+<li>avoid abstract classes</li>
+</ul>
+</li>
+</ul>
+<h2><a class="header" href="#encapsulation" id="encapsulation">Encapsulation</a></h2>
+<h3><a class="header" href="#data-members-are-by-default-private" id="data-members-are-by-default-private">Data-Members are by default private</a></h3>
+<p>Classes are meant to hide the implementation details; this also means that your data should be hidden from the outside. If you really need public data-members, you might want to think about separating the data into a POD class.</p>
+<h3><a class="header" href="#use-the-most-restricitive-visibility-modifier-possible" id="use-the-most-restricitive-visibility-modifier-possible">Use the most restricitive visibility modifier possible</a></h3>
+<p>Information should be encapsulated as much as possible, which means in first instance it should be private.</p>
+<h3><a class="header" href="#public-fields-are-forbidden" id="public-fields-are-forbidden">public fields are forbidden</a></h3>
+<p>We only use properties for public interfaces for PODs and other classes.</p>
+<h2><a class="header" href="#polymorphism" id="polymorphism">Polymorphism</a></h2>
+<h3><a class="header" href="#use-the-strategy-pattern-for-different-implementations-of-the-same-algorithm" id="use-the-strategy-pattern-for-different-implementations-of-the-same-algorithm">Use the strategy Pattern for different implementations of the same algorithm</a></h3>
+<p>The strategy pattern embodies two core principles of object-oriented programming, it encapsulates the concept that varies and lets programmers code to an interface, not an implementation.</p>
+<h3><a class="header" href="#use-the-different-forms-of-polymorphism-to-your-advantage" id="use-the-different-forms-of-polymorphism-to-your-advantage">Use the different forms of polymorphism to your advantage</a></h3>
+<p>C# supports runtime subtype polymorphism with virtual Methods, but there are other forms of polymorphism in C#.</p>
+<p>The other form is the ability to overload methods with different parameter types which is a form of static compile time polymorphism. It is more powerful in the regard that you can overload on any type and you do not need to have a type hierarchy for it to work. However be careful on this, the overload resolution uses the static type-definition and not the run-type type definition. Which means this is limited to cases where you exactly know the type at compile time.</p>
+<h3><a class="header" href="#use-the-visitor-pattern-for-double-dispatch" id="use-the-visitor-pattern-for-double-dispatch">Use the visitor pattern for double dispatch</a></h3>
+<p><a href="https://eli.thegreenplace.net/2016/a-polyglots-guide-to-multiple-dispatch">Static overload resolution can dispatch on more than one type</a>, but at runtime we are limited to a single dispatch mechanism offered by the subtype polymorphism. To overcome this, we need to take advantage of both forms of polymorphism offered in C#. The visitor pattern is the right choice in such cases.</p>
+<h1><a class="header" href="#methods" id="methods">Methods</a></h1>
+<h2><a class="header" href="#usually-keep-a-method-signature-on-one-line" id="usually-keep-a-method-signature-on-one-line">Usually keep a method signature on one line</a></h2>
+<p>Alternativly get each parameter on a single line, especially for constructors where the injected objects can change often.</p>
+<pre><code class="language-csharp">void Signature(int foo, string bar);
+</code></pre>
+<p><em>Function signature</em></p>
+<h2><a class="header" href="#write-short-methods" id="write-short-methods">Write short methods</a></h2>
+<p>Prefer small and focused functions.
+We recognize that long functions are sometimes appropriate, so no hard limit is placed on functions length. If a function exceeds about 30 lines, think about whether it can be broken up without harming the structure of the program.
+Even if your long function works perfectly now, someone modifying it in a few months may add new behavior. This could result in bugs that are hard to find. Keeping your functions short and simple makes it easier for other people to read and modify your code.
+You could find long and complicated functions when working with some code. Do not be intimidated by modifying existing code: if working with such a function proves to be difficult, you find that errors are hard to debug, or you want to use a piece of it in several different contexts, consider breaking up the function into smaller and more manageable pieces.</p>
+<h2><a class="header" href="#output-parameters" id="output-parameters">Output parameters</a></h2>
+<p>Output parameters are forbidden. They are bad style and not necessary. Return multiple values as a tuple or your own better datastructure.</p>
+<pre><code class="language-csharp">(ReceiverChannel, SendingChannel) CreateChannels();
+var (rx, tx) = CreateChannels();
+</code></pre>
+<p><em>Multiple return values</em></p>
+<h2><a class="header" href="#ref-parameters" id="ref-parameters">Ref parameters</a></h2>
+<p>Ref parameters are forbidden in our own API.</p>
+<h1><a class="header" href="#namespaces" id="namespaces">Namespaces</a></h1>
+<p>Nothing should be in the global namespace.</p>
+<ul>
+<li>The first level namespace is Messerli</li>
+<li>The second level namespace reflects the module you are working in</li>
+</ul>
+<h1><a class="header" href="#exceptions" id="exceptions">Exceptions</a></h1>
+<p>Exceptions are a good tool to signal behavior out of the ordinary.</p>
+<h2><a class="header" href="#use-nullable--types-if-you-need-to-represent-values-with-a-no-value-state" id="use-nullable--types-if-you-need-to-represent-values-with-a-no-value-state">Use Nullable (<code>?</code>) types if you need to represent values with a no-value state</a></h2>
+<p>Do not use bools to indicate illegal state, as they can easily be ignored. Wrapping a returned type in an nullable value forces the caller to check for the state. Ideally use them in a monadic way with an appropriate library.</p>
+<h2><a class="header" href="#do-not-use-exceptions-for-control-flow" id="do-not-use-exceptions-for-control-flow">Do not use exceptions for control flow</a></h2>
+<p>Exceptions should be used to signal exceptional behavior, such as incorrect user input or missing resources. Using them for (expected) control flow is analogous to using a goto statement.</p>
+<h1><a class="header" href="#miscellaneous" id="miscellaneous">Miscellaneous</a></h1>
+<h2><a class="header" href="#use-the-humble-object-pattern-for-system-boundaries-like-ui" id="use-the-humble-object-pattern-for-system-boundaries-like-ui">Use the Humble Object Pattern for System boundaries like UI</a></h2>
+<p>At the boundaries of the system, where things are often difficult to test use the humble object pattern to make it better testable. We accomplish the pattern by reducing the logic close to the boundary, making the code close to the boundary so humble that it doesn't need to be tested. The extracted logic is moved into another class, decoupled from the boundary which makes it testable.</p>
+<h2><a class="header" href="#use-the-type-system" id="use-the-type-system">Use the type system</a></h2>
+<p>Unit tests became extremely popular with dynamically typed languages like Ruby and JavaScript out of necessity. Those languages became popular initially for relatively small code fragments for automation or simple tasks. They were not designed as system languages with millions of lines of code in mind. But these languages became popular and the ecosystem grew and therefore also the need for refactoring in bigger projects. Since the type system were weak the compiler or run-time could not help much in finding defects. 
+Unit tests do much more than just checking if the types are in the expected range, and if a function is correctly typed, but it is one kind of unit tests we do not need in statically typed languages. However it is important that you actually use the type System to your advantage.</p>
+<h2><a class="header" href="#avoid-regions" id="avoid-regions">Avoid regions</a></h2>
+<p>Regions can distract and hide things from you, that is why regions are generally discouraged except for automatically generated code, you wouldn't want to change by hand.</p>
+<h1><a class="header" href="#comments" id="comments">Comments</a></h1>
+<p>Though a pain to write, comments are vital to keeping our code readable. The following rules describe what you should comment and where. However, remember: while comments are very important, the best code is self-documenting. Giving sensible names to types and variables is much better than using obscure names that you must then explain through comments.
+When writing your comments, write for your audience. The next contributor who will need to understand your code. Be generous - the next one may be you!</p>
+<h2><a class="header" href="#language" id="language">Language</a></h2>
+<p>Comments are written in English.</p>
+<h2><a class="header" href="#style" id="style">Style</a></h2>
+<p>We only use double and triple-slash comments. We do not use the /* */ - style comments.
+Write your comments above your code you want to comment. Only write comments on the right side of the code when doing so would benefit the readability greatly and the code in question is very short, e.g. an initialization.
+If your code describes a block of code, consider refactoring it into a function.</p>
+<h2><a class="header" href="#xml-comments" id="xml-comments">XML comments</a></h2>
+<p>Try to document your public interface. </p>
+<ul>
+<li>The comments for an interface should be only in the header file.</li>
+<li>Try avoiding stating the obvious.</li>
+<li>We use XML-comments to document the interface.</li>
+</ul>
+<pre><code class="language-csharp">/// &lt;summary&gt;
+/// Disconnects a previously connected slot
+/// &lt;/summary&gt;
+/// &lt;param name=&quot;slotId&quot;&gt;id of the slot&lt;/param&gt;
+void Disconnect(int slotId); 
+</code></pre>
+<p><em>Commenting a function</em></p>
+<p>We want to adhere closely to this style because Visual Studio can read and interpret the XML comments, and IntelliSense will give you a real-time information on ctrl-space. As you can see, you do not only get the general summary, but a value-by-value reference of the parameters.</p>
+<h2><a class="header" href="#write-useful-comments" id="write-useful-comments">Write useful comments</a></h2>
+<p>A comment is useful, if it helps to understand the code better than without. Comments are not useful if they state the obvious or are repeating what the code already tells you.
+Comments are especially useful if you do something out of the ordinary, or complex. A high-level description of an algorithm for example is usually a good idea.</p>
+<h2><a class="header" href="#ascii-art-seperators-are-forbidden-in-code" id="ascii-art-seperators-are-forbidden-in-code">ASCII Art seperators are forbidden in code</a></h2>
+<p>For visual seperation you can use a #pragma region declaration.</p>
+<p>A region can be folded for increased visibility:</p>
+<figure>
+    <img src="./images/pragma-region-open.png" />
+    <figcaption>Define a region</figcaption>
+</figure>
+<figure>
+    <img src="./images/pragma-region-closed.png" />
+    <figcaption>Region folded</figcaption>
+</figure>
+<h2><a class="header" href="#comments-on-curly-brace" id="comments-on-curly-brace">Comments on curly brace</a></h2>
+<p>There are no comments on the ending curly brace. Your IDE can do code folding</p>
+<figure>
+    <img src="./images/code-folding-open.png" />
+    <figcaption>Function not folded</figcaption>
+</figure>
+<figure>
+    <img src="./images/code-folding-closed.png" />
+    <figcaption>Function folded</figcaption>
+</figure>
+<h2><a class="header" href="#do-not-commit-code-that-is-commented-out" id="do-not-commit-code-that-is-commented-out">Do not commit code that is commented out</a></h2>
+<p>Code that is not compiled will rot and will be useless soon. If you really need the code, why is it not compiled? Delete the code. If you really need it again, you can always use your source control system.</p>
+<h1><a class="header" href="#commit-message" id="commit-message">Commit Message</a></h1>
+<p>We follow six of the seven rules of great commit messages</p>
+<ol>
+<li>Separate subject from body with a blank line</li>
+<li>Limit the subject line to 50 characters</li>
+<li>Capitalize the subject line</li>
+<li>Do not end the subject line with a period</li>
+<li>Use the imperative mood in the subject line </li>
+<li>Use the body to explain WHAT and WHY vs. HOW</li>
+</ol>
+<p>The rule &quot;Wrap the body at 72 characters&quot; does not apply to TFVC users, as Visual Studio takes care of wrapping the body correctly.</p>
+<p>In addition, we prepend the commit message with the module that has been worked on, followed by a colon. This prefix does not count towards the subject line character limit.</p>
+<h2><a class="header" href="#language-1" id="language-1">Language</a></h2>
+<p>Commit messages are written in English.</p>
+<p><strong>Bad example</strong>: Added feature<br />
+<strong>Good example</strong>: Document Editor: Add copy-pasting feature</p>
+<p><strong>Bad example</strong>: A position with a parts list can be inserted in your own parts list, which leads to a program crash.<br />
+<strong>Good example</strong>: Catalag: Fix Crash happening in recursive parts list ↵<br />
+A position which had itself a parts list could wrongly be inserted into a parts list.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+        
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+        
+        
+
+    </body>
+</html>
