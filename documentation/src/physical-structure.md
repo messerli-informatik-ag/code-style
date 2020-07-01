@@ -2,8 +2,8 @@
 
 ## Each class should go into its own file with the same name
 
-Only one class should be in a file. This also applies to an Enumerations.
-Inner classes are allowed but discouraged and an obvious exception to this rule. 
+Only one class should be in a file. This also applies to enumeration types (`enum`).
+Inner classes are allowed but discouraged.
 
 ## Each namespace should go into its own folder with the same name
 
