@@ -2,7 +2,6 @@
 
 ![Build](https://github.com/messerli-informatik-ag/code-style/workflows/Build/badge.svg)
 [![NuGet](https://img.shields.io/nuget/v/Messerli.CodeStyle.svg)](https://www.nuget.org/packages/Messerli.CodeStyle)
-[![Coding Guidelines](https://img.shields.io/badge/coding%20guidelines-pdf-blueviolet)](https://raw.githubusercontent.com/messerli-informatik-ag/code-style/documentation/c-sharp-coding-guidelines.pdf)
 
 ## Usage
 
