@@ -20,3 +20,4 @@ jobs:
         mdbook-version: '0.4.0' 
     - name: Build Documentation
       run: mdbook build
+      working-directory: ./documentation
