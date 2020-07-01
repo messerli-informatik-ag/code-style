@@ -23,10 +23,10 @@ Try to document your public interface.
 
 ```csharp
 /// <summary>
-/// Disconnects a previously connected slot
+/// Specifies that <see cref="Open"/> should open an existing file. When the file is opened, it should be truncated so that its size is zero bytes.
+/// Requires that <see cref="Write"/> is called too. Can not be used to together with <see cref="Append"/>.
 /// </summary>
-/// <param name="slotId">id of the slot</param>
-void Disconnect(int slotId); 
+IFileOpeningBuilder Truncate(bool truncate = true);
 ```
 *Commenting a function*
 
