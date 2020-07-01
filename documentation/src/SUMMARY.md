@@ -1,0 +1,17 @@
+# Summary
+
+* [Messerli C# coding guidelines](./guidelines.md)
+* [Physical structure](./physical-structure.md)
+* [Formatting rules](./formatting.md)
+* [Naming Conventions](./naming.md)
+* [Variables](./variables.md)
+* [Basic constructs](./basic-constructs.md)
+* [Types](./types.md)
+* [Functional Programming](./functional.md)
+* [Object oriented programming](./oop.md)
+* [Methods](./methods.md)
+* [Namespaces](./namespaces.md)
+* [Exceptions](./exceptions.md)
+* [Miscellaneous](./miscellaneous.md)
+* [Comments](./comments.md)
+* [Commit Message](./commit-messages.md)
