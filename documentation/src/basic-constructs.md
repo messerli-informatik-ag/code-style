@@ -65,6 +65,19 @@ return condition
 ```
 *ternary operator*
 
+## Expression-bodied members
+
+Use the expression body syntax when a member returns a single expression.
+Move the arrow to the next line when the expression gets too long.
+
+```csharp
+public int Length => 0;
+
+public string AbsolutePath()
+    => Path.Combine(CalculateRootPath(), RelativePath);
+```
+*expression-bodied members*
+
 ## For-loops
 
 Avoid for-loops and use LINQ and higher order functions as an alternative.
