@@ -1,0 +1,22 @@
+:root {
+    --caption-font-size: 14px;
+    --content-max-width: 800px;
+}
+
+/* Emphasized text after a code block is treated as its caption */
+pre + p > em {
+    font-size: var(--caption-font-size);
+    margin-top: -12px;
+    margin-bottom: 20px;
+    display: block;
+}
+
+figure {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+figcaption {
+    font-size: var(--caption-font-size);
+    font-style: italic;
+}

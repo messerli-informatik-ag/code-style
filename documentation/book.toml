@@ -4,3 +4,6 @@ language = "en"
 multilingual = false
 src = "src"
 title = "Messerli C# Coding Guidelines"
+
+[output.html]
+additional-css = ["custom.css"]
