@@ -74,7 +74,7 @@ return condition
 
 ## Switch Expression
 
-Prefer switch expressions over switch statements.
+Prefer [switch expressions] over switch statements.
 
 ```csharp
 return animalKind switch
@@ -86,9 +86,11 @@ return animalKind switch
 ```
 *switch expression*
 
+[switch expressions]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/switch-expression
+
 ## Expression-bodied Members
 
-Use the expression body syntax when a member returns a single expression.
+Use the [expression body syntax] when a member returns a single expression.
 Move the arrow to the next line when the expression gets too long.
 
 ```csharp
@@ -98,6 +100,8 @@ public string AbsolutePath()
     => Path.Combine(CalculateRootPath(), RelativePath);
 ```
 *expression-bodied members*
+
+[expression body syntax]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/expression-bodied-members
 
 ## For-loops
 
@@ -119,7 +123,9 @@ foreach (var value in values.OrderByDescending(v => v))
 
 ### Handle all cases
 
-Unhandled cases lead the program into an undefined state. If you have no natural default case, declare one throwing a System.NotImplementedException.
+Unhandled cases lead the program into an undefined state. If you have no natural default case, declare one throwing a [System.NotImplementedException].
+
+[System.NotImplementedException]: https://docs.microsoft.com/en-us/dotnet/api/system.notimplementedexception
 
 ## Goto
 
