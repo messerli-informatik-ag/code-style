@@ -7,6 +7,7 @@
 * [Naming Conventions](./naming.md)
 * [Variables](./variables.md)
 * [Basic constructs](./basic-constructs.md)
+* [Expressions](./expressions.md)
 * [Types](./types.md)
 * [Functional Programming](./functional.md)
 * [Object oriented programming](./oop.md)
