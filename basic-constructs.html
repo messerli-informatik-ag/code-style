@@ -91,7 +91,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="guidelines.html">Messerli C# Coding Guidelines</a></li><li class="chapter-item expanded "><a href="physical-structure.html"><strong aria-hidden="true">1.</strong> Physical structure</a></li><li class="chapter-item expanded "><a href="formatting.html"><strong aria-hidden="true">2.</strong> Formatting rules</a></li><li class="chapter-item expanded "><a href="naming.html"><strong aria-hidden="true">3.</strong> Naming Conventions</a></li><li class="chapter-item expanded "><a href="variables.html"><strong aria-hidden="true">4.</strong> Variables</a></li><li class="chapter-item expanded "><a href="basic-constructs.html" class="active"><strong aria-hidden="true">5.</strong> Basic constructs</a></li><li class="chapter-item expanded "><a href="types.html"><strong aria-hidden="true">6.</strong> Types</a></li><li class="chapter-item expanded "><a href="functional.html"><strong aria-hidden="true">7.</strong> Functional Programming</a></li><li class="chapter-item expanded "><a href="oop.html"><strong aria-hidden="true">8.</strong> Object oriented programming</a></li><li class="chapter-item expanded "><a href="methods.html"><strong aria-hidden="true">9.</strong> Methods</a></li><li class="chapter-item expanded "><a href="namespaces.html"><strong aria-hidden="true">10.</strong> Namespaces</a></li><li class="chapter-item expanded "><a href="exceptions.html"><strong aria-hidden="true">11.</strong> Exceptions</a></li><li class="chapter-item expanded "><a href="miscellaneous.html"><strong aria-hidden="true">12.</strong> Miscellaneous</a></li><li class="chapter-item expanded "><a href="comments.html"><strong aria-hidden="true">13.</strong> Comments</a></li><li class="chapter-item expanded "><a href="commit-messages.html"><strong aria-hidden="true">14.</strong> Commit Message</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="guidelines.html">Messerli C# Coding Guidelines</a></li><li class="chapter-item expanded "><a href="physical-structure.html"><strong aria-hidden="true">1.</strong> Physical structure</a></li><li class="chapter-item expanded "><a href="formatting.html"><strong aria-hidden="true">2.</strong> Formatting rules</a></li><li class="chapter-item expanded "><a href="naming.html"><strong aria-hidden="true">3.</strong> Naming Conventions</a></li><li class="chapter-item expanded "><a href="variables.html"><strong aria-hidden="true">4.</strong> Variables</a></li><li class="chapter-item expanded "><a href="basic-constructs.html" class="active"><strong aria-hidden="true">5.</strong> Basic constructs</a></li><li class="chapter-item expanded "><a href="expressions.html"><strong aria-hidden="true">6.</strong> Expressions</a></li><li class="chapter-item expanded "><a href="types.html"><strong aria-hidden="true">7.</strong> Types</a></li><li class="chapter-item expanded "><a href="functional.html"><strong aria-hidden="true">8.</strong> Functional Programming</a></li><li class="chapter-item expanded "><a href="oop.html"><strong aria-hidden="true">9.</strong> Object oriented programming</a></li><li class="chapter-item expanded "><a href="methods.html"><strong aria-hidden="true">10.</strong> Methods</a></li><li class="chapter-item expanded "><a href="namespaces.html"><strong aria-hidden="true">11.</strong> Namespaces</a></li><li class="chapter-item expanded "><a href="exceptions.html"><strong aria-hidden="true">12.</strong> Exceptions</a></li><li class="chapter-item expanded "><a href="miscellaneous.html"><strong aria-hidden="true">13.</strong> Miscellaneous</a></li><li class="chapter-item expanded "><a href="comments.html"><strong aria-hidden="true">14.</strong> Comments</a></li><li class="chapter-item expanded "><a href="commit-messages.html"><strong aria-hidden="true">15.</strong> Commit Message</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -160,21 +160,6 @@
                         <h1><a class="header" href="#basic-constructs" id="basic-constructs">Basic constructs</a></h1>
 <h2><a class="header" href="#only-one-expression-per-line" id="only-one-expression-per-line">Only one expression per line</a></h2>
 <p>Multiple expressions or statements in one line increase the mental burden while reading them. Split them up to avoid mentally hiding statements.</p>
-<h2><a class="header" href="#prefer-logical-operators-to-if-statements" id="prefer-logical-operators-to-if-statements">Prefer logical operators to if statements</a></h2>
-<pre><code class="language-csharp">if (node.GetParenthesis(key))
-{
-    item.Setting = false;
-}
-else
-{
-    item.Setting = true;
-}
-</code></pre>
-<p><em>Avoid if and ternary operator for logical expressions</em></p>
-<p>Logical expressions have no branches, are more concise and always handle all the logical cases.</p>
-<pre><code class="language-csharp">item.Setting = !GetParenthesis(key);
-</code></pre>
-<p><em>Use logical operators <code>!</code>, <code>&amp;&amp;</code> and <code>||</code></em></p>
 <h2><a class="header" href="#if-statements" id="if-statements">If-statements</a></h2>
 <p>The condition of the if-statement should have no side effects.
 Avoid nested if-statements and prefer logical operators.</p>
@@ -202,33 +187,6 @@ if (!updateIsReady)
 }
 </code></pre>
 <p><em>Better alternative</em></p>
-<h2><a class="header" href="#ternary-operator" id="ternary-operator">ternary operator</a></h2>
-<p>Prefer the ternary operator to simple if statements. The ternary operator is an expression in contrast to the if-statement and it forces you to handle all the cases.</p>
-<p>We format the ternary operator like this, to see which branch we are dealing with easily.</p>
-<pre><code class="language-csharp">return condition
-    ? true-expression
-    : false-expression;
-</code></pre>
-<p><em>ternary operator</em></p>
-<h2><a class="header" href="#switch-expression" id="switch-expression">Switch Expression</a></h2>
-<p>Prefer switch expressions over switch statements.</p>
-<pre><code class="language-csharp">return animalKind switch
-{
-    AnimalKind.Dog =&gt; &quot;dog&quot;,
-    AnimalKind.Cat =&gt; &quot;cat&quot;,
-    _ =&gt; throw new InvalidOperationException($&quot;Unsupported animal kind {animalKind}&quot;),
-};
-</code></pre>
-<p><em>switch expression</em></p>
-<h2><a class="header" href="#expression-bodied-members" id="expression-bodied-members">Expression-bodied Members</a></h2>
-<p>Use the expression body syntax when a member returns a single expression.
-Move the arrow to the next line when the expression gets too long.</p>
-<pre><code class="language-csharp">public int Length =&gt; 0;
-
-public string AbsolutePath()
-    =&gt; Path.Combine(CalculateRootPath(), RelativePath);
-</code></pre>
-<p><em>expression-bodied members</em></p>
 <h2><a class="header" href="#for-loops" id="for-loops">For-loops</a></h2>
 <p>Avoid for-loops and use LINQ and higher order functions as an alternative.</p>
 <h2><a class="header" href="#prefer-foreach-loops" id="prefer-foreach-loops">Prefer foreach-loops</a></h2>
@@ -256,7 +214,7 @@ public string AbsolutePath()
                         
 
                         
-                            <a rel="next" href="types.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="expressions.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -274,7 +232,7 @@ public string AbsolutePath()
                 
 
                 
-                    <a rel="next" href="types.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="expressions.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 

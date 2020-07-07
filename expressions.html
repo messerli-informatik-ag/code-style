@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Messerli C# Coding Guidelines - Messerli C# Coding Guidelines</title>
+        <title>Expressions - Messerli C# Coding Guidelines</title>
         
         
 
@@ -91,7 +91,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="guidelines.html" class="active">Messerli C# Coding Guidelines</a></li><li class="chapter-item expanded "><a href="physical-structure.html"><strong aria-hidden="true">1.</strong> Physical structure</a></li><li class="chapter-item expanded "><a href="formatting.html"><strong aria-hidden="true">2.</strong> Formatting rules</a></li><li class="chapter-item expanded "><a href="naming.html"><strong aria-hidden="true">3.</strong> Naming Conventions</a></li><li class="chapter-item expanded "><a href="variables.html"><strong aria-hidden="true">4.</strong> Variables</a></li><li class="chapter-item expanded "><a href="basic-constructs.html"><strong aria-hidden="true">5.</strong> Basic constructs</a></li><li class="chapter-item expanded "><a href="expressions.html"><strong aria-hidden="true">6.</strong> Expressions</a></li><li class="chapter-item expanded "><a href="types.html"><strong aria-hidden="true">7.</strong> Types</a></li><li class="chapter-item expanded "><a href="functional.html"><strong aria-hidden="true">8.</strong> Functional Programming</a></li><li class="chapter-item expanded "><a href="oop.html"><strong aria-hidden="true">9.</strong> Object oriented programming</a></li><li class="chapter-item expanded "><a href="methods.html"><strong aria-hidden="true">10.</strong> Methods</a></li><li class="chapter-item expanded "><a href="namespaces.html"><strong aria-hidden="true">11.</strong> Namespaces</a></li><li class="chapter-item expanded "><a href="exceptions.html"><strong aria-hidden="true">12.</strong> Exceptions</a></li><li class="chapter-item expanded "><a href="miscellaneous.html"><strong aria-hidden="true">13.</strong> Miscellaneous</a></li><li class="chapter-item expanded "><a href="comments.html"><strong aria-hidden="true">14.</strong> Comments</a></li><li class="chapter-item expanded "><a href="commit-messages.html"><strong aria-hidden="true">15.</strong> Commit Message</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="guidelines.html">Messerli C# Coding Guidelines</a></li><li class="chapter-item expanded "><a href="physical-structure.html"><strong aria-hidden="true">1.</strong> Physical structure</a></li><li class="chapter-item expanded "><a href="formatting.html"><strong aria-hidden="true">2.</strong> Formatting rules</a></li><li class="chapter-item expanded "><a href="naming.html"><strong aria-hidden="true">3.</strong> Naming Conventions</a></li><li class="chapter-item expanded "><a href="variables.html"><strong aria-hidden="true">4.</strong> Variables</a></li><li class="chapter-item expanded "><a href="basic-constructs.html"><strong aria-hidden="true">5.</strong> Basic constructs</a></li><li class="chapter-item expanded "><a href="expressions.html" class="active"><strong aria-hidden="true">6.</strong> Expressions</a></li><li class="chapter-item expanded "><a href="types.html"><strong aria-hidden="true">7.</strong> Types</a></li><li class="chapter-item expanded "><a href="functional.html"><strong aria-hidden="true">8.</strong> Functional Programming</a></li><li class="chapter-item expanded "><a href="oop.html"><strong aria-hidden="true">9.</strong> Object oriented programming</a></li><li class="chapter-item expanded "><a href="methods.html"><strong aria-hidden="true">10.</strong> Methods</a></li><li class="chapter-item expanded "><a href="namespaces.html"><strong aria-hidden="true">11.</strong> Namespaces</a></li><li class="chapter-item expanded "><a href="exceptions.html"><strong aria-hidden="true">12.</strong> Exceptions</a></li><li class="chapter-item expanded "><a href="miscellaneous.html"><strong aria-hidden="true">13.</strong> Miscellaneous</a></li><li class="chapter-item expanded "><a href="comments.html"><strong aria-hidden="true">14.</strong> Comments</a></li><li class="chapter-item expanded "><a href="commit-messages.html"><strong aria-hidden="true">15.</strong> Commit Message</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -157,33 +157,63 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#messerli-c-coding-guidelines" id="messerli-c-coding-guidelines">Messerli C# Coding Guidelines</a></h1>
-<p>These are the revised Coding Guidelines valid for code newly written in C#.
-If you see mistakes or have, comments do not hesitate in contacting the developer council.</p>
-<h2><a class="header" href="#when-and-where-are-these-rules-applicable" id="when-and-where-are-these-rules-applicable">When and where are these rules applicable</a></h2>
-<p>These rules are applicable to all C# code written at Messerli Informatik AG. 
-The rules will not be enforced for old code, which has not been changed.
-In a review, these coding guidelines should be checked for all code, which has changed.
-Changes necessary due to the coding guidelines should be in a reasonable ratio to the functional changes.</p>
-<h2><a class="header" href="#update-to-the-rules" id="update-to-the-rules">Update to the rules</a></h2>
-<p>Updates to the rules should be sent to the developer council. The developer council will integrate new rules in a timely fashion when the council approves and will give feedback otherwise.</p>
-<h2><a class="header" href="#definition-of-done" id="definition-of-done">Definition of done</a></h2>
-<ul>
-<li>Feature is tested against acceptance criteria</li>
-<li>Code adheres to the Coding Guidelines</li>
-<li>Unit tests pass</li>
-<li>Code is unit tested</li>
-<li>Code is reviewed</li>
-</ul>
+                        <h1><a class="header" href="#expressions" id="expressions">Expressions</a></h1>
+<p>Prefer expressions over statements.</p>
+<h2><a class="header" href="#prefer-logical-operators-to-if-statements" id="prefer-logical-operators-to-if-statements">Prefer logical operators to if statements</a></h2>
+<pre><code class="language-csharp">if (node.GetParenthesis(key))
+{
+    item.Setting = false;
+}
+else
+{
+    item.Setting = true;
+}
+</code></pre>
+<p><em>Avoid if and ternary operator for logical expressions</em></p>
+<p>Logical expressions have no branches, are more concise and always handle all the logical cases.</p>
+<pre><code class="language-csharp">item.Setting = !GetParenthesis(key);
+</code></pre>
+<p><em>Use logical operators <code>!</code>, <code>&amp;&amp;</code> and <code>||</code></em></p>
+<h2><a class="header" href="#ternary-operator" id="ternary-operator">ternary operator</a></h2>
+<p>Prefer the ternary operator to simple if statements. The ternary operator is an expression in contrast to the if-statement and it forces you to handle all the cases.</p>
+<p>We format the ternary operator like this, to see which branch we are dealing with easily.</p>
+<pre><code class="language-csharp">return condition
+    ? true-expression
+    : false-expression;
+</code></pre>
+<p><em>ternary operator</em></p>
+<h2><a class="header" href="#switch-expression" id="switch-expression">Switch Expression</a></h2>
+<p>Prefer switch expressions over switch statements.</p>
+<pre><code class="language-csharp">return animalKind switch
+{
+    AnimalKind.Dog =&gt; &quot;dog&quot;,
+    AnimalKind.Cat =&gt; &quot;cat&quot;,
+    _ =&gt; throw new InvalidOperationException($&quot;Unsupported animal kind {animalKind}&quot;),
+};
+</code></pre>
+<p><em>switch expression</em></p>
+<h2><a class="header" href="#expression-bodied-members" id="expression-bodied-members">Expression-bodied Members</a></h2>
+<p>Use the expression body syntax when a member returns a single expression.
+Move the arrow to the next line when the expression gets too long.</p>
+<pre><code class="language-csharp">public int Length =&gt; 0;
+
+public string AbsolutePath()
+    =&gt; Path.Combine(CalculateRootPath(), RelativePath);
+</code></pre>
+<p><em>expression-bodied members</em></p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
+                            <a rel="prev" href="basic-constructs.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
 
                         
-                            <a rel="next" href="physical-structure.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="types.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -195,9 +225,13 @@ Changes necessary due to the coding guidelines should be in a reasonable ratio t
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
+                    <a rel="prev" href="basic-constructs.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
 
                 
-                    <a rel="next" href="physical-structure.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="types.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 
