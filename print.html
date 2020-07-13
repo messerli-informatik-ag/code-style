@@ -378,7 +378,7 @@ if (!updateIsReady)
 <p><em>foreach-loop</em></p>
 <h2><a class="header" href="#switch-statement" id="switch-statement">Switch-statement</a></h2>
 <h3><a class="header" href="#handle-all-cases" id="handle-all-cases">Handle all cases</a></h3>
-<p>Unhandled cases lead the program into an undefined state. If you have no natural default case, declare one throwing a System.NotImplementedException.</p>
+<p>Unhandled cases lead the program into an undefined state. If you have no natural default case, declare one throwing a <a href="https://docs.microsoft.com/en-us/dotnet/api/system.notimplementedexception">System.NotImplementedException</a>.</p>
 <h2><a class="header" href="#goto" id="goto">Goto</a></h2>
 <p>The goto statement is forbidden in all cases.</p>
 <h1><a class="header" href="#expressions" id="expressions">Expressions</a></h1>
@@ -407,7 +407,7 @@ else
 </code></pre>
 <p><em>ternary operator</em></p>
 <h2><a class="header" href="#switch-expression" id="switch-expression">Switch Expression</a></h2>
-<p>Prefer switch expressions over switch statements.</p>
+<p>Prefer <a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/switch-expression">switch expressions</a> over switch statements.</p>
 <pre><code class="language-csharp">return animalKind switch
 {
     AnimalKind.Dog =&gt; &quot;dog&quot;,
@@ -417,7 +417,7 @@ else
 </code></pre>
 <p><em>switch expression</em></p>
 <h2><a class="header" href="#expression-bodied-members" id="expression-bodied-members">Expression-bodied Members</a></h2>
-<p>Use the expression body syntax when a member returns a single expression.
+<p>Use the <a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/expression-bodied-members">expression body syntax</a> when a member returns a single expression.
 Move the arrow to the next line when the expression gets too long.</p>
 <pre><code class="language-csharp">public int Length =&gt; 0;
 
