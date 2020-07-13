@@ -7,3 +7,5 @@ title = "Messerli C# Coding Guidelines"
 
 [output.html]
 additional-css = ["custom.css"]
+git-repository-url = "https://github.com/messerli-informatik-ag/code-style"
+git-repository-icon = "fa-github"
