@@ -57,7 +57,9 @@ foreach (var value in values.OrderByDescending(v => v))
 
 ### Handle all cases
 
-Unhandled cases lead the program into an undefined state. If you have no natural default case, declare one throwing a System.NotImplementedException.
+Unhandled cases lead the program into an undefined state. If you have no natural default case, declare one throwing a [System.NotImplementedException].
+
+[System.NotImplementedException]: https://docs.microsoft.com/en-us/dotnet/api/system.notimplementedexception
 
 ## Goto
 
