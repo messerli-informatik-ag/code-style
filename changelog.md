@@ -23,6 +23,7 @@ Initial release
   as it is required by our StyleCop configuration.
 
 ## Unreleased
+- Update StyleCop.Analyzers to 1.2.0-beta.205. ([diff](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/compare/1.2.0-beta.164...1.2.0-beta.205))
 - Update IDisposableAnalyzers to 3.4.1. Excerpt from [IDisposableAnalyzers Changelog]:
   > #### 3.4.1
   > * Publish with binaries.
