@@ -22,7 +22,7 @@
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="IDisposableAnalyzers" Version="3.3.8" PrivateAssets="none" />
-        <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.164" PrivateAssets="none" />
+        <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.205" PrivateAssets="none" />
     </ItemGroup>
     <ItemGroup>
         <None Include="build\**\*;buildMultiTargeting\**\*">
