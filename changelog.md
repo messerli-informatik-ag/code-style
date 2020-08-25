@@ -33,3 +33,6 @@ Initial release
   > * BUGFIX: IDISP006 when explicit implementation.
 
 [IDisposableAnalyzers Changelog]: https://github.com/DotNetAnalyzers/IDisposableAnalyzers/blob/master/RELEASE_NOTES.md
+
+## Unreleased
+* Breaking: Treat all nullability warnings as errors.
