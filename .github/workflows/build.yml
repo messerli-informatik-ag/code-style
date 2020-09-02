@@ -27,4 +27,4 @@ jobs:
     - name: Test that files are importable by MSBuild
       run: ruby ./scripts/test_files_are_importable_by_msbuild.rb
     - name: Show NuGet package content
-      run: unzip -l bin/Release/*.nupkg
+      run: unzip -l nupkg/*.nupkg
