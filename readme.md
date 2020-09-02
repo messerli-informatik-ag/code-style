@@ -6,15 +6,71 @@
 
 ## Usage
 
-Add the following import to your `csproj` or `Directory.Build.props`:
+### Without the CentralPackageVersions SDK
 
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<Project>
-    <ItemGroup>
-        <PackageReference Include="Messerli.CodeStyle" Version="1.2.0" PrivateAssets="all" />
-    </ItemGroup>
-</Project>
+Add the following package reference to your project or to your `Directory.Build.props`:
+
+```diff
+  <?xml version="1.0" encoding="utf-8"?>
+  <Project>
+      <ItemGroup>
++         <PackageReference Include="Messerli.CodeStyle" Version="1.2.1" PrivateAssets="all" />
+      </ItemGroup>
+  </Project>
 ```
 
+### With the CentralPackageVersions SDK
 
+Add `Messerli.CodeStyle` to your `Packages.props`:
+```diff
+  <?xml version="1.0" encoding="utf-8"?>
+  <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+      <ItemGroup Label="Build dependencies">
++         <PackageReference Update="Messerli.CodeStyle" Version="1.2.1" />
+      </ItemGroup>
+  </Project>
+```
+
+Add the following package reference to your project or to your `Directory.Build.props`:
+```diff
+  <?xml version="1.0" encoding="utf-8"?>
+  <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
++     <ItemGroup>
++         <PackageReference Include="Messerli.CodeStyle" PrivateAssets="all" />
++     </ItemGroup>
+  </Project>
+```
+
+## Warnings as Errors
+
+Some analyzer rules, such as rules involving single line comments, are configured as warnings to facilitate development.
+To enforce these rules, enable `TreatWarningsAsErrors` for CI builds.
+
+```diff
+- dotnet build --no-restore
++ dotnet build --no-restore /p:TreatWarningsAsErrors=true
+```
+
+### Github Actions
+```diff
+ jobs:
+   build:
+     steps:
+     # ...
+     - name: Build
+-      run: dotnet build --no-restore
++      run: dotnet build --no-restore /p:TreatWarningsAsErrors=true
+     # ...
+```
+
+### Azure Devops
+```diff
+ steps:
+ # ...
+ - task: DotNetCoreCLI@2
+   displayName: Build
+   inputs:
+-    arguments: '--no-restore'
++    arguments: '--no-restore /p:TreatWarningsAsErrors=true'
+ # ...
+```
