@@ -43,7 +43,7 @@ Add the following package reference to your project or to your `Directory.Build.
 
 ## Warnings as Errors
 
-Some analyzer rules, such as rules involving single line comments are configured as warnings to facilitate development.
+Some analyzer rules, such as rules involving single line comments, are configured as warnings to facilitate development.
 To enforce these rules, enable `TreatWarningsAsErrors` for CI builds.
 
 ```diff
