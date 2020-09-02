@@ -40,6 +40,37 @@ Add the following package reference to your project or to your `Directory.Build.
 +     </ItemGroup>
   </Project>
 ```
+
+## Warnings as Errors
+
+Some analyzer rules, such as rules involving single line comments are configured as warnings to facilitate development.
+To enforce these rules, enable `TreatWarningsAsErrors` for CI builds.
+
+```diff
+- dotnet build --no-restore
++ dotnet build --no-restore /p:TreatWarningsAsErrors=true
 ```
 
+### Github Actions
+```diff
+ jobs:
+   build:
+     steps:
+     # ...
+     - name: Build
+-      run: dotnet build --no-restore
++      run: dotnet build --no-restore /p:TreatWarningsAsErrors=true
+     # ...
+```
 
+### Azure Devops
+```diff
+ steps:
+ # ...
+ - task: DotNetCoreCLI@2
+   displayName: Build
+   inputs:
+-    arguments: '--no-restore'
++    arguments: '--no-restore /p:TreatWarningsAsErrors=true'
+ # ...
+```
