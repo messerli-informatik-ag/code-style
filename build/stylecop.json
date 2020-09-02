@@ -3,6 +3,12 @@
   "settings": {
     "orderingRules": {
       "usingDirectivesPlacement": "outsideNamespace"
+    },
+    "namingRules": {
+      "allowedHungarianPrefixes": [
+        "js",
+        "db"
+      ]
     }
   }
 }
