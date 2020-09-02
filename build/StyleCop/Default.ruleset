@@ -13,7 +13,7 @@
         <Rule Id="SA1002" Action="Error" /> <!-- SemicolonsMustBeSpacedCorrectly -->
         <Rule Id="SA1003" Action="Error" /> <!-- SymbolsMustBeSpacedCorrectly -->
         <Rule Id="SA1004" Action="Error" /> <!-- DocumentationLinesMustBeginWithSingleSpace -->
-        <Rule Id="SA1005" Action="Error" /> <!-- SingleLineCommentsMustBeginWithSingleSpace -->
+        <Rule Id="SA1005" Action="Warning" /> <!-- SingleLineCommentsMustBeginWithSingleSpace -->
         <Rule Id="SA1006" Action="Error" /> <!-- PreprocessorKeywordsMustNotBePrecededBySpace -->
         <Rule Id="SA1007" Action="Error" /> <!-- OperatorKeywordMustBeFollowedBySpace -->
         <Rule Id="SA1008" Action="Error" /> <!-- OpeningParenthesisMustBeSpacedCorrectly -->
@@ -149,10 +149,10 @@
         <Rule Id="SA1509" Action="Error" /><!-- OpeningBracesMustNotBePrecededByBlankLine -->
         <Rule Id="SA1510" Action="Error" /><!-- ChainedStatementBlocksMustNotBePrecededByBlankLine -->
         <Rule Id="SA1511" Action="Error" /><!-- WhileDoFooterMustNotBePrecededByBlankLine -->
-        <Rule Id="SA1512" Action="Error" /><!-- SingleLineCommentsMustNotBeFollowedByBlankLine -->
+        <Rule Id="SA1512" Action="Warning" /><!-- SingleLineCommentsMustNotBeFollowedByBlankLine -->
         <Rule Id="SA1513" Action="Error" /><!-- ClosingBraceMustBeFollowedByBlankLine -->
         <Rule Id="SA1514" Action="Error" /><!-- ElementDocumentationHeaderMustBePrecededByBlankLine -->
-        <Rule Id="SA1515" Action="Error" /><!-- SingleLineCommentMustBePrecededByBlankLine -->
+        <Rule Id="SA1515" Action="Warning" /><!-- SingleLineCommentMustBePrecededByBlankLine -->
         <Rule Id="SA1516" Action="Error" /><!-- ElementsMustBeSeparatedByBlankLine -->
         <Rule Id="SA1517" Action="Error" /><!-- CodeMustNotContainBlankLinesAtStartOfFile -->
         <Rule Id="SA1518" Action="Error" /><!-- UseLineEndingsCorrectlyAtEndOfFile -->
