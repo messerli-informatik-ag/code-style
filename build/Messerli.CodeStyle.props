@@ -4,6 +4,8 @@
         <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)Default.ruleset</CodeAnalysisRuleSet>
         <WarningsAsErrors>$(WarningsAsErrors);nullable</WarningsAsErrors>
     </PropertyGroup>
-
-    <Import Project="$(MSBuildThisFileDirectory)StyleCop\Default.props" />
+    <ItemGroup>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <AdditionalFiles Include="$(MSBuildThisFileDirectory)stylecop.json" Link="stylecop.json" Visible="false" InProject="false" />
+    </ItemGroup>
 </Project>
