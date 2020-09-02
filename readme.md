@@ -14,7 +14,7 @@ Add the following package reference to your project or to your `Directory.Build.
   <?xml version="1.0" encoding="utf-8"?>
   <Project>
       <ItemGroup>
-+         <PackageReference Include="Messerli.CodeStyle" Version="1.2.1" PrivateAssets="all" />
++         <PackageReference Include="Messerli.CodeStyle" Version="2.0.0-rc.1" PrivateAssets="all" />
       </ItemGroup>
   </Project>
 ```
@@ -26,7 +26,7 @@ Add `Messerli.CodeStyle` to your `Packages.props`:
   <?xml version="1.0" encoding="utf-8"?>
   <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
       <ItemGroup Label="Build dependencies">
-+         <PackageReference Update="Messerli.CodeStyle" Version="1.2.1" />
++         <PackageReference Update="Messerli.CodeStyle" Version="2.0.0-rc.1" />
       </ItemGroup>
   </Project>
 ```

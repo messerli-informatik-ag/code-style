@@ -34,7 +34,7 @@ Initial release
 
 [IDisposableAnalyzers Changelog]: https://github.com/DotNetAnalyzers/IDisposableAnalyzers/blob/master/RELEASE_NOTES.md
 
-## Unreleased
+## 2.0.0-rc.1
 * Breaking: Treat all nullability warnings as errors.
 * Lints involving single line comments have been reduced to warnings to make temporary code commenting easier.
 * The hungarian notation rule has been relaxed to allow `js` and `db` since those two are common "false positives".
