@@ -3,7 +3,9 @@
     <PropertyGroup>
         <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)Default.ruleset</CodeAnalysisRuleSet>
         <WarningsAsErrors>$(WarningsAsErrors);nullable</WarningsAsErrors>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile><!-- This is needed so that analyzers can inspect XML comments. Enforced by SA0001. -->
     </PropertyGroup>
-
-    <Import Project="$(MSBuildThisFileDirectory)StyleCop\Default.props" />
+    <ItemGroup>
+        <AdditionalFiles Include="$(MSBuildThisFileDirectory)stylecop.json" Link="stylecop.json" Visible="false" InProject="false" />
+    </ItemGroup>
 </Project>

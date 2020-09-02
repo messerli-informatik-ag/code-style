@@ -48,6 +48,5 @@ Dir.mktmpdir do |temp_directory|
 
     test_files_are_importable_by_msbuild unpacked_directory, [
         'build/Messerli.CodeStyle.props',
-        'buildMultiTargeting/Messerli.CodeStyle.props',
     ]
 end
