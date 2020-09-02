@@ -6,15 +6,40 @@
 
 ## Usage
 
-Add the following import to your `csproj` or `Directory.Build.props`:
+### Without the CentralPackageVersions SDK
 
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<Project>
-    <ItemGroup>
-        <PackageReference Include="Messerli.CodeStyle" Version="1.2.0" PrivateAssets="all" />
-    </ItemGroup>
-</Project>
+Add the following package reference to your project or to your `Directory.Build.props`:
+
+```diff
+  <?xml version="1.0" encoding="utf-8"?>
+  <Project>
+      <ItemGroup>
++         <PackageReference Include="Messerli.CodeStyle" Version="1.2.0" PrivateAssets="all" />
+      </ItemGroup>
+  </Project>
+```
+
+### With the CentralPackageVersions SDK
+
+Add `Messerli.CodeStyle` to your `Packages.props`:
+```diff
+  <?xml version="1.0" encoding="utf-8"?>
+  <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+      <ItemGroup Label="Build dependencies">
++         <PackageReference Update="Messerli.CodeStyle" Version="1.2.0" />
+      </ItemGroup>
+  </Project>
+```
+
+Add the following package reference to your project or to your `Directory.Build.props`:
+```diff
+  <?xml version="1.0" encoding="utf-8"?>
+  <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
++     <ItemGroup>
++         <PackageReference Include="Messerli.CodeStyle" PrivateAssets="all" />
++     </ItemGroup>
+  </Project>
+```
 ```
 
 
