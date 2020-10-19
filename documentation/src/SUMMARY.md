@@ -11,6 +11,7 @@
 * [Types](./types.md)
 * [Functional Programming](./functional.md)
 * [Object oriented programming](./oop.md)
+* [Algebraic Datatypes](./algebraic-datatypes.md)
 * [Methods](./methods.md)
 * [Namespaces](./namespaces.md)
 * [Exceptions](./exceptions.md)
