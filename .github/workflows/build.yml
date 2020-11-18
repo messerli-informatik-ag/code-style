@@ -3,7 +3,7 @@ name: Build
 on:
   push:
     branches:
-      - '*'
+      - master
 
   pull_request:
     branches:
@@ -23,7 +23,7 @@ jobs:
     - name: Build
       run: dotnet build --configuration Release --no-restore
     - name: Pack
-      run: dotnet pack --configuration Release --no-restore
+      run: dotnet pack --configuration Release --no-restore --output nupkg
     - name: Test that files are importable by MSBuild
       run: ruby ./scripts/test_files_are_importable_by_msbuild.rb
     - name: Show NuGet package content
