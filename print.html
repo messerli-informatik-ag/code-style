@@ -93,7 +93,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="guidelines.html">Messerli C# Coding Guidelines</a></li><li class="chapter-item expanded "><a href="physical-structure.html"><strong aria-hidden="true">1.</strong> Physical structure</a></li><li class="chapter-item expanded "><a href="formatting.html"><strong aria-hidden="true">2.</strong> Formatting rules</a></li><li class="chapter-item expanded "><a href="naming.html"><strong aria-hidden="true">3.</strong> Naming Conventions</a></li><li class="chapter-item expanded "><a href="variables.html"><strong aria-hidden="true">4.</strong> Variables</a></li><li class="chapter-item expanded "><a href="basic-constructs.html"><strong aria-hidden="true">5.</strong> Basic constructs</a></li><li class="chapter-item expanded "><a href="expressions.html"><strong aria-hidden="true">6.</strong> Expressions</a></li><li class="chapter-item expanded "><a href="types.html"><strong aria-hidden="true">7.</strong> Types</a></li><li class="chapter-item expanded "><a href="functional.html"><strong aria-hidden="true">8.</strong> Functional Programming</a></li><li class="chapter-item expanded "><a href="oop.html"><strong aria-hidden="true">9.</strong> Object oriented programming</a></li><li class="chapter-item expanded "><a href="methods.html"><strong aria-hidden="true">10.</strong> Methods</a></li><li class="chapter-item expanded "><a href="namespaces.html"><strong aria-hidden="true">11.</strong> Namespaces</a></li><li class="chapter-item expanded "><a href="exceptions.html"><strong aria-hidden="true">12.</strong> Exceptions</a></li><li class="chapter-item expanded "><a href="miscellaneous.html"><strong aria-hidden="true">13.</strong> Miscellaneous</a></li><li class="chapter-item expanded "><a href="comments.html"><strong aria-hidden="true">14.</strong> Comments</a></li><li class="chapter-item expanded "><a href="commit-messages.html"><strong aria-hidden="true">15.</strong> Commit Message</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="guidelines.html">Messerli C# Coding Guidelines</a></li><li class="chapter-item expanded "><a href="physical-structure.html"><strong aria-hidden="true">1.</strong> Physical structure</a></li><li class="chapter-item expanded "><a href="formatting.html"><strong aria-hidden="true">2.</strong> Formatting rules</a></li><li class="chapter-item expanded "><a href="naming.html"><strong aria-hidden="true">3.</strong> Naming Conventions</a></li><li class="chapter-item expanded "><a href="variables.html"><strong aria-hidden="true">4.</strong> Variables</a></li><li class="chapter-item expanded "><a href="basic-constructs.html"><strong aria-hidden="true">5.</strong> Basic constructs</a></li><li class="chapter-item expanded "><a href="expressions.html"><strong aria-hidden="true">6.</strong> Expressions</a></li><li class="chapter-item expanded "><a href="types.html"><strong aria-hidden="true">7.</strong> Types</a></li><li class="chapter-item expanded "><a href="functional.html"><strong aria-hidden="true">8.</strong> Functional Programming</a></li><li class="chapter-item expanded "><a href="oop.html"><strong aria-hidden="true">9.</strong> Object oriented programming</a></li><li class="chapter-item expanded "><a href="algebraic-datatypes.html"><strong aria-hidden="true">10.</strong> Algebraic Datatypes</a></li><li class="chapter-item expanded "><a href="methods.html"><strong aria-hidden="true">11.</strong> Methods</a></li><li class="chapter-item expanded "><a href="namespaces.html"><strong aria-hidden="true">12.</strong> Namespaces</a></li><li class="chapter-item expanded "><a href="exceptions.html"><strong aria-hidden="true">13.</strong> Exceptions</a></li><li class="chapter-item expanded "><a href="miscellaneous.html"><strong aria-hidden="true">14.</strong> Miscellaneous</a></li><li class="chapter-item expanded "><a href="comments.html"><strong aria-hidden="true">15.</strong> Comments</a></li><li class="chapter-item expanded "><a href="commit-messages.html"><strong aria-hidden="true">16.</strong> Commit Message</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -538,6 +538,120 @@ If there is not an algorithm available, try to be generic and write your own alg
 <p>The other form is the ability to overload methods with different parameter types which is a form of static compile time polymorphism. It is more powerful in the regard that you can overload on any type and you do not need to have a type hierarchy for it to work. However be careful on this, the overload resolution uses the static type-definition and not the run-type type definition. Which means this is limited to cases where you exactly know the type at compile time.</p>
 <h3><a class="header" href="#use-the-visitor-pattern-for-double-dispatch" id="use-the-visitor-pattern-for-double-dispatch">Use the visitor pattern for double dispatch</a></h3>
 <p><a href="https://eli.thegreenplace.net/2016/a-polyglots-guide-to-multiple-dispatch">Static overload resolution can dispatch on more than one type</a>, but at runtime we are limited to a single dispatch mechanism offered by the subtype polymorphism. To overcome this, we need to take advantage of both forms of polymorphism offered in C#. The visitor pattern is the right choice in such cases.</p>
+<h1><a class="header" href="#algebraic-datatypes" id="algebraic-datatypes">Algebraic Datatypes</a></h1>
+<p>Algebraic datatypes are also called discriminated unions, tagged unions, and sometimes &quot;or types&quot; colloquially. 
+They can be found in many functional languages (even if they're not named algebraic datatypes specifically), and have become widely known and used in Typescript 2.0.</p>
+<h2><a class="header" href="#algebraic-datatypes-in-c" id="algebraic-datatypes-in-c">Algebraic datatypes in C#</a></h2>
+<p>While we don't have language support for algebraic datatypes in C#, there are some patterns on how you can implement something that behaves like one.</p>
+<p>We recommend the usage of the following pattern using an abstract base class with a private constructor and inner, deriving classes and usually a match function.
+This has the advantage that the algebraic options are namespaced as the inner class, which simplifies the naming.
+The constructor is private to prevent extension of the algebraic datatype — with a private constructor only inner classes can derive from the abstract base class.</p>
+<p>When your intention is to write something like an enum, but with attachable data to every option, algebraic datatypes is what you're looking for.</p>
+<h2><a class="header" href="#example-1-updatemode" id="example-1-updatemode">Example 1 (<code>UpdateMode</code>)</a></h2>
+<p>Our example has three different update modes - the <code>ServerDefault</code>, the <code>Auto</code> mode via <code>ChannelName</code> and a <code>Version</code> defined <code>Pinned</code> mode.
+Our match method allows us to define what should happen for each configured mode.
+The upside of that over a switch expression is that we have no problems with exhaustability (see Example 2).</p>
+<pre><code class="language-csharp">public abstract class UpdateMode
+{
+    private UpdateMode()
+    {
+    }
+
+    public abstract TResult Match&lt;TResult&gt;(
+        Func&lt;ServerDefault, TResult&gt; serverDefault,
+        Func&lt;Auto, TResult&gt; auto,
+        Func&lt;Pinned, TResult&gt; pinned);
+
+    public sealed class ServerDefault : UpdateMode
+    {
+        public override TResult Match&lt;TResult&gt;(
+            Func&lt;ServerDefault, TResult&gt; serverDefault,
+            Func&lt;Auto, TResult&gt; auto,
+            Func&lt;Pinned, TResult&gt; pinned) 
+            =&gt; serverDefault(this);
+    }
+
+    public sealed class Auto : UpdateMode
+    {
+        public Auto(string channelName)
+        {
+            ChannelName = channelName;
+        }
+
+        public string ChannelName { get; }
+
+        public override TResult Match&lt;TResult&gt;(
+            Func&lt;ServerDefault, TResult&gt; serverDefault,
+            Func&lt;Auto, TResult&gt; auto,
+            Func&lt;Pinned, TResult&gt; pinned) 
+            =&gt; auto(this);
+    }
+
+    public sealed class Pinned : UpdateMode
+    {
+        public Pinned(string version)
+        {
+            Version = version;
+        }
+
+        public string Version { get; }
+
+        public override TResult Match&lt;TResult&gt;(
+            Func&lt;ServerDefault, TResult&gt; serverDefault,
+            Func&lt;Auto, TResult&gt; auto,
+            Func&lt;Pinned, TResult&gt; pinned) 
+            =&gt; pinned(this);
+    }
+}
+</code></pre>
+<p>Summed up:</p>
+<ul>
+<li>Abstract class (ensures inner classes are always used in a namespaced manner, e.g. <code>UpdateMode.Auto</code>)</li>
+<li>Private constructor in abstract class (this ensures no one can derive from the abstract class except the inner classes)</li>
+<li>An abstract match method with a <code>Func&lt;Variant, TResult&gt;</code> for every option of the algebraic datatype</li>
+<li>Inner deriving sealed classes (that implement match and call the base constructor)</li>
+<li>You can have data either on the base class and have it passed to the base constuctor, or in the deriving classes</li>
+</ul>
+<h2><a class="header" href="#example-2---why-we-recommend-a-match-function" id="example-2---why-we-recommend-a-match-function">Example 2 - why we recommend a match function</a></h2>
+<p>Consider the <code>UpdateMode</code> algebraic datatype from Example 1.</p>
+<p>Usage example with Match:</p>
+<pre><code class="language-csharp">var info = mode.Match(
+    serverDefault =&gt; $&quot;Server default mode&quot;,
+    auto =&gt; $&quot;Auto with channel {auto.ChannelName}&quot;,
+    pinned =&gt; $&quot;Pinned to Version {pinned.Version}&quot;);
+</code></pre>
+<p>Usage example with switch expression:</p>
+<pre><code class="language-csharp">var info = mode switch
+{
+    UpdateMode.ServerDefault serverDefault =&gt; $&quot;Server default mode&quot;,
+    UpdateMode.Auto auto =&gt; $&quot;Auto with channel {auto.ChannelName}&quot;,
+    UpdateMode.Pinned pinned =&gt; $&quot;Pinned to Version {pinned.Version}&quot;,
+    _ =&gt; throw new Exception(&quot;Unreachable&quot;), // we almost always need this, because the compiler doesn't know there's only 3 types
+};
+</code></pre>
+<p>The advantage of using a match function is clear: 
+No useless exception that is unreachable anyways, and immediate feedback from the compiler when adding another option to the algebraic datatype.</p>
+<h2><a class="header" href="#use-lables-on-the-match-method" id="use-lables-on-the-match-method">Use lables on the match method</a></h2>
+<p>It is good practice to use argument labels to avoid mixups in argument order, so consider this example superior to the Match example in Example 2:</p>
+<pre><code class="language-csharp">var info = mode.Match(
+    serverDefault: serverDefault =&gt; $&quot;Server default mode&quot;,
+    auto: auto =&gt; $&quot;Auto with channel {auto.ChannelName}&quot;,
+    pinned: pinned =&gt; $&quot;Pinned to Version {pinned.Version}&quot;);
+</code></pre>
+<p>This is especially true if you don't need the argument itself and just execute an action:</p>
+<pre><code class="language-csharp">// This example uses ActionToUnit and NoOperation from Funcky.
+// void is not a valid generic argument for a method, so we often use the Unit type for some of these use cases.
+// See the Funcky documentation (https://polyadic.github.io/funcky/) for more information on the Unit type.
+static void SomeMethod() =&gt; NoOperation();
+mode.Match(
+    serverDefault: _ =&gt; ActionToUnit(SomeMethod),
+    auto: _ =&gt; ActionToUnit(SomeMethod),
+    pinned: _ =&gt; ActionToUnit(SomeMethod));
+</code></pre>
+<h2><a class="header" href="#disadvantages-of-using-a-match-function-or-why-you-might-want-your-match-function-to-be-internal" id="disadvantages-of-using-a-match-function-or-why-you-might-want-your-match-function-to-be-internal">Disadvantages of using a match function, or why you might want your match function to be internal</a></h2>
+<p>When the match function is exposed from a library, adding a new variant to the algebraic datatype will break public api. 
+Therefore, if you want to avoid this, you should make the match method internal. 
+This makes you losing out on the exhaustiveness when the library is used, but at least you don't have to break public api to add another option.</p>
 <h1><a class="header" href="#methods" id="methods">Methods</a></h1>
 <h2><a class="header" href="#usually-keep-a-method-signature-on-one-line" id="usually-keep-a-method-signature-on-one-line">Usually keep a method signature on one line</a></h2>
 <p>Alternativly get each parameter on a single line, especially for constructors where the injected objects can change often.</p>
