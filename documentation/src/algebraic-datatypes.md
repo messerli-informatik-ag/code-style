@@ -14,79 +14,69 @@ The constructor is private to prevent extension of the algebraic datatype — wi
 
 When your intention is to write something like an enum, but with attachable data to every option, algebraic datatypes is what you're looking for.
 
-## Example 1 (`ServiceStatus`)
+## Example 1 (`UpdateMode`)
 
-Our example has 3 states - a service can be stopped, starting or running. Each state also provides the `StandardOutput` and the `StandardError`.
-Our match method allows us to define what should happen for each configured option.
+Our example has three different update modes - the `ServerDefault`, the `Auto` mode via `ChannelName` and a `Version` defined `Pinned` mode.
+Our match method allows us to define what should happen for each configured mode.
 The upside of that over a switch expression is that we have no problems with exhaustability (see Example 2).
 
 ```csharp
-public abstract class ServiceStatus
+public abstract class UpdateMode
 {
-    private ServiceStatus(Process? process)
+    private UpdateMode()
     {
-        StandardOutput = process?.StandardOutput.ReadToEnd() ?? string.Empty;
-        StandardError = process?.StandardError.ReadToEnd() ?? string.Empty;
     }
-
-    public string StandardOutput { get; }
-
-    public string StandardError { get; }
 
     public abstract TResult Match<TResult>(
-            Func<Stopped, TResult> stopped,
-            Func<Starting, TResult> starting,
-            Func<Running, TResult> running);
+        Func<ServerDefault, TResult> serverDefault,
+        Func<Auto, TResult> auto,
+        Func<Pinned, TResult> pinned);
 
-    public sealed class Stopped : ServiceStatus
+    public sealed class ServerDefault : UpdateMode
     {
-        public Stopped(Process? process)
-            : base(process)
-        {
-        }
-
         public override TResult Match<TResult>(
-            Func<Stopped, TResult> stopped,
-            Func<Starting, TResult> starting,
-            Func<Running, TResult> running)
-            => stopped(this);
+            Func<ServerDefault, TResult> serverDefault,
+            Func<Auto, TResult> auto,
+            Func<Pinned, TResult> pinned) 
+            => serverDefault(this);
     }
 
-    public sealed class Starting : ServiceStatus
+    public sealed class Auto : UpdateMode
     {
-        public Starting(Process? process, string reason)
-            : base(process)
+        public Auto(string channelName)
         {
-            Reason = reason;
+            ChannelName = channelName;
         }
-		
-		public string Reason { get; }
+
+        public string ChannelName { get; }
 
         public override TResult Match<TResult>(
-            Func<Stopped, TResult> stopped,
-            Func<Starting, TResult> starting,
-            Func<Running, TResult> running)
-            => starting(this);
+            Func<ServerDefault, TResult> serverDefault,
+            Func<Auto, TResult> auto,
+            Func<Pinned, TResult> pinned) 
+            => auto(this);
     }
 
-    public sealed class Running : ServiceStatus
+    public sealed class Pinned : UpdateMode
     {
-        public Running(Process? process)
-            : base(process)
+        public Pinned(string version)
         {
+            Version = version;
         }
 
+        public string Version { get; }
+
         public override TResult Match<TResult>(
-            Func<Stopped, TResult> stopped,
-            Func<Starting, TResult> starting,
-            Func<Running, TResult> running)
-            => running(this);
+            Func<ServerDefault, TResult> serverDefault,
+            Func<Auto, TResult> auto,
+            Func<Pinned, TResult> pinned) 
+            => pinned(this);
     }
 }
 ```
 
 Summed up:
-- Abstract class (ensures inner classes are always used in a namespaced manner, e.g. `ServiceStatus.Stopped`)
+- Abstract class (ensures inner classes are always used in a namespaced manner, e.g. `UpdateMode.Auto`)
 - Private constructor in abstract class (this ensures no one can derive from the abstract class except the inner classes)
 - An abstract match method with a `Func<Variant, TResult>` for every option of the algebraic datatype
 - Inner deriving sealed classes (that implement match and call the base constructor)
@@ -94,26 +84,26 @@ Summed up:
 
 ## Example 2 - why we recommend a match function
 
-Consider the `ServiceStatus` algebraic datatype from Example 1.
+Consider the `UpdateMode` algebraic datatype from Example 1.
 
 Usage example with Match:
 
 ```csharp
-var info = status.Match(
-	stopped => $"{stopped.StandardOutput}, {stopped.StandardError}",
-	starting => $"{starting.StandardOutput}, {starting.StandardError}, {starting.Reason}",
-	running => $"{running.StandardOutput}, {running.StandardError}");
+var info = mode.Match(
+    serverDefault => $"Server default mode",
+    auto => $"Auto with channel {auto.ChannelName}",
+    pinned => $"Pinned to Version {pinned.Version}");
 ```
 
 Usage example with switch expression:
 
 ```csharp
-var info = status switch
+var info = mode switch
 {
-    ServiceStatus.Running running => $"{running.StandardOutput}, {running.StandardError}",
-    ServiceStatus.Starting starting => $"{starting.StandardOutput}, {starting.StandardError}, {starting.Reason}",
-    ServiceStatus.Stopped stopped => $"{stopped.StandardOutput}, {stopped.StandardError}",
-    _ => throw new Exception("Unreachable"), // we need this, because the compiler doesn't know there's only 3 types
+    UpdateMode.ServerDefault serverDefault => $"Server default mode",
+    UpdateMode.Auto auto => $"Auto with channel {auto.ChannelName}",
+    UpdateMode.Pinned pinned => $"Pinned to Version {pinned.Version}",
+    _ => throw new Exception("Unreachable"), // we almost always need this, because the compiler doesn't know there's only 3 types
 };
 ```
 
@@ -125,10 +115,10 @@ No useless exception that is unreachable anyways, and immediate feedback from th
 It is good practice to use argument labels to avoid mixups in argument order, so consider this example superior to the Match example in Example 2:
 
 ```csharp
-var info = status.Match(
-	stopped: stopped => $"{stopped.StandardOutput}, {stopped.StandardError}",
-	starting: starting => $"{starting.StandardOutput}, {starting.StandardError}, {starting.Reason}",
-	running: running => $"{running.StandardOutput}, {running.StandardError}");
+var info = mode.Match(
+    serverDefault: serverDefault => $"Server default mode",
+    auto: auto => $"Auto with channel {auto.ChannelName}",
+    pinned: pinned => $"Pinned to Version {pinned.Version}");
 ```
 
 This is especially true if you don't need the argument itself and just execute an action:
@@ -138,10 +128,10 @@ This is especially true if you don't need the argument itself and just execute a
 // void is not a valid generic argument for a method, so we often use the Unit type for some of these use cases.
 // See the Funcky documentation (https://polyadic.github.io/funcky/) for more information on the Unit type.
 static void SomeMethod() => NoOperation();
-status.Match(
-	stopped: _ => ActionToUnit(SomeMethod),
-	starting: _ => ActionToUnit(SomeMethod),
-	running: _ => ActionToUnit(SomeMethod));
+mode.Match(
+    serverDefault: _ => ActionToUnit(SomeMethod),
+    auto: _ => ActionToUnit(SomeMethod),
+    pinned: _ => ActionToUnit(SomeMethod));
 ```
 
 ## Disadvantages of using a match function, or why you might want your match function to be internal
