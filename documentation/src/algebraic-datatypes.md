@@ -9,6 +9,7 @@ While we don't have language support for algebraic datatypes in C#, there are so
 
 We recommend the usage of the following pattern using an abstract base class with a private constructor and inner, deriving classes and usually a match function.
 This has the advantage that the algebraic options are namespaced as the inner class, which simplifies the naming.
+The constructor is private to prevent extension of the algebraic datatype - with a private constructor only inner classes can derive from the abstract base class.
 
 When your intention is to write something like an enum, but with attachable data to every option, algebraic datatypes is what you're looking for.
 
@@ -21,95 +22,105 @@ The upside of that over a switch expression is that we have no problems with exh
 ```csharp
 public abstract class ServiceStatus
 {
-	private ServiceStatus(Process? process)
-	{
-		StandardOutput = process?.StandardOutput.ReadToEnd() ?? string.Empty;
-		StandardError = process?.StandardError.ReadToEnd() ?? string.Empty;
-	}
+    private ServiceStatus(Process? process)
+    {
+        StandardOutput = process?.StandardOutput.ReadToEnd() ?? string.Empty;
+        StandardError = process?.StandardError.ReadToEnd() ?? string.Empty;
+    }
 
-	public string StandardOutput { get; }
+    public string StandardOutput { get; }
 
-	public string StandardError { get; }
+    public string StandardError { get; }
 
-	public abstract void Match(
-		Action<string, string> stopped,
-		Action<string, string> starting,
-		Action<string, string> running);
+    public abstract TResult Match<TResult>(
+            Func<Stopped, TResult> stopped,
+            Func<Starting, TResult> starting,
+            Func<Running, TResult> running);
 
-	public sealed class Stopped : ServiceStatus
-	{
-		public Stopped(Process? process)
-			: base(process)
-		{
-		}
+    public sealed class Stopped : ServiceStatus
+    {
+        public Stopped(Process? process)
+            : base(process)
+        {
+        }
 
-		public override void Match(
-			Action<string, string> stopped,
-			Action<string, string> starting,
-			Action<string, string> running)
-			=> stopped(StandardOutput, StandardError);
-	}
+        public override TResult Match<TResult>(
+            Func<Stopped, TResult> stopped,
+            Func<Starting, TResult> starting,
+            Func<Running, TResult> running)
+            => stopped(this);
+    }
 
-	public sealed class Starting : ServiceStatus
-	{
-		public Starting(Process? process)
-			: base(process)
-		{
-		}
+    public sealed class Starting : ServiceStatus
+    {
+        public Starting(Process? process, string reason)
+            : base(process)
+        {
+            Reason = reason;
+        }
+		
+		public string Reason { get; }
 
-		public override void Match(
-			Action<string, string> stopped,
-			Action<string, string> starting,
-			Action<string, string> running)
-			=> starting(StandardOutput, StandardError);
-	}
+        public override TResult Match<TResult>(
+            Func<Stopped, TResult> stopped,
+            Func<Starting, TResult> starting,
+            Func<Running, TResult> running)
+            => starting(this);
+    }
 
-	public sealed class Running : ServiceStatus
-	{
-		public Running(Process? process)
-			: base(process)
-		{
-		}
+    public sealed class Running : ServiceStatus
+    {
+        public Running(Process? process)
+            : base(process)
+        {
+        }
 
-		public override void Match(
-			Action<string, string> stopped,
-			Action<string, string> starting,
-			Action<string, string> running)
-			=> running(StandardOutput, StandardError);
-	}
+        public override TResult Match<TResult>(
+            Func<Stopped, TResult> stopped,
+            Func<Starting, TResult> starting,
+            Func<Running, TResult> running)
+            => running(this);
+    }
 }
 ```
 
 Summed up:
 - Abstract class (ensures inner classes are always used in a namespaced manner, e.g. `ServiceStatus.Stopped`)
 - Private constructor in abstract class (this ensures no one can derive from the abstract class except the inner classes)
-- An abstract match method with an `Action` (or `Action<T1,...,Tn>`) for every option of the algebraic datatype
+- An abstract match method with a `Func<Variant, TResult>` for every option of the algebraic datatype
 - Inner deriving sealed classes (that implement match and call the base constructor)
+- You can have data either on the base class and have it passed to the base constuctor, or in the deriving classes
 
-## Example 2 - why we recommend a match method
+## Example 2 - why we recommend a match function
 
 Consider the `ServiceStatus` algebraic datatype from Example 1.
 
 Usage example with Match:
 
 ```csharp
-status.Match(
-	(output, error) => Console.WriteLine($"{output}, {error}"),
-	(output, error) => Console.WriteLine($"{output}, {error}"),
-	(output, error) => Console.WriteLine($"{output}, {error}"));
+var info = status.Match(
+	stopped => $"{stopped.StandardOutput}, {stopped.StandardError}",
+	starting => $"{starting.StandardOutput}, {starting.StandardError}, {starting.Reason}",
+	running => $"{running.StandardOutput}, {running.StandardError}");
 ```
 
 Usage example with switch expression:
 
 ```csharp
-status switch
+var info = status switch
 {
-	ServiceStatus.Running running => Console.WriteLine($"{running.StandardOutput}, {running.StandardError}"),
-	ServiceStatus.Starting starting => Console.WriteLine($"{starting.StandardOutput}, {starting.StandardError}"),
-	ServiceStatus.Stopped stopped => Console.WriteLine($"{stopped.StandardOutput}, {stopped.StandardError}"),
-	_ => throw new Exception("Unreachable"), // we need this, because the compiler doesn't know there's only 3 types
+    ServiceStatus.Running running => $"{running.StandardOutput}, {running.StandardError}",
+    ServiceStatus.Starting starting => $"{starting.StandardOutput}, {starting.StandardError}, {starting.Reason}",
+    ServiceStatus.Stopped stopped => $"{stopped.StandardOutput}, {stopped.StandardError}",
+    _ => throw new Exception("Unreachable"), // we need this, because the compiler doesn't know there's only 3 types
 };
 ```
 
 The advantage of using a match function is clear: 
 No useless exception that is unreachable anyways, and immediate feedback from the compiler when adding another option to the algebraic datatype.
+
+## Disadvantages of using a match function, or why you might want your match function to be internal
+
+When the match function is exposed from a library, adding a new variant to the algebraic datatype will break public api. 
+Therefore, if you want to avoid this, you should make the match method internal. 
+This makes you losing out on the exhaustiveness when the library is used, but at least you don't have to break public api to add another option.
