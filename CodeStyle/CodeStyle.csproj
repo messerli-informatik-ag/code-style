@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.Build.NoTargets">
     <PropertyGroup>
-        <Version>2.0.0-rc.1</Version>
+        <Version>2.0.0-rc.2</Version>
         <RepositoryUrl>https://github.com/messerli-informatik-ag/code-style</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <PackageId>Messerli.CodeStyle</PackageId>
@@ -22,7 +22,7 @@
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="IDisposableAnalyzers" Version="3.4.1" PrivateAssets="none" />
-        <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.205" PrivateAssets="none" />
+        <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.261" PrivateAssets="none" />
     </ItemGroup>
     <ItemGroup>
         <None Include="build\**\*">
