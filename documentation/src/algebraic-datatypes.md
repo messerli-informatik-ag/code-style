@@ -119,6 +119,30 @@ var info = status switch
 The advantage of using a match function is clear: 
 No useless exception that is unreachable anyways, and immediate feedback from the compiler when adding another option to the algebraic datatype.
 
+## Use lables on the match method
+
+It is good practice to use argument labels to avoid mixups in argument order, so consider this example superior to the Match example in Example 2:
+
+```csharp
+var info = status.Match(
+	stopped: stopped => $"{stopped.StandardOutput}, {stopped.StandardError}",
+	starting: starting => $"{starting.StandardOutput}, {starting.StandardError}, {starting.Reason}",
+	running: running => $"{running.StandardOutput}, {running.StandardError}");
+```
+
+This is especially true if you don't need the argument itself and just execute an action:
+
+```csharp
+// This example uses ActionToUnit and NoOperation from Funcky.
+// void is not a valid generic argument for a method, so we often use the Unit type for some of these use cases.
+// See the Funcky documentation (https://polyadic.github.io/funcky/) for more information on the Unit type.
+static void SomeMethod() => NoOperation();
+status.Match(
+	stopped: _ => ActionToUnit(SomeMethod),
+	starting: _ => ActionToUnit(SomeMethod),
+	running: _ => ActionToUnit(SomeMethod));
+```
+
 ## Disadvantages of using a match function, or why you might want your match function to be internal
 
 When the match function is exposed from a library, adding a new variant to the algebraic datatype will break public api. 
