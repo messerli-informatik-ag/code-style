@@ -9,7 +9,8 @@ While we don't have language support for algebraic datatypes in C#, there are so
 
 We recommend the usage of the following pattern using an abstract base class with a private constructor and inner, deriving classes and usually a match function.
 This has the advantage that the algebraic options are namespaced as the inner class, which simplifies the naming.
-The constructor is private to prevent extension of the algebraic datatype - with a private constructor only inner classes can derive from the abstract base class.
+The constructor is private to prevent extension of the algebraic datatype — with a private constructor only inner classes can derive from the abstract base class.
+
 
 When your intention is to write something like an enum, but with attachable data to every option, algebraic datatypes is what you're looking for.
 
