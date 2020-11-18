@@ -7,7 +7,6 @@
         <PackageId>Messerli.CodeStyle</PackageId>
         <PackageTags>analyzers</PackageTags>
         <PackageLicenseExpression>MIT OR Apache-2.0</PackageLicenseExpression>
-        <PackageOutputPath>nupkg</PackageOutputPath>
         <Copyright>© Messerli Informatik AG. All rights reserved.</Copyright>
         <Description>Various analyzers bundled with opinionated configuration</Description>
         <NoWarn>$(NoWarn);NU5105;NU5104;NU5128</NoWarn>
