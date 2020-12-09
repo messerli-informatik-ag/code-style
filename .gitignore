@@ -2,3 +2,4 @@ bin/
 obj/
 /documentation/book/
 /nupkg/
+.idea/
