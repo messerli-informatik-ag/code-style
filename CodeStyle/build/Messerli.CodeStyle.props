@@ -2,7 +2,7 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
         <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)Default.ruleset</CodeAnalysisRuleSet>
-        <WarningsAsErrors>$(WarningsAsErrors);nullable</WarningsAsErrors>
+        <WarningsAsErrors Condition="'$(MSBuildProjectExtension)' == '.csproj'">$(WarningsAsErrors);nullable</WarningsAsErrors>
         <GenerateDocumentationFile>true</GenerateDocumentationFile><!-- This is needed so that analyzers can inspect XML comments. Enforced by SA0001. -->
     </PropertyGroup>
     <ItemGroup>
