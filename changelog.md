@@ -44,3 +44,4 @@ Initial release
 
 ## 2.0.0-rc.3
 - Update StyleCop.Analyzers to 1.2.0-beta.312 ([diff](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/compare/1.2.0-beta.261...1.2.0-beta.312))
+- Fix compilation error when building an F# project.
