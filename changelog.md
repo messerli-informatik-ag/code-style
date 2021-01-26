@@ -68,3 +68,7 @@ Initial release
   > * BUGFIX: Cast and dispose correctly.
   > #### 3.4.2
   > * Handle some regressions in Roslyn 3.7
+* Update StyleCop.Analyzers to 1.2.0-beta.321 ([diff](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/compare/1.2.0-beta.312...1.2.0-beta.321)) \
+  Notable changes/fixes:
+  * [9c5c071: Support records without braces](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/compare/1.2.0-beta.312...1.2.0-beta.321)
+  * [46d2e37: Support implicit object creation expressions in SA1129 code fix](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/commit/46d2e37fed1e471446f32c88c6bdaf2530239570)
