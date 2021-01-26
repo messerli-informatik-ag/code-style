@@ -45,3 +45,26 @@ Initial release
 ## 2.0.0-rc.3
 - Update StyleCop.Analyzers to 1.2.0-beta.312 ([diff](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/compare/1.2.0-beta.261...1.2.0-beta.312))
 - Fix compilation error when building an F# project.
+
+## Unreleased
+* Update IDisposableAnalyzers to 3.4.8. Excerpt from [IDisposableAnalyzers Changelog]:
+  > #### 3.4.8
+  >  * BUGFIX: Don't use Roslyn's SymbolEqualityComparer
+  > #### 3.4.7
+  >  * Can't repro issues, thinking maybe the 3.4.6 release used wrong binaries.
+  > #### 3.4.6
+  > * BUGFIX: IDSP007 when using declaration.
+  > * BUGFIX: Figure out chained calls.
+  > #### 3.4.5
+  > * FEATURE: Handle switch expression.
+  > * BUGFIX: Figure out await in more places.
+  > * BUGFIX: Tweak assumptions about binary symbols.
+  > * BUGFIX: Handle Interlocked.Exchange
+  > #### 3.4.4
+  > * FEATURE: Handle some common uses of reflection.
+  > #### 3.4.3
+  > * Special case ConnectionFactory.CreateConnection
+  > * BUGFIX: Handle chained calls
+  > * BUGFIX: Cast and dispose correctly.
+  > #### 3.4.2
+  > * Handle some regressions in Roslyn 3.7
