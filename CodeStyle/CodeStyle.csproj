@@ -21,8 +21,8 @@
         <TargetFrameworks>netstandard2.1;netstandard2.0</TargetFrameworks>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="IDisposableAnalyzers" Version="3.4.1" PrivateAssets="none" />
-        <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.312" PrivateAssets="none" />
+        <PackageReference Include="IDisposableAnalyzers" Version="3.4.8" PrivateAssets="none" />
+        <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.321" PrivateAssets="none" />
     </ItemGroup>
     <ItemGroup>
         <None Include="build\**\*">
