@@ -18,3 +18,4 @@
 * [Miscellaneous](./miscellaneous.md)
 * [Comments](./comments.md)
 * [Commit Message](./commit-messages.md)
+* [Index Initializer](./index-initializer.md)
