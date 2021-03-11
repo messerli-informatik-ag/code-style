@@ -72,3 +72,23 @@ Initial release
   Notable changes/fixes:
   * [9c5c071: Support records without braces](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/compare/1.2.0-beta.312...1.2.0-beta.321)
   * [46d2e37: Support implicit object creation expressions in SA1129 code fix](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/commit/46d2e37fed1e471446f32c88c6bdaf2530239570)
+
+## 2.0.1
+* Update IDisposableAnalyzers to 3.4.13. Excerpt from [IDisposableAnalyzers Changelog]:
+  > #### 3.4.13
+  > * BUGFIX: Specialcase Gu.Reactive extension methods.
+  > #### 3.4.12
+  > * BUGFIX: When leaveOpen has default value
+  > #### 3.4.11
+  > * BUGFIX IDISP023 handle trivial and.
+  > * BUGFIX IDISP023 when chained constructors
+  > * BUGFIX IDISP001 when if statement.
+  > * BUGFIX IDISP004 when chained leave open.
+  > #### 3.4.10
+  > * BUGFIX: Handle using in loop
+  > #### 3.4.9
+  > * BUGFIX: IDISP023 Allow touching static reference types.
+  > * BUGFIX: AD0001: Analyzer 'IDisposableAnalyzers.LocalDeclarationAnalyzer
+* Update StyleCop.Analyzers to 1.2.0-beta.333 ([diff](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/compare/1.2.0-beta.321...1.2.0-beta.333)) \
+  Notable changes/fixes:
+  * [23db6c0: Avoid reporting SA1141 (Use tuple syntax) in expression trees](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/commit/af356f9b36dc4849a678c0b8c918123fa567913b)
