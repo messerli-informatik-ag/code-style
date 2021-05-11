@@ -8,6 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build Config", "Build Config", "{D44C9927-F065-4722-B9AF-7084CC067E0A}"
 ProjectSection(SolutionItems) = preProject
 	global.json = global.json
+	NuGet.config = NuGet.config
 EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AA84EF3C-D29F-4B6D-ADEE-E87610D0BC1C}"
