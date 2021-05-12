@@ -7,7 +7,7 @@ using Microsoft.CodeAnalysis.CodeActions;
 using Microsoft.CodeAnalysis.CodeFixes;
 using Microsoft.CodeAnalysis.CSharp;
 
-namespace CodeStyleAnalyzers.InterfaceAnalyzers.PublicModifier
+namespace CodeStyle.Analyzers.InterfaceAnalyzers.PublicModifier
 {
     [ExportCodeFixProvider(LanguageNames.CSharp)]
     public class PublicModifierInterfaceCodeFix : CodeFixProvider

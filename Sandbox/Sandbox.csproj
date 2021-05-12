@@ -8,7 +8,7 @@
         <ProjectReference Include="..\CodeStyle\CodeStyle.csproj" />
     </ItemGroup>
     <ItemGroup>
-        <ProjectReference Include="..\CodeStyleAnalyzers\CodeStyleAnalyzers.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+        <ProjectReference Include="..\CodeStyle.Analyzers\CodeStyle.Analyzers.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
     </ItemGroup>
     <Import Project="..\CodeStyle\build\Messerli.CodeStyle.props" />
 </Project>

@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
 using Xunit;
-using VerifyCodeStyle = CodeStyleAnalyzers.Test.CSharpVerifier<CodeStyleAnalyzers.InterfaceAnalyzers.PublicModifier.PublicModifierInterfaceAnalyzer, CodeStyleAnalyzers.InterfaceAnalyzers.PublicModifier.PublicModifierInterfaceCodeFix, Microsoft.CodeAnalysis.Testing.Verifiers.XUnitVerifier>;
+using VerifyCodeStyle = CodeStyle.Analyzers.Test.CSharpVerifier<CodeStyle.Analyzers.InterfaceAnalyzers.PublicModifier.PublicModifierInterfaceAnalyzer, CodeStyle.Analyzers.InterfaceAnalyzers.PublicModifier.PublicModifierInterfaceCodeFix, Microsoft.CodeAnalysis.Testing.Verifiers.XUnitVerifier>;
 
-namespace CodeStyleAnalyzers.Test.PublicModifier
+namespace CodeStyle.Analyzers.Test.PublicModifier
 {
     public class PublicModifierInterfaceAnalyzerTest
     {

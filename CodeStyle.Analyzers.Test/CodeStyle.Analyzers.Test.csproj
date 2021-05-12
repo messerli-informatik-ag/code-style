@@ -4,7 +4,7 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
-    <RootNamespace>CodeStyleAnalyzers.Test</RootNamespace>
+    <RootNamespace>CodeStyle.Analyzers.Test</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -16,7 +16,7 @@
   </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\CodeStyleAnalyzers\CodeStyleAnalyzers.csproj" />
+        <ProjectReference Include="..\CodeStyle.Analyzers\CodeStyle.Analyzers.csproj" />
     </ItemGroup>
 
 </Project>

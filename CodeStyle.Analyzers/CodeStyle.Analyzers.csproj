@@ -4,6 +4,7 @@
         <TargetFramework>netstandard2.0</TargetFramework>
         <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
         <IsPackable>false</IsPackable>
+        <RootNamespace>CodeStyle.Analyzers</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>

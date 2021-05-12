@@ -22,9 +22,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sandbox", "Sandbox\Sandbox.
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Sandbox.Fsharp", "Sandbox.Fsharp\Sandbox.Fsharp.fsproj", "{971C7344-5A4B-4A76-BFE0-E7611F5FA159}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeStyleAnalyzers", "CodeStyleAnalyzers\CodeStyleAnalyzers.csproj", "{D4C1F4FF-F74C-4DAB-B449-8B5101A0C565}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeStyle.Analyzers", "CodeStyle.Analyzers\CodeStyle.Analyzers.csproj", "{D4C1F4FF-F74C-4DAB-B449-8B5101A0C565}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeStyleAnalyzers.Test", "CodeStyleAnalyzers.Test\CodeStyleAnalyzers.Test.csproj", "{A74F3DC5-E698-47CE-93B7-D2E6863CDF26}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeStyle.Analyzers.Test", "CodeStyle.Analyzers.Test\CodeStyle.Analyzers.Test.csproj", "{A74F3DC5-E698-47CE-93B7-D2E6863CDF26}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

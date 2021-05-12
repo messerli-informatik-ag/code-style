@@ -1,6 +1,6 @@
 ﻿using Microsoft.CodeAnalysis;
 
-namespace CodeStyleAnalyzers.InterfaceAnalyzers.PublicModifier
+namespace CodeStyle.Analyzers.InterfaceAnalyzers.PublicModifier
 {
     internal static class ConstantsProperties
     {

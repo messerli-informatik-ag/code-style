@@ -6,7 +6,7 @@ using Microsoft.CodeAnalysis.CSharp.Testing;
 using Microsoft.CodeAnalysis.Diagnostics;
 using Microsoft.CodeAnalysis.Testing;
 
-namespace CodeStyleAnalyzers.Test
+namespace CodeStyle.Analyzers.Test
 {
     public static class CSharpVerifier<TAnalyzer, TCodeFix, TVerifier>
         where TAnalyzer : DiagnosticAnalyzer, new()
