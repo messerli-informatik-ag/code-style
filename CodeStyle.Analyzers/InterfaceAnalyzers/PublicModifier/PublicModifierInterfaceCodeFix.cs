@@ -1,4 +1,5 @@
-﻿using System.Collections.Immutable;
+﻿using System;
+using System.Collections.Immutable;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -48,15 +49,11 @@ namespace Messerli.CodeStyle.Analyzers.InterfaceAnalyzers.PublicModifier
         }
 
         private static SyntaxToken ExtractSyntaxToken(SyntaxToken syntax, SyntaxToken current, SyntaxToken next)
-        {
-            if (current == syntax)
+            => current switch
             {
-                return SyntaxFactory.Token(SyntaxKind.None);
-            }
-
-            return current == next
-                ? next.WithLeadingTrivia(syntax.LeadingTrivia.AddRange(next.LeadingTrivia))
-                : default;
-        }
+                _ when current == syntax => SyntaxFactory.Token(SyntaxKind.None),
+                _ when current == next => next.WithLeadingTrivia(syntax.LeadingTrivia.AddRange(next.LeadingTrivia)),
+                _ => throw new ArgumentOutOfRangeException(nameof(current), current, null)
+            };
     }
 }

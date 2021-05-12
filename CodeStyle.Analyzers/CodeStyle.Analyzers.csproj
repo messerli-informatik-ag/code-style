@@ -5,6 +5,7 @@
         <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
         <IsPackable>true</IsPackable>
         <RootNamespace>Messerli.CodeStyle.Analyzers</RootNamespace>
+        <LangVersion>8.0</LangVersion>
     </PropertyGroup>
 
     <ItemGroup>
