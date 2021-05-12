@@ -6,6 +6,7 @@ using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CodeActions;
 using Microsoft.CodeAnalysis.CodeFixes;
 using Microsoft.CodeAnalysis.CSharp;
+using Microsoft.CodeAnalysis.Editing;
 
 namespace Messerli.CodeStyle.Analyzers.InterfaceAnalyzers.PublicModifier
 {
@@ -37,10 +38,13 @@ namespace Messerli.CodeStyle.Analyzers.InterfaceAnalyzers.PublicModifier
 
         private static async Task<Document> FixCode(Document document, SyntaxToken syntax, CancellationToken cancellationToken)
         {
-            var root = await document.GetSyntaxRootAsync(cancellationToken).ConfigureAwait(false);
+            var editor = await DocumentEditor.CreateAsync(document, cancellationToken).ConfigureAwait(false);
             var nextToken = syntax.GetNextToken();
-            return document.WithSyntaxRoot(root.ReplaceTokens(new[] { syntax, nextToken }, (current, _)
-                => ExtractSyntaxToken(syntax, current, nextToken)));
+            editor.ReplaceNode(
+                syntax.Parent,
+                syntax.Parent.ReplaceTokens(new[] { syntax, nextToken },
+                    (current, _) => ExtractSyntaxToken(syntax, current, nextToken)));
+            return editor.GetChangedDocument();
         }
 
         private static SyntaxToken ExtractSyntaxToken(SyntaxToken syntax, SyntaxToken current, SyntaxToken next)
