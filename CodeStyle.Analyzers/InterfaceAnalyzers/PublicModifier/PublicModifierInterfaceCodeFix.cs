@@ -35,7 +35,7 @@ namespace Messerli.CodeStyle.Analyzers.InterfaceAnalyzers.PublicModifier
                 diagnostic);
         }
 
-        private async Task<Document> FixCode(Document document, SyntaxToken syntax, CancellationToken cancellationToken)
+        private static async Task<Document> FixCode(Document document, SyntaxToken syntax, CancellationToken cancellationToken)
         {
             var root = await document.GetSyntaxRootAsync(cancellationToken).ConfigureAwait(false);
             var nextToken = syntax.GetNextToken();

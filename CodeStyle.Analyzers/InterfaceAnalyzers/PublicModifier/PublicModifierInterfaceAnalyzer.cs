@@ -18,7 +18,7 @@ namespace Messerli.CodeStyle.Analyzers.InterfaceAnalyzers.PublicModifier
             context.RegisterSyntaxNodeAction(AnalyzeInterfaceMethods, SyntaxKind.MethodDeclaration);
         }
 
-        private void AnalyzeInterfaceMethods(SyntaxNodeAnalysisContext context)
+        private static void AnalyzeInterfaceMethods(SyntaxNodeAnalysisContext context)
         {
             var node = (BaseMethodDeclarationSyntax)context.Node;
             if (node.Parent.IsKind(SyntaxKind.InterfaceDeclaration))
@@ -27,7 +27,7 @@ namespace Messerli.CodeStyle.Analyzers.InterfaceAnalyzers.PublicModifier
             }
         }
 
-        private void HandleDefaultModifier(SyntaxNodeAnalysisContext context, SyntaxTokenList modifiers, SyntaxKind defaultModifier)
+        private static void HandleDefaultModifier(SyntaxNodeAnalysisContext context, SyntaxTokenList modifiers, SyntaxKind defaultModifier)
         {
             var index = modifiers.IndexOf(defaultModifier);
             if (index != -1)
