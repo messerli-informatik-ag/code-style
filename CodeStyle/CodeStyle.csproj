@@ -25,7 +25,7 @@
         <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.333" PrivateAssets="none" />
     </ItemGroup>
     <ItemGroup>
-        <ProjectReference Include="..\CodeStyleAnalyzers\CodeStyleAnalyzers.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+        <ProjectReference Include="..\CodeStyleAnalyzers\CodeStyleAnalyzers.csproj" PrivateAssets="none" />
     </ItemGroup>
     <ItemGroup>
         <None Include="build\**\*">
