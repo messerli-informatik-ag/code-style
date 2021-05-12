@@ -33,7 +33,6 @@ namespace Messerli.CodeStyle.Analyzers.Test.PublicModifier
         [Fact]
         public async Task AssertCodeFixCreatesExpectedCode()
         {
-
             await VerifyCodeStyle.VerifyCodeFixAsync(CodeToFix, FixedCode);
         }
     }
