@@ -1,4 +1,6 @@
-﻿using System.Collections.Immutable;
+﻿using System;
+using System.Collections.Immutable;
+using Funcky.Extensions;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
@@ -29,11 +31,12 @@ namespace Messerli.CodeStyle.Analyzers.InterfaceAnalyzers.PublicModifier
 
         private static void HandleDefaultModifier(SyntaxNodeAnalysisContext context, SyntaxTokenList modifiers, SyntaxKind defaultModifier)
         {
-            var index = modifiers.IndexOf(defaultModifier);
-            if (index != -1)
-            {
-                context.ReportDiagnostic(Diagnostic.Create(RuleConstants.Rule, modifiers[index].GetLocation()));
-            }
+            modifiers.FirstOrNone(item => item.IsKind(defaultModifier))
+                .AndThen(ReportDiagnostic(context));
         }
+
+        private static Action<SyntaxToken> ReportDiagnostic(SyntaxNodeAnalysisContext context)
+            => token
+                => context.ReportDiagnostic(Diagnostic.Create(RuleConstants.Rule, token.GetLocation()));
     }
 }
