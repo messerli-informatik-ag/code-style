@@ -10,8 +10,8 @@
 
     <ItemGroup>
         <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.2" />
-        <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.0.0-2.21262.14" />
-        <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="4.0.0-2.21262.14" />
+        <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="3.9.0" />
+        <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="3.9.0" />
         <PackageReference Include="Funcky" Version="2.3.0" />
     </ItemGroup>
 </Project>
