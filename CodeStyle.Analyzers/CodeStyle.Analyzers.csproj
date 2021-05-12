@@ -3,7 +3,7 @@
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
         <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-        <IsPackable>true</IsPackable>
+        <IsPackable>false</IsPackable>
         <RootNamespace>Messerli.CodeStyle.Analyzers</RootNamespace>
         <LangVersion>8.0</LangVersion>
     </PropertyGroup>
