@@ -1,7 +1,7 @@
 ﻿using Microsoft.CodeAnalysis;
-using static CodeStyle.Analyzers.InterfaceAnalyzers.PublicModifier.ConstantsProperties;
+using static Messerli.CodeStyle.Analyzers.InterfaceAnalyzers.PublicModifier.ConstantsProperties;
 
-namespace CodeStyle.Analyzers.InterfaceAnalyzers.PublicModifier
+namespace Messerli.CodeStyle.Analyzers.InterfaceAnalyzers.PublicModifier
 {
     public static class RuleConstants
     {

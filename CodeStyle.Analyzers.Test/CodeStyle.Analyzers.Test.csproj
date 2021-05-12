@@ -4,7 +4,7 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
-    <RootNamespace>CodeStyle.Analyzers.Test</RootNamespace>
+    <RootNamespace>Messerli.CodeStyle.Analyzers.Test</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

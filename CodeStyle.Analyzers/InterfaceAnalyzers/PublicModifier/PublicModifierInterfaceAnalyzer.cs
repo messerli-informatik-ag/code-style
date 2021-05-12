@@ -4,7 +4,7 @@ using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Diagnostics;
 
-namespace CodeStyle.Analyzers.InterfaceAnalyzers.PublicModifier
+namespace Messerli.CodeStyle.Analyzers.InterfaceAnalyzers.PublicModifier
 {
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
     public class PublicModifierInterfaceAnalyzer : DiagnosticAnalyzer
