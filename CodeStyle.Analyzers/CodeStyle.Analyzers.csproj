@@ -6,7 +6,7 @@
         <LangVersion>9.0</LangVersion>
     </PropertyGroup>
     <PropertyGroup>
-        <Version>1.0.0</Version>
+        <Version>0.1.0</Version>
         <PackageTags>analyzers</PackageTags>
         <Description>Various analyzers bundled with opinionated configuration</Description>
     </PropertyGroup>
