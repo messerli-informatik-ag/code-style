@@ -15,7 +15,7 @@ end
 
 def build_nuget_package(output_directory)
     FileUtils.mkdir_p output_directory
-    run_command 'dotnet', ['pack', "/p:PackageOutputPath=#{output_directory}"]
+    run_command 'dotnet', ['pack', 'CodeStyle/CodeStyle.csproj', "/p:PackageOutputPath=#{output_directory}"]
 end
 
 def unpack_nuget_packages(source_directory, output_directory)
