@@ -12,7 +12,6 @@
         <PackageLicenseExpression>MIT OR Apache-2.0</PackageLicenseExpression>
         <Copyright>© Messerli Informatik AG. All rights reserved.</Copyright>
         <Description>Various analyzers bundled with opinionated configuration</Description>
-        <NoWarn>$(NoWarn);NU5105;NU5104;NU5128</NoWarn>
     </PropertyGroup>
 
     <ItemGroup>
