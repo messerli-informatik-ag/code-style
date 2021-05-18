@@ -4,6 +4,7 @@
         <TargetFramework>netstandard2.0</TargetFramework>
         <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
         <IsPackable>true</IsPackable>
+        <AssemblyName>Messerli.CodeStyle.Analyzers</AssemblyName>
         <RootNamespace>Messerli.CodeStyle.Analyzers</RootNamespace>
         <LangVersion>9.0</LangVersion>
         <PackageId>Messerli.CodeStyle.Analyzers</PackageId>
