@@ -5,7 +5,7 @@
         <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
         <IsPackable>true</IsPackable>
         <RootNamespace>Messerli.CodeStyle.Analyzers</RootNamespace>
-        <LangVersion>8.0</LangVersion>
+        <LangVersion>9.0</LangVersion>
         <PackageId>Messerli.CodeStyle.Analyzers</PackageId>
         <PackageTags>analyzers</PackageTags>
         <PackageLicenseExpression>MIT OR Apache-2.0</PackageLicenseExpression>
