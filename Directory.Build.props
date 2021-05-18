@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project>
+    <PropertyGroup Label="Shared NuGet Metadata">
+        <Authors>Messerli Informatik AG</Authors>
+        <PackageLicenseExpression>MIT OR Apache-2.0</PackageLicenseExpression>
+        <PackageProjectUrl>https://github.com/messerli-informatik-ag/code-style</PackageProjectUrl>
+        <RepositoryType>git</RepositoryType>
+        <RepositoryUrl>https://github.com/messerli-informatik-ag/code-style</RepositoryUrl>
+        <Copyright>© Messerli Informatik AG. All rights reserved.</Copyright>
+    </PropertyGroup>
+</Project>
