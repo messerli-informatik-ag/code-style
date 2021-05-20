@@ -92,3 +92,6 @@ Initial release
 * Update StyleCop.Analyzers to 1.2.0-beta.333 ([diff](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/compare/1.2.0-beta.321...1.2.0-beta.333)) \
   Notable changes/fixes:
   * [23db6c0: Avoid reporting SA1141 (Use tuple syntax) in expression trees](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/commit/af356f9b36dc4849a678c0b8c918123fa567913b)
+
+## 2.1.0
+* Warn when interface method has `public` accessibility modifier (`MESSERLI001`)
