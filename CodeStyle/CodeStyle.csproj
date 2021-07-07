@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.Build.NoTargets">
     <PropertyGroup>
-        <Version>2.0.0</Version>
-        <RepositoryUrl>https://github.com/messerli-informatik-ag/code-style</RepositoryUrl>
-        <RepositoryType>git</RepositoryType>
+        <Version>2.1.0</Version>
         <PackageId>Messerli.CodeStyle</PackageId>
         <PackageTags>analyzers</PackageTags>
-        <PackageLicenseExpression>MIT OR Apache-2.0</PackageLicenseExpression>
-        <Copyright>© Messerli Informatik AG. All rights reserved.</Copyright>
         <Description>Various analyzers bundled with opinionated configuration</Description>
         <NoWarn>$(NoWarn);NU5105;NU5104;NU5128</NoWarn>
         <!-- NU5105: The version property specified contains SemVer 2.0.0 components.
@@ -21,8 +17,11 @@
         <TargetFrameworks>netstandard2.1;netstandard2.0</TargetFrameworks>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="IDisposableAnalyzers" Version="3.4.8" PrivateAssets="none" />
-        <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.321" PrivateAssets="none" />
+        <PackageReference Include="IDisposableAnalyzers" Version="3.4.13" PrivateAssets="none" />
+        <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.333" PrivateAssets="none" />
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\CodeStyle.Analyzers\CodeStyle.Analyzers.csproj" PrivateAssets="none" />
     </ItemGroup>
     <ItemGroup>
         <None Include="build\**\*">

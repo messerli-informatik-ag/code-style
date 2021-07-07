@@ -69,7 +69,7 @@
         <Rule Id="SA1128" Action="Error" /><!-- ConstructorInitializerMustBeOnOwnLine -->
         <Rule Id="SA1129" Action="Error" /><!-- DoNotUseDefaultValueTypeConstructor -->
         <Rule Id="SA1130" Action="Error" /><!-- UseLambdaSyntax -->
-        <Rule Id="SA1131" Action="Error" /><!-- UseReadableConditions -->
+        <Rule Id="SA1131" Action="Info" /><!-- UseReadableConditions -->
         <Rule Id="SA1132" Action="Error" /><!-- DoNotCombineFields -->
         <Rule Id="SA1133" Action="Error" /><!-- DoNotCombineAttributes -->
         <Rule Id="SA1134" Action="Error" /><!-- AttributesMustNotShareLine -->
