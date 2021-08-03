@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Variables - Messerli C# Coding Guidelines</title>
+        <title>Object Initializer - Messerli C# Coding Guidelines</title>
         
         
 
@@ -91,7 +91,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="guidelines.html">Messerli C# Coding Guidelines</a></li><li class="chapter-item expanded "><a href="physical-structure.html"><strong aria-hidden="true">1.</strong> Physical structure</a></li><li class="chapter-item expanded "><a href="formatting.html"><strong aria-hidden="true">2.</strong> Formatting rules</a></li><li class="chapter-item expanded "><a href="naming.html"><strong aria-hidden="true">3.</strong> Naming Conventions</a></li><li class="chapter-item expanded "><a href="variables.html" class="active"><strong aria-hidden="true">4.</strong> Variables</a></li><li class="chapter-item expanded "><a href="basic-constructs.html"><strong aria-hidden="true">5.</strong> Basic constructs</a></li><li class="chapter-item expanded "><a href="expressions.html"><strong aria-hidden="true">6.</strong> Expressions</a></li><li class="chapter-item expanded "><a href="types.html"><strong aria-hidden="true">7.</strong> Types</a></li><li class="chapter-item expanded "><a href="functional.html"><strong aria-hidden="true">8.</strong> Functional Programming</a></li><li class="chapter-item expanded "><a href="oop.html"><strong aria-hidden="true">9.</strong> Object oriented programming</a></li><li class="chapter-item expanded "><a href="algebraic-datatypes.html"><strong aria-hidden="true">10.</strong> Algebraic Datatypes</a></li><li class="chapter-item expanded "><a href="methods.html"><strong aria-hidden="true">11.</strong> Methods</a></li><li class="chapter-item expanded "><a href="namespaces.html"><strong aria-hidden="true">12.</strong> Namespaces</a></li><li class="chapter-item expanded "><a href="exceptions.html"><strong aria-hidden="true">13.</strong> Exceptions</a></li><li class="chapter-item expanded "><a href="miscellaneous.html"><strong aria-hidden="true">14.</strong> Miscellaneous</a></li><li class="chapter-item expanded "><a href="comments.html"><strong aria-hidden="true">15.</strong> Comments</a></li><li class="chapter-item expanded "><a href="commit-messages.html"><strong aria-hidden="true">16.</strong> Commit Message</a></li><li class="chapter-item expanded "><a href="object-initializer.html"><strong aria-hidden="true">17.</strong> Object Initializer</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="guidelines.html">Messerli C# Coding Guidelines</a></li><li class="chapter-item expanded "><a href="physical-structure.html"><strong aria-hidden="true">1.</strong> Physical structure</a></li><li class="chapter-item expanded "><a href="formatting.html"><strong aria-hidden="true">2.</strong> Formatting rules</a></li><li class="chapter-item expanded "><a href="naming.html"><strong aria-hidden="true">3.</strong> Naming Conventions</a></li><li class="chapter-item expanded "><a href="variables.html"><strong aria-hidden="true">4.</strong> Variables</a></li><li class="chapter-item expanded "><a href="basic-constructs.html"><strong aria-hidden="true">5.</strong> Basic constructs</a></li><li class="chapter-item expanded "><a href="expressions.html"><strong aria-hidden="true">6.</strong> Expressions</a></li><li class="chapter-item expanded "><a href="types.html"><strong aria-hidden="true">7.</strong> Types</a></li><li class="chapter-item expanded "><a href="functional.html"><strong aria-hidden="true">8.</strong> Functional Programming</a></li><li class="chapter-item expanded "><a href="oop.html"><strong aria-hidden="true">9.</strong> Object oriented programming</a></li><li class="chapter-item expanded "><a href="algebraic-datatypes.html"><strong aria-hidden="true">10.</strong> Algebraic Datatypes</a></li><li class="chapter-item expanded "><a href="methods.html"><strong aria-hidden="true">11.</strong> Methods</a></li><li class="chapter-item expanded "><a href="namespaces.html"><strong aria-hidden="true">12.</strong> Namespaces</a></li><li class="chapter-item expanded "><a href="exceptions.html"><strong aria-hidden="true">13.</strong> Exceptions</a></li><li class="chapter-item expanded "><a href="miscellaneous.html"><strong aria-hidden="true">14.</strong> Miscellaneous</a></li><li class="chapter-item expanded "><a href="comments.html"><strong aria-hidden="true">15.</strong> Comments</a></li><li class="chapter-item expanded "><a href="commit-messages.html"><strong aria-hidden="true">16.</strong> Commit Message</a></li><li class="chapter-item expanded "><a href="object-initializer.html" class="active"><strong aria-hidden="true">17.</strong> Object Initializer</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -161,67 +161,41 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#variables" id="variables">Variables</a></h1>
-<h2><a class="header" href="#only-one-declaration-per-line" id="only-one-declaration-per-line">Only one declaration per line</a></h2>
-<p>Multiple declarations per line are not allowed. This way, we can reduce the mental baggage of the reader and avoid awkward pointer and reference declarations (See the next subchapter).
-Deconstruction of Tuples and other types are obviously exempt from this rule. </p>
-<pre><code class="language-csharp">var (name, address, city, zip) = contact.GetAddressInfo();
+                        <h1><a class="header" href="#initializer" id="initializer">Initializer</a></h1>
+<h2><a class="header" href="#index-initializers" id="index-initializers">Index Initializers</a></h2>
+<p>Use index initializers with dictionary.
+This elegantly prevents uninitialized dictionaries.
+See <a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/object-and-collection-initializers#object-initializers-with-collection-read-only-property-initialization">Object and Collection Initializers (C# Programming Guide)</a>.</p>
+<pre><code class="language-csharp">var dict = new Dictionary&lt;string, int&gt;
+{
+    [&quot;key1&quot;] = 1,
+    [&quot;key2&quot;] = 50,
+};
 </code></pre>
-<p><em>Example: tuple deconstruction</em></p>
-<h2><a class="header" href="#local-variables-have-good-names" id="local-variables-have-good-names">Local variables have good names</a></h2>
-<p>Local variables should have self-evident names too. Every variable should describe its content, and named consistently. One can often reuse the name of the type. Be as specific as necessary and as short as possible.</p>
-<h2><a class="header" href="#declare-variables-in-the-innermost-scope-that-is-possible" id="declare-variables-in-the-innermost-scope-that-is-possible">Declare variables in the innermost scope that is possible</a></h2>
-<p>This rule attempts to minimize the number of live variables that must be simultaneously considered. Furthermore, variable declarations should be postponed until enough information is available for full initialization. This rule also reduces the possibility of uninitialized and wrongly initialized variables.</p>
-<h2><a class="header" href="#define-variables-on-declaration" id="define-variables-on-declaration">Define variables on declaration</a></h2>
-<p>Local variables of primitive type are not initialized. Try to avoid separation of declaration and definition.</p>
-<pre><code class="language-csharp">// Do not write this!
-Money money;
-money = GetMoney();
+<p><em>Good example</em></p>
+<pre><code class="language-csharp">var dict = new Dictionary&lt;string, int&gt;();
+dict[&quot;key1&quot;] = 1;
+dict[&quot;key2&quot;] = 50;
 </code></pre>
-<p><em>Bad example</em></p>
-<pre><code class="language-csharp">Money money = GetMoney();
+<p><em>Not so good example</em></p>
+<pre><code class="language-csharp">var dict = new Dictionary&lt;string, int&gt;
+{
+    { &quot;key1&quot;, 1 },
+    { &quot;key2&quot;, 50 },
+};
 </code></pre>
-<p><em>Better example</em></p>
-<pre><code class="language-csharp">var money = GetMoney();
-</code></pre>
-<p><em>Even better example</em></p>
-<p>This can lead to problems if your variable is initialized differently on a certain condition (<code>if</code>/<code>switch</code>). Prefer the use of <code>if</code>-expressions with the the ternary operator (? :) for simple cases or extract the initialization into a function</p>
-<pre><code class="language-csharp">var money = HasBank() 
-    ? GetFromBank() 
-    : GetCash();
-</code></pre>
-<p><em>This could also be easily refactored into a function</em></p>
-<p>This not only avoids uninitialized variables, but makes sure you always handle both cases.</p>
-<p>With C# 8.0 switch-expressions are introduced which are highly recommended instead of switch-statements.</p>
-<h2><a class="header" href="#do-not-reuse-variables" id="do-not-reuse-variables">Do not reuse variables</a></h2>
-<p>A variable should have only one single purpose; there is no reason to recycle variables. The variables are abstractions for the human reader and not memory locations for the compiler.</p>
-<h2><a class="header" href="#prefer-type-inference" id="prefer-type-inference">Prefer type inference</a></h2>
-<p>Use var to avoid type names, especially those that are noisy, obvious, or unimportant — cases where the type does not aid in clarity for the reader. Only use manifest type declarations when it helps readability.</p>
-<pre><code class="language-csharp">var textBox = GetTextBox();
-textBox.SetText(&quot;foo&quot;);
-</code></pre>
-<p><em>Type inference</em></p>
-<p>This does not mean that you should blindly replace types with var.</p>
-<h2><a class="header" href="#do-not-use-magic-values" id="do-not-use-magic-values">Do not use magic values</a></h2>
-<p>Every number except 0 or 1 needs a useful name derived from its true meaning in the code. However, this does not mean that 0 and 1 cannot have a name too.
-The same goes for magic strings!</p>
-<h2><a class="header" href="#unused-variables-with-discared-values" id="unused-variables-with-discared-values">Unused variables with discared values</a></h2>
-<p>Ideally we would prefer a clean way with pattern matching, where we always could use <code>_</code>. Since this is only possible in certain parts of the language, we still try to use the <code>_</code> for unused variables. If you have more than one unused variable in the same context, use <code>_0</code>, <code>_1</code>, … instead.</p>
+<p><em>Deprecated way example</em></p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="naming.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="commit-messages.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
-                        
-                            <a rel="next" href="basic-constructs.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
-                            </a>
                         
 
                         <div style="clear: both"></div>
@@ -231,15 +205,11 @@ The same goes for magic strings!</p>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a rel="prev" href="naming.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="commit-messages.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
-                
-                    <a rel="next" href="basic-constructs.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
-                    </a>
                 
             </nav>
 
