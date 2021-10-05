@@ -107,6 +107,7 @@ Initial release
   > * BUGFIX: Handle function pointer.
   > #### 3.4.13
   > * BUGFIX: Specialcase Gu.Reactive extension methods.
+* Update StyleCop.Analyzers to 1.2.0-beta.354 ([diff](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/compare/1.2.0-beta.333...1.2.0-beta.354))
 
 
 [IDisposableAnalyzers Changelog]: https://github.com/DotNetAnalyzers/IDisposableAnalyzers/blob/master/RELEASE_NOTES.md
