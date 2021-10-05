@@ -94,7 +94,7 @@ Initial release
 ## 2.1.0
 * Warn when interface method has `public` accessibility modifier (`MESSERLI001`)
 
-## Unreleased
+## 2.1.1
 * Relaxed rules:
   * [SA1119](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1119.md) (StatementMustNotUseUnnecessaryParenthesis) is now disabled.
 
