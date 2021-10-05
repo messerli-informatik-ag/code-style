@@ -32,8 +32,6 @@ Initial release
   > * BUGFIX: IDISP025 when abstract dispose method.
   > * BUGFIX: IDISP006 when explicit implementation.
 
-[IDisposableAnalyzers Changelog]: https://github.com/DotNetAnalyzers/IDisposableAnalyzers/blob/master/RELEASE_NOTES.md
-
 ## 2.0.0-rc.1
 * Breaking: Treat all nullability warnings as errors.
 * Lints involving single line comments have been reduced to warnings to make temporary code commenting easier.
@@ -96,6 +94,20 @@ Initial release
 ## 2.1.0
 * Warn when interface method has `public` accessibility modifier (`MESSERLI001`)
 
-## Unreleased
+## 2.1.1
 * Relaxed rules:
   * [SA1119](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1119.md) (StatementMustNotUseUnnecessaryParenthesis) is now disabled.
+
+* Update IDisposableAnalyzers to 3.4.15. Excerpt from [IDisposableAnalyzers Changelog]:
+  > #### 3.4.15
+  > * BUGFIX: IDISP005 with ServiceDescriptor
+  > * BUGFIX: IDISP004 when DisposeWith
+  > #### 3.4.14
+  > * BUGFIX: IDISP005 should not warn in Assert.Throws.
+  > * BUGFIX: Handle function pointer.
+  > #### 3.4.13
+  > * BUGFIX: Specialcase Gu.Reactive extension methods.
+* Update StyleCop.Analyzers to 1.2.0-beta.354 ([diff](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/compare/1.2.0-beta.333...1.2.0-beta.354))
+
+
+[IDisposableAnalyzers Changelog]: https://github.com/DotNetAnalyzers/IDisposableAnalyzers/blob/master/RELEASE_NOTES.md

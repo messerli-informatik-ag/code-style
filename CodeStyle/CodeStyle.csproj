@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.Build.NoTargets">
     <PropertyGroup>
-        <Version>2.1.0</Version>
+        <Version>2.1.1</Version>
         <PackageId>Messerli.CodeStyle</PackageId>
         <PackageTags>analyzers</PackageTags>
         <Description>Various analyzers bundled with opinionated configuration</Description>
@@ -17,8 +17,8 @@
         <TargetFrameworks>netstandard2.1;netstandard2.0</TargetFrameworks>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="IDisposableAnalyzers" Version="3.4.13" PrivateAssets="none" />
-        <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.333" PrivateAssets="none" />
+        <PackageReference Include="IDisposableAnalyzers" Version="3.4.15" PrivateAssets="none" />
+        <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.354" PrivateAssets="none" />
     </ItemGroup>
     <ItemGroup>
         <ProjectReference Include="..\CodeStyle.Analyzers\CodeStyle.Analyzers.csproj" PrivateAssets="none" />
