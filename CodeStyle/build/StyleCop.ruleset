@@ -119,7 +119,7 @@
         <Rule Id="SA1316" Action="Error" /><!-- TupleElementNamesShouldUseCorrectCasing -->
 
         <!-- Maintainability Rules -->
-        <Rule Id="SA1119" Action="Error" /><!-- StatementMustNotUseUnnecessaryParenthesis -->
+        <Rule Id="SA1119" Action="None" /><!-- StatementMustNotUseUnnecessaryParenthesis -->
         <Rule Id="SA1400" Action="Error" /><!-- AccessModifierMustBeDeclared -->
         <Rule Id="SA1401" Action="Error" /><!-- FieldsMustBePrivate -->
         <Rule Id="SA1402" Action="None" /><!-- FileMayOnlyContainASingleType -->
