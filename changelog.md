@@ -109,7 +109,7 @@ Initial release
   > * BUGFIX: Specialcase Gu.Reactive extension methods.
 * Update StyleCop.Analyzers to 1.2.0-beta.354 ([diff](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/compare/1.2.0-beta.333...1.2.0-beta.354))
 
-## Unreleased
+## 2.1.2
 * Update StyleCop.Analyzers to 1.2.0-beta.376 ([diff](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/compare/1.2.0-beta.354...1.2.0-beta.376))
 
 
