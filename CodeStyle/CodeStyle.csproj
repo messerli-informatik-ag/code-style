@@ -18,7 +18,7 @@
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="IDisposableAnalyzers" Version="3.4.15" PrivateAssets="none" />
-        <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.354" PrivateAssets="none" />
+        <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.376" PrivateAssets="none" />
     </ItemGroup>
     <ItemGroup>
         <ProjectReference Include="..\CodeStyle.Analyzers\CodeStyle.Analyzers.csproj" PrivateAssets="none" />
