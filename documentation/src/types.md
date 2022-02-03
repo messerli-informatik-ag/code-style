@@ -5,19 +5,7 @@
 C# has a strong typing system, take advantage of it. A strong type will help you a lot in refactoring, and the compiler will easily tell you that you are using the wrong parameter if you do not have a string type like a comma separated list instead of a strong collection like a vector of longs.
 
 ```csharp
-public sealed class Vector
-{
-    public Vector(int x, int y, int z)
-    {
-        X = x;
-        Y = y;
-        Z = z;
-    }
-
-    public int X { get; }
-    public int Y { get; }
-    public int Z { get; }
-}
+public sealed record Vector(int X, int Y, int Z);
 
 Vector CrossProduct(Vector factor1, Vector factor2);
 
@@ -33,15 +21,7 @@ The idea behind the new type idiom is to have additional type information, even 
 So even if you have a single integer, you can create a new type from your abstract concept.
 
 ```csharp
-public sealed class Years
-{
-    public Years(int years)
-    {
-        Value = years;
-    }
-
-    public int Value { get; }
-}
+public sealed record Years(int Value);
 ```
 *Declaring the new type Years*
 
@@ -73,7 +53,6 @@ A public setter is forbidden, a private setter is discouraged.
 
 ## Make PODs easy to use
 
-PODs should implement `IEquatable` or `IComparable`, use [Fody][Equals.Fody] instead of manual implementation if possible.
+PODs should implement `IEquatable` or `IComparable`, prefer [records] over manual implementations.
 
-
-[Equals.Fody]: https://github.com/Fody/Equals
+[records]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/record
