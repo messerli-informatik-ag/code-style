@@ -205,6 +205,19 @@ public string AbsolutePath()
     =&gt; Path.Combine(CalculateRootPath(), RelativePath);
 </code></pre>
 <p><em>expression-bodied members</em></p>
+<h2><a class="header" href="#relational-patterns" id="relational-patterns">Relational Patterns</a></h2>
+<p>We don't keep a space between the separator and the value in <a href="https://docs.microsoft.com/en-us/dotnet/csharp/fundamentals/functional/pattern-matching#relational-patterns">relational patterns</a>.</p>
+<pre><code class="language-csharp">string WaterState(int tempInFahrenheit)
+    =&gt; tempInFahrenheit switch
+    {
+        &gt;32 and &lt;212 =&gt; &quot;liquid&quot;,
+        &lt;32 =&gt; &quot;solid&quot;,
+        &gt;212 =&gt; &quot;gas&quot;,
+        32 =&gt; &quot;solid/liquid transition&quot;,
+        212 =&gt; &quot;liquid / gas transition&quot;,
+    };
+</code></pre>
+<p><em>switch expression with relational patterns</em></p>
 
                     </main>
 
