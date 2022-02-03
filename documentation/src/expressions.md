@@ -65,4 +65,21 @@ public string AbsolutePath()
 ```
 *expression-bodied members*
 
+## Relational Patterns
+We don't keep a space between the separator and the value in [relational patterns].
+
+```csharp
+string WaterState(int tempInFahrenheit)
+    => tempInFahrenheit switch
+    {
+        >32 and <212 => "liquid",
+        <32 => "solid",
+        >212 => "gas",
+        32 => "solid/liquid transition",
+        212 => "liquid / gas transition",
+    };
+```
+*switch expression with relational patterns*
+
+[relational patterns]: https://docs.microsoft.com/en-us/dotnet/csharp/fundamentals/functional/pattern-matching#relational-patterns
 [expression body syntax]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/expression-bodied-members
