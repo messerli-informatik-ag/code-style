@@ -56,11 +56,12 @@ foreach (var value in values.OrderByDescending(v => v))
 ## Switch-statement
 
 ### Handle all cases
-
-Unhandled cases lead the program into an undefined state. If you have no natural default case, declare one throwing a [System.NotImplementedException].
-
-[System.NotImplementedException]: https://docs.microsoft.com/en-us/dotnet/api/system.notimplementedexception
+Unhandled cases lead the program into an undefined state.
+If you have no natural default case, declare one throwing an [`ArgumentException`] when dealing with an argument or an [`InvalidOperationException`] for all other cases.
 
 ## Goto
-
 The goto statement is forbidden in all cases.
+
+
+[`ArgumentException`]: https://docs.microsoft.com/en-us/dotnet/api/system.argumentexception
+[`InvalidOperationException`]: https://docs.microsoft.com/en-us/dotnet/api/system.invalidoperationexception
