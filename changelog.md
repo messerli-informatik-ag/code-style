@@ -112,5 +112,9 @@ Initial release
 ## 2.1.2
 * Update StyleCop.Analyzers to 1.2.0-beta.376 ([diff](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/compare/1.2.0-beta.354...1.2.0-beta.376))
 
+## 2.1.3
+* Update StyleCop.Analyzers to 1.2.0-beta.435 ([diff](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/compare/1.2.0-beta.376...1.2.0-beta.435))
+   * Most notably this version fixes false positives of `SA1516: Elements should be separated by blank line` in files with top-level statements.
+
 
 [IDisposableAnalyzers Changelog]: https://github.com/DotNetAnalyzers/IDisposableAnalyzers/blob/master/RELEASE_NOTES.md
