@@ -1,7 +1,6 @@
-namespace Sandbox
+namespace Sandbox;
+
+public interface IExampleInterface
 {
-    public interface IExampleInterface
-    {
-        void DoSomething();
-    }
+    void DoSomething();
 }

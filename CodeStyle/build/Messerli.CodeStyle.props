@@ -3,9 +3,11 @@
     <PropertyGroup>
         <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)Default.ruleset</CodeAnalysisRuleSet>
         <WarningsAsErrors Condition="'$(MSBuildProjectExtension)' == '.csproj'">$(WarningsAsErrors);nullable</WarningsAsErrors>
+        <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild><!-- This is needed to enable IDE* rules during build. -->
         <GenerateDocumentationFile>true</GenerateDocumentationFile><!-- This is needed so that analyzers can inspect XML comments. Enforced by SA0001. -->
     </PropertyGroup>
     <ItemGroup>
         <AdditionalFiles Include="$(MSBuildThisFileDirectory)stylecop.json" Link="stylecop.json" Visible="false" InProject="false" />
+        <GlobalAnalyzerConfigFiles Include="$(MSBuildThisFileDirectory)Messerli.CodeStyle.editorconfig" />
     </ItemGroup>
 </Project>

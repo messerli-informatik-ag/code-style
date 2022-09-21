@@ -1,0 +1,4 @@
+is_global = true
+
+dotnet_diagnostic.IDE0005.severity = warning # IDE0005: Using directive is unnecessary.
+csharp_style_namespace_declarations = file_scoped:error

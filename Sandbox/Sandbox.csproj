@@ -1,8 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
+    <Import Project="..\CodeStyle\build\Messerli.CodeStyle.props" />
     <PropertyGroup>
         <TargetFramework>net5.0</TargetFramework>
-        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
         <IsPackable>false</IsPackable>
+        <LangVersion>10.0</LangVersion>
     </PropertyGroup>
     <ItemGroup>
         <ProjectReference Include="..\CodeStyle\CodeStyle.csproj" />
@@ -10,5 +11,4 @@
     <ItemGroup>
         <ProjectReference Include="..\CodeStyle.Analyzers\CodeStyle.Analyzers.csproj" />
     </ItemGroup>
-    <Import Project="..\CodeStyle\build\Messerli.CodeStyle.props" />
 </Project>
