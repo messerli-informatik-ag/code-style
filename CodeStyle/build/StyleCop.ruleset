@@ -8,35 +8,35 @@
         <Rule Id="SA0002" Action="Error" />
 
         <!-- Spacing Rules -->
-        <Rule Id="SA1000" Action="Error" /> <!-- KeywordsMustBeSpacedCorrectly -->
-        <Rule Id="SA1001" Action="Error" /> <!-- CommasMustBeSpacedCorrectly -->
-        <Rule Id="SA1002" Action="Error" /> <!-- SemicolonsMustBeSpacedCorrectly -->
-        <Rule Id="SA1003" Action="Error" /> <!-- SymbolsMustBeSpacedCorrectly -->
-        <Rule Id="SA1004" Action="Error" /> <!-- DocumentationLinesMustBeginWithSingleSpace -->
+        <Rule Id="SA1000" Action="Warning" /> <!-- KeywordsMustBeSpacedCorrectly -->
+        <Rule Id="SA1001" Action="Warning" /> <!-- CommasMustBeSpacedCorrectly -->
+        <Rule Id="SA1002" Action="Warning" /> <!-- SemicolonsMustBeSpacedCorrectly -->
+        <Rule Id="SA1003" Action="Warning" /> <!-- SymbolsMustBeSpacedCorrectly -->
+        <Rule Id="SA1004" Action="Warning" /> <!-- DocumentationLinesMustBeginWithSingleSpace -->
         <Rule Id="SA1005" Action="Warning" /> <!-- SingleLineCommentsMustBeginWithSingleSpace -->
-        <Rule Id="SA1006" Action="Error" /> <!-- PreprocessorKeywordsMustNotBePrecededBySpace -->
-        <Rule Id="SA1007" Action="Error" /> <!-- OperatorKeywordMustBeFollowedBySpace -->
-        <Rule Id="SA1008" Action="Error" /> <!-- OpeningParenthesisMustBeSpacedCorrectly -->
-        <Rule Id="SA1009" Action="Error" /> <!-- ClosingParenthesisMustBeSpacedCorrectly -->
-        <Rule Id="SA1010" Action="Error" /> <!-- OpeningSquareBracketsMustBeSpacedCorrectly -->
-        <Rule Id="SA1011" Action="Error" /> <!-- ClosingSquareBracketsMustBeSpacedCorrectly -->
-        <Rule Id="SA1012" Action="Error" /> <!-- OpeningBracesMustBeSpacedCorrectly -->
-        <Rule Id="SA1013" Action="Error" /> <!-- ClosingBracesMustBeSpacedCorrectly -->
-        <Rule Id="SA1014" Action="Error" /> <!-- OpeningGenericBracketsMustBeSpacedCorrectly -->
-        <Rule Id="SA1015" Action="Error" /> <!-- ClosingGenericBracketsMustBeSpacedCorrectly -->
-        <Rule Id="SA1016" Action="Error" /> <!-- OpeningAttributeBracketsMustBeSpacedCorrectly -->
-        <Rule Id="SA1017" Action="Error" /> <!-- ClosingAttributeBracketsMustBeSpacedCorrectly -->
-        <Rule Id="SA1018" Action="Error" /> <!-- NullableTypeSymbolsMustNotBePrecededBySpace -->
-        <Rule Id="SA1019" Action="Error" /> <!-- MemberAccessSymbolsMustBeSpacedCorrectly -->
-        <Rule Id="SA1020" Action="Error" /> <!-- IncrementDecrementSymbolsMustBeSpacedCorrectly -->
-        <Rule Id="SA1021" Action="Error" /> <!-- NegativeSignsMustBeSpacedCorrectly -->
-        <Rule Id="SA1022" Action="Error" /> <!-- PositiveSignsMustBeSpacedCorrectly -->
-        <Rule Id="SA1023" Action="Error" /> <!-- DereferenceAndAccessOfMustBeSpacedCorrectly -->
-        <Rule Id="SA1024" Action="Error" /> <!-- ColonsMustBeSpacedCorrectly -->
-        <Rule Id="SA1025" Action="Error" /> <!-- CodeMustNotContainMultipleWhitespaceInARow -->
-        <Rule Id="SA1026" Action="Error" /> <!-- CodeMustNotContainSpaceAfterNewKeywordInImplicitlyTypedArrayAllocation -->
-        <Rule Id="SA1027" Action="Error" /> <!-- UseTabsCorrectly -->
-        <Rule Id="SA1028" Action="Error" /> <!-- CodeMustNotContainTrailingWhitespace -->
+        <Rule Id="SA1006" Action="Warning" /> <!-- PreprocessorKeywordsMustNotBePrecededBySpace -->
+        <Rule Id="SA1007" Action="Warning" /> <!-- OperatorKeywordMustBeFollowedBySpace -->
+        <Rule Id="SA1008" Action="Warning" /> <!-- OpeningParenthesisMustBeSpacedCorrectly -->
+        <Rule Id="SA1009" Action="Warning" /> <!-- ClosingParenthesisMustBeSpacedCorrectly -->
+        <Rule Id="SA1010" Action="Warning" /> <!-- OpeningSquareBracketsMustBeSpacedCorrectly -->
+        <Rule Id="SA1011" Action="Warning" /> <!-- ClosingSquareBracketsMustBeSpacedCorrectly -->
+        <Rule Id="SA1012" Action="Warning" /> <!-- OpeningBracesMustBeSpacedCorrectly -->
+        <Rule Id="SA1013" Action="Warning" /> <!-- ClosingBracesMustBeSpacedCorrectly -->
+        <Rule Id="SA1014" Action="Warning" /> <!-- OpeningGenericBracketsMustBeSpacedCorrectly -->
+        <Rule Id="SA1015" Action="Warning" /> <!-- ClosingGenericBracketsMustBeSpacedCorrectly -->
+        <Rule Id="SA1016" Action="Warning" /> <!-- OpeningAttributeBracketsMustBeSpacedCorrectly -->
+        <Rule Id="SA1017" Action="Warning" /> <!-- ClosingAttributeBracketsMustBeSpacedCorrectly -->
+        <Rule Id="SA1018" Action="Warning" /> <!-- NullableTypeSymbolsMustNotBePrecededBySpace -->
+        <Rule Id="SA1019" Action="Warning" /> <!-- MemberAccessSymbolsMustBeSpacedCorrectly -->
+        <Rule Id="SA1020" Action="Warning" /> <!-- IncrementDecrementSymbolsMustBeSpacedCorrectly -->
+        <Rule Id="SA1021" Action="Warning" /> <!-- NegativeSignsMustBeSpacedCorrectly -->
+        <Rule Id="SA1022" Action="Warning" /> <!-- PositiveSignsMustBeSpacedCorrectly -->
+        <Rule Id="SA1023" Action="Warning" /> <!-- DereferenceAndAccessOfMustBeSpacedCorrectly -->
+        <Rule Id="SA1024" Action="Warning" /> <!-- ColonsMustBeSpacedCorrectly -->
+        <Rule Id="SA1025" Action="Warning" /> <!-- CodeMustNotContainMultipleWhitespaceInARow -->
+        <Rule Id="SA1026" Action="Warning" /> <!-- CodeMustNotContainSpaceAfterNewKeywordInImplicitlyTypedArrayAllocation -->
+        <Rule Id="SA1027" Action="Warning" /> <!-- UseTabsCorrectly -->
+        <Rule Id="SA1028" Action="Warning" /> <!-- CodeMustNotContainTrailingWhitespace -->
 
         <!-- Readability Rules -->
         <Rule Id="SA1100" Action="Error" /><!-- DoNotPrefixCallsWithBaseUnlessLocalImplementationExists -->
