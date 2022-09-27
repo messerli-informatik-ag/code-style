@@ -1,6 +1,5 @@
-namespace Sandbox
+namespace Sandbox;
+
+public sealed record ExampleRecord
 {
-    public sealed record ExampleRecord
-    {
-    }
 }
