@@ -106,7 +106,7 @@
         <Rule Id="SA1302" Action="Error" /><!-- InterfaceNamesMustBeginWithI -->
         <Rule Id="SA1303" Action="Error" /><!-- ConstFieldNamesMustBeginWithUpperCaseLetter -->
         <Rule Id="SA1304" Action="Error" /><!-- NonPrivateReadonlyFieldsMustBeginWithUpperCaseLetter -->
-        <Rule Id="SA1305" Action="Error" /><!-- FieldNamesMustNotUseHungarianNotation -->
+        <Rule Id="SA1305" Action="None" /><!-- FieldNamesMustNotUseHungarianNotation -->
         <Rule Id="SA1306" Action="None" /><!-- FieldNamesMustBeginWithLowerCaseLetter -->
         <Rule Id="SA1307" Action="Error" /><!-- AccessibleFieldsMustBeginWithUpperCaseLetter -->
         <Rule Id="SA1308" Action="Error" /><!-- VariableNamesMustNotBePrefixed -->
