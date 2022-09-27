@@ -116,7 +116,11 @@ Initial release
 * Update StyleCop.Analyzers to 1.2.0-beta.435 ([diff](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/compare/1.2.0-beta.376...1.2.0-beta.435))
    * Most notably this version fixes false positives of `SA1516: Elements should be separated by blank line` in files with top-level statements.
 
-## Unreleased
+## 2.2.0
+* File scoped namespaces are now enforced. (#81)
+* Enable warning for unused usings. (#81)
+* `SA1305: FieldNamesMustNotUseHungarianNotation` has been disabled. (#82)
+* Use warning instead of error level for spacing rules. (#83)
 * Update IDisposableAnalyzers to 4.0.2. Excerpt from [IDisposableAnalyzers Changelog]:
   > #### 4.0.2
   > * BUGFIX: IDISP007 when disposing static member in static context

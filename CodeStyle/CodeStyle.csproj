@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.Build.NoTargets">
     <PropertyGroup>
-        <Version>2.1.3</Version>
+        <Version>2.2.0</Version>
         <PackageId>Messerli.CodeStyle</PackageId>
         <PackageTags>analyzers</PackageTags>
         <Description>Various analyzers bundled with opinionated configuration</Description>
