@@ -1,9 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <Import Project="..\CodeStyle\build\Messerli.CodeStyle.props" />
     <PropertyGroup>
-        <TargetFramework>net5.0</TargetFramework>
+        <TargetFramework>net7.0</TargetFramework>
         <IsPackable>false</IsPackable>
-        <LangVersion>10.0</LangVersion>
+        <LangVersion>11.0</LangVersion>
     </PropertyGroup>
     <ItemGroup>
         <ProjectReference Include="..\CodeStyle\CodeStyle.csproj" />
