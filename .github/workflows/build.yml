@@ -22,6 +22,6 @@ jobs:
     - name: Pack
       run: dotnet pack CodeStyle/CodeStyle.csproj --configuration Release --no-restore --output nupkg
     - name: Test that files are importable by MSBuild
-      run: ruby ./scripts/test_files_are_importable_by_msbuild.rb
+      run: dotnet fsi scripts/test-files-are-importable-by-msbuild.fsx
     - name: Show NuGet package content
       run: unzip -l nupkg/*.nupkg
