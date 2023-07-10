@@ -4,8 +4,14 @@
         <Authors>Messerli Informatik AG</Authors>
         <PackageLicenseExpression>MIT OR Apache-2.0</PackageLicenseExpression>
         <PackageProjectUrl>https://github.com/messerli-informatik-ag/code-style</PackageProjectUrl>
-        <RepositoryType>git</RepositoryType>
-        <RepositoryUrl>https://github.com/messerli-informatik-ag/code-style</RepositoryUrl>
         <Copyright>© Messerli Informatik AG. All rights reserved.</Copyright>
     </PropertyGroup>
+    <PropertyGroup Label="Deterministic Builds and Source Link">
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
+        <ContinuousIntegrationBuild Condition="'$(GITHUB_ACTIONS)' == 'true'">true</ContinuousIntegrationBuild>
+        <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    </PropertyGroup>
+    <ItemGroup Label="Deterministic Builds and Source Link">
+        <PackageReference Include="Microsoft.SourceLink.GitHub" PrivateAssets="all" Version="[1.1.1]" />
+    </ItemGroup>
 </Project>

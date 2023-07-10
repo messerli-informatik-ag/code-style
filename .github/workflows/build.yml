@@ -25,3 +25,18 @@ jobs:
       run: dotnet fsi scripts/test-files-are-importable-by-msbuild.fsx
     - name: Show NuGet package content
       run: unzip -l nupkg/*.nupkg
+  nupkg:
+    name: Generate NuGet Packages
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-dotnet@v3
+      name: Install Current .NET SDK
+    - name: Generate NuGet Packages
+      run: dotnet pack --configuration Release --output nupkg
+    - uses: actions/upload-artifact@v3
+      if: success() && github.ref == 'refs/heads/main'
+      with:
+        name: nupkg
+        path: nupkg/*
+        retention-days: 1
