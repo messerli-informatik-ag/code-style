@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v3
     - name: Setup mdBook
       uses: peaceiris/actions-mdbook@v1
       with:
@@ -21,10 +21,25 @@ jobs:
     - name: Build Documentation
       run: mdbook build
       working-directory: ./documentation
-    - name: Deploy
-      uses: peaceiris/actions-gh-pages@v3
-      if: success() && github.ref == 'refs/heads/main'
+    - name: Upload GitHub Pages Artifact
+      uses: actions/upload-pages-artifact@v1
       with:
-        github_token: ${{secrets.GITHUB_TOKEN}}
-        publish_dir: ./documentation/book
-        commit_message: ${{github.event.head_commit.message}}
+        path: ./documentation/book
+
+  deploy_pages:
+    needs: build
+    if: github.ref_name == 'main'
+
+    permissions:
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    runs-on: ubuntu-latest
+    steps:
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v2

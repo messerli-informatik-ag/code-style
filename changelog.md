@@ -1,48 +1,66 @@
 # Changelog
 
-## 1.0.0-alpha.1
-Initial release
+## 2.2.0
+* File scoped namespaces are now enforced. (#81)
+* Enable warning for unused usings. (#81)
+* `SA1305: FieldNamesMustNotUseHungarianNotation` has been disabled. (#82)
+* Use warning instead of error level for spacing rules. (#83)
+* Update IDisposableAnalyzers to 4.0.2. Excerpt from [IDisposableAnalyzers Changelog]:
+  > #### 4.0.2
+  > * BUGFIX: IDISP007 when disposing static member in static context
+  > #### 4.0.1
+  > * BUGFIX: IDISP007 false warning when using Rx
+  > * BUGFIX: IDISP016 false warning when foreach
+  > * BUGFIX: Handle leaveOpen when AsyncDisposable
+  > * BUGIX: Handle top level statements.
+  > #### 4.0.0
+  > * BREAKING: For VS2022+ now.
+  > * BUGFIX: AD0001 -> Could not load file or assembly
 
-## 1.0.0
-- Add support for netstandard2.0.
-- Add support for projects that target multiple frameworks.
+## 2.1.3
+* Update StyleCop.Analyzers to 1.2.0-beta.435 ([diff](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/compare/1.2.0-beta.376...1.2.0-beta.435))
+    * Most notably this version fixes false positives of `SA1516: Elements should be separated by blank line` in files with top-level statements.
 
-## 1.0.1
-- Hide stylecop.json in Visual Studio.
+## 2.1.2
+* Update StyleCop.Analyzers to 1.2.0-beta.376 ([diff](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/compare/1.2.0-beta.354...1.2.0-beta.376))
 
-## 1.1.0
-- Update IDisposableAnalyzers from 3.2.0 to 3.3.2. Excerpt from [IDisposableAnalyzers Changelog]:
-  > #### 3.3.0
-  > - FEATURE: Initial support for AsyncDisposable
+## 2.1.1
+* Relaxed rules:
+    * [SA1119](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1119.md) (StatementMustNotUseUnnecessaryParenthesis) is now disabled.
 
-## 1.2.0
-- Disable SA1412 (StoreFilesAsUtf). This means that BOMs are no longer required in C# files.
-- Update IDisposableAnalyzers from 3.3.2 to 3.3.8:
-- Update StyleCop.Analyzers from 1.2.0-beta.113 to 1.2.0-beta.164 ([diff](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/compare/1.2.0-beta.113...1.2.0-beta.164)).
-- Enable `GenerateDocumentationFile` by default. This had to be turned on manually in each project before,
-  as it is required by our StyleCop configuration.
+* Update IDisposableAnalyzers to 3.4.15. Excerpt from [IDisposableAnalyzers Changelog]:
+  > #### 3.4.15
+  > * BUGFIX: IDISP005 with ServiceDescriptor
+  > * BUGFIX: IDISP004 when DisposeWith
+  > #### 3.4.14
+  > * BUGFIX: IDISP005 should not warn in Assert.Throws.
+  > * BUGFIX: Handle function pointer.
+  > #### 3.4.13
+  > * BUGFIX: Specialcase Gu.Reactive extension methods.
+* Update StyleCop.Analyzers to 1.2.0-beta.354 ([diff](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/compare/1.2.0-beta.333...1.2.0-beta.354))
 
-## 1.2.1
-- Update StyleCop.Analyzers to 1.2.0-beta.205. ([diff](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/compare/1.2.0-beta.164...1.2.0-beta.205))
-- Update IDisposableAnalyzers to 3.4.1. Excerpt from [IDisposableAnalyzers Changelog]:
-  > #### 3.4.1
-  > * Publish with binaries.
-  > #### 3.4.0
-  > * FEATURE: Handle DisposableMixins.DisposeWith
-  > * BUGFIX: IDISP025 when abstract dispose method.
-  > * BUGFIX: IDISP006 when explicit implementation.
+## 2.1.0
+* Warn when interface method has `public` accessibility modifier (`MESSERLI001`)
 
-## 2.0.0-rc.1
-* Breaking: Treat all nullability warnings as errors.
-* Lints involving single line comments have been reduced to warnings to make temporary code commenting easier.
-* The hungarian notation rule has been relaxed to allow `js` and `db` since those two are common "false positives".
-
-## 2.0.0-rc.2
-- Update StyleCop.Analyzers to 1.2.0-beta.261. ([diff](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/compare/1.2.0-beta.205...1.2.0-beta.261))
-
-## 2.0.0-rc.3
-- Update StyleCop.Analyzers to 1.2.0-beta.312 ([diff](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/compare/1.2.0-beta.261...1.2.0-beta.312))
-- Fix compilation error when building an F# project.
+## 2.0.1
+* Update IDisposableAnalyzers to 3.4.13. Excerpt from [IDisposableAnalyzers Changelog]:
+  > #### 3.4.13
+  > * BUGFIX: Specialcase Gu.Reactive extension methods.
+  > #### 3.4.12
+  > * BUGFIX: When leaveOpen has default value
+  > #### 3.4.11
+  > * BUGFIX IDISP023 handle trivial and.
+  > * BUGFIX IDISP023 when chained constructors
+  > * BUGFIX IDISP001 when if statement.
+  > * BUGFIX IDISP004 when chained leave open.
+  > #### 3.4.10
+  > * BUGFIX: Handle using in loop
+  > #### 3.4.9
+  > * BUGFIX: IDISP023 Allow touching static reference types.
+  > * BUGFIX: AD0001: Analyzer 'IDisposableAnalyzers.LocalDeclarationAnalyzer
+* Update StyleCop.Analyzers to 1.2.0-beta.333 ([diff](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/compare/1.2.0-beta.321...1.2.0-beta.333)) \
+  Notable changes/fixes:
+    * [23db6c0: Avoid reporting SA1141 (Use tuple syntax) in expression trees](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/commit/af356f9b36dc4849a678c0b8c918123fa567913b)
 
 ## 2.0.0
 * Update IDisposableAnalyzers to 3.4.8. Excerpt from [IDisposableAnalyzers Changelog]:
@@ -68,69 +86,52 @@ Initial release
   > * Handle some regressions in Roslyn 3.7
 * Update StyleCop.Analyzers to 1.2.0-beta.321 ([diff](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/compare/1.2.0-beta.312...1.2.0-beta.321)) \
   Notable changes/fixes:
-  * [9c5c071: Support records without braces](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/compare/1.2.0-beta.312...1.2.0-beta.321)
-  * [46d2e37: Support implicit object creation expressions in SA1129 code fix](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/commit/46d2e37fed1e471446f32c88c6bdaf2530239570)
+    * [9c5c071: Support records without braces](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/compare/1.2.0-beta.312...1.2.0-beta.321)
+    * [46d2e37: Support implicit object creation expressions in SA1129 code fix](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/commit/46d2e37fed1e471446f32c88c6bdaf2530239570)
 
-## 2.0.1
-* Update IDisposableAnalyzers to 3.4.13. Excerpt from [IDisposableAnalyzers Changelog]:
-  > #### 3.4.13
-  > * BUGFIX: Specialcase Gu.Reactive extension methods.
-  > #### 3.4.12
-  > * BUGFIX: When leaveOpen has default value
-  > #### 3.4.11
-  > * BUGFIX IDISP023 handle trivial and.
-  > * BUGFIX IDISP023 when chained constructors
-  > * BUGFIX IDISP001 when if statement.
-  > * BUGFIX IDISP004 when chained leave open.
-  > #### 3.4.10
-  > * BUGFIX: Handle using in loop
-  > #### 3.4.9
-  > * BUGFIX: IDISP023 Allow touching static reference types.
-  > * BUGFIX: AD0001: Analyzer 'IDisposableAnalyzers.LocalDeclarationAnalyzer
-* Update StyleCop.Analyzers to 1.2.0-beta.333 ([diff](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/compare/1.2.0-beta.321...1.2.0-beta.333)) \
-  Notable changes/fixes:
-  * [23db6c0: Avoid reporting SA1141 (Use tuple syntax) in expression trees](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/commit/af356f9b36dc4849a678c0b8c918123fa567913b)
+## 2.0.0-rc.3
+* Update StyleCop.Analyzers to 1.2.0-beta.312 ([diff](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/compare/1.2.0-beta.261...1.2.0-beta.312))
+* Fix compilation error when building an F# project.
 
-## 2.1.0
-* Warn when interface method has `public` accessibility modifier (`MESSERLI001`)
+## 2.0.0-rc.2
+* Update StyleCop.Analyzers to 1.2.0-beta.261. ([diff](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/compare/1.2.0-beta.205...1.2.0-beta.261))
 
-## 2.1.1
-* Relaxed rules:
-  * [SA1119](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1119.md) (StatementMustNotUseUnnecessaryParenthesis) is now disabled.
+## 2.0.0-rc.1
+* Breaking: Treat all nullability warnings as errors.
+* Lints involving single line comments have been reduced to warnings to make temporary code commenting easier.
+* The hungarian notation rule has been relaxed to allow `js` and `db` since those two are common "false positives".
 
-* Update IDisposableAnalyzers to 3.4.15. Excerpt from [IDisposableAnalyzers Changelog]:
-  > #### 3.4.15
-  > * BUGFIX: IDISP005 with ServiceDescriptor
-  > * BUGFIX: IDISP004 when DisposeWith
-  > #### 3.4.14
-  > * BUGFIX: IDISP005 should not warn in Assert.Throws.
-  > * BUGFIX: Handle function pointer.
-  > #### 3.4.13
-  > * BUGFIX: Specialcase Gu.Reactive extension methods.
-* Update StyleCop.Analyzers to 1.2.0-beta.354 ([diff](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/compare/1.2.0-beta.333...1.2.0-beta.354))
+## 1.2.1
+* Update StyleCop.Analyzers to 1.2.0-beta.205. ([diff](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/compare/1.2.0-beta.164...1.2.0-beta.205))
+* Update IDisposableAnalyzers to 3.4.1. Excerpt from [IDisposableAnalyzers Changelog]:
+  > #### 3.4.1
+  > * Publish with binaries.
+  > #### 3.4.0
+  > * FEATURE: Handle DisposableMixins.DisposeWith
+  > * BUGFIX: IDISP025 when abstract dispose method.
+  > * BUGFIX: IDISP006 when explicit implementation.
 
-## 2.1.2
-* Update StyleCop.Analyzers to 1.2.0-beta.376 ([diff](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/compare/1.2.0-beta.354...1.2.0-beta.376))
+## 1.2.0
+* Disable SA1412 (StoreFilesAsUtf). This means that BOMs are no longer required in C# files.
+* Update IDisposableAnalyzers from 3.3.2 to 3.3.8:
+* Update StyleCop.Analyzers from 1.2.0-beta.113 to 1.2.0-beta.164 ([diff](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/compare/1.2.0-beta.113...1.2.0-beta.164)).
+* Enable `GenerateDocumentationFile` by default. This had to be turned on manually in each project before,
+  as it is required by our StyleCop configuration.
 
-## 2.1.3
-* Update StyleCop.Analyzers to 1.2.0-beta.435 ([diff](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/compare/1.2.0-beta.376...1.2.0-beta.435))
-   * Most notably this version fixes false positives of `SA1516: Elements should be separated by blank line` in files with top-level statements.
+## 1.1.0
+* Update IDisposableAnalyzers from 3.2.0 to 3.3.2. Excerpt from [IDisposableAnalyzers Changelog]:
+  > #### 3.3.0
+  > - FEATURE: Initial support for AsyncDisposable
 
-## 2.2.0
-* File scoped namespaces are now enforced. (#81)
-* Enable warning for unused usings. (#81)
-* `SA1305: FieldNamesMustNotUseHungarianNotation` has been disabled. (#82)
-* Use warning instead of error level for spacing rules. (#83)
-* Update IDisposableAnalyzers to 4.0.2. Excerpt from [IDisposableAnalyzers Changelog]:
-  > #### 4.0.2
-  > * BUGFIX: IDISP007 when disposing static member in static context
-  > #### 4.0.1
-  > * BUGFIX: IDISP007 false warning when using Rx
-  > * BUGFIX: IDISP016 false warning when foreach
-  > * BUGFIX: Handle leaveOpen when AsyncDisposable
-  > * BUGIX: Handle top level statements.
-  > #### 4.0.0
-  > * BREAKING: For VS2022+ now.
-  > * BUGFIX: AD0001 -> Could not load file or assembly
+## 1.0.1
+* Hide stylecop.json in Visual Studio.
+
+## 1.0.0
+* Add support for netstandard2.0.
+* Add support for projects that target multiple frameworks.
+
+## 1.0.0-alpha.1
+Initial release
+
 
 [IDisposableAnalyzers Changelog]: https://github.com/DotNetAnalyzers/IDisposableAnalyzers/blob/master/RELEASE_NOTES.md
