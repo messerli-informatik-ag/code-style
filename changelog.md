@@ -1,4 +1,7 @@
 # Changelog
+## 2.3.0
+* Update StyleCop.Analyzers to 1.2.0-beta.507 ([release](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/releases/tag/1.2.0-beta.507))
+    * Most notably this version adds support for list patterns.
 
 ## 2.2.0
 * File scoped namespaces are now enforced. (#81)
