@@ -73,7 +73,7 @@ Table following table gives you the rules for each identifier.
 | Method                    | PascalCase                             |                                                 | DrawSquare               |
 | Properties                | PascalCase                             |                                                 | FirstName                |
 | Predicate method          | PascalCase                             | Is\<Name\>, Has\<Name>, Are\<Name>, Have\<Name> | IsGreat, HasField        |
-| Public Member Variable    | PascalCase                             |                                                 | Diameter                 |
+| Public member variable    | PascalCase                             |                                                 | Diameter                 |
 | Protected member variable | camelCase                              | _\<name>                                        | _tableIndex              |
 | Private member variable   | camelCase                              | _\<name>                                        | _adjacencyMatrix         |
 | Local variable            | camelCase                              |                                                 | index, name, helpLabel   |
@@ -81,7 +81,7 @@ Table following table gives you the rules for each identifier.
 | Class constant            | PascalCase                             |                                                 | FilePath                 |
 | Enum type                 | PascalCase                             |                                                 | StatusType               |
 | Enum value                | PascalCase                             |                                                 | RequiredValue            |
-| Lambda Parametrs          | camelCase or lower-case letter         |                                                 | cornerPoint, c, name, n  |
+| Lambda parameters         | camelCase or lower-case letter         |                                                 | cornerPoint, c, name, n  |
 
 
 ## UI Elements
