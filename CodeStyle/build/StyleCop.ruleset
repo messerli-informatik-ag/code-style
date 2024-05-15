@@ -16,7 +16,7 @@
         <Rule Id="SA1007" Action="Warning" /> <!-- OperatorKeywordMustBeFollowedBySpace -->
         <Rule Id="SA1008" Action="Warning" /> <!-- OpeningParenthesisMustBeSpacedCorrectly -->
         <Rule Id="SA1009" Action="Warning" /> <!-- ClosingParenthesisMustBeSpacedCorrectly -->
-        <Rule Id="SA1010" Action="Warning" /> <!-- OpeningSquareBracketsMustBeSpacedCorrectly -->
+        <Rule Id="SA1010" Action="None" /> <!-- OpeningSquareBracketsMustBeSpacedCorrectly -->
         <Rule Id="SA1011" Action="Warning" /> <!-- ClosingSquareBracketsMustBeSpacedCorrectly -->
         <Rule Id="SA1012" Action="Warning" /> <!-- OpeningBracesMustBeSpacedCorrectly -->
         <Rule Id="SA1013" Action="Warning" /> <!-- ClosingBracesMustBeSpacedCorrectly -->

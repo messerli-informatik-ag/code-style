@@ -3,7 +3,7 @@
         <TargetFramework>netstandard2.0</TargetFramework>
         <AssemblyName>Messerli.CodeStyle.Analyzers</AssemblyName>
         <RootNamespace>Messerli.CodeStyle.Analyzers</RootNamespace>
-        <LangVersion>9.0</LangVersion>
+        <LangVersion>12.0</LangVersion>
     </PropertyGroup>
     <PropertyGroup>
         <Version>0.1.0</Version>
@@ -16,9 +16,9 @@
         <IncludeBuildOutput>false</IncludeBuildOutput>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.2" />
-        <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="3.8.0" />
-        <PackageReference Include="Funcky" Version="2.3.0" />
+        <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.4" />
+        <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="4.9.2" />
+        <PackageReference Include="Funcky" Version="3.4.0" />
     </ItemGroup>
     <ItemGroup>
         <None Include="$(OutputPath)\$(AssemblyName).dll;$(OutputPath)\Funcky.dll" Visible="false">
